@@ -4,9 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//inicio das requisições das rotas
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var aeonRouter = require('./routes/aeonRoutes');
+
+//fim das requisições das rotas
 
 var app = express();
 
@@ -20,9 +23,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//inicio das chamadas das rotas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/web-application', aeonRouter);
+
+//fim das chamadas das rotas
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
