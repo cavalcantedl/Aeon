@@ -1,62 +1,96 @@
 /* GLOBAL TAGS */
-html, body{
-  font-family: "Open Sans", sans-serif;
-  margin: 0 auto;
+:root {
+  --main-bg: #ffffff;
+
+  --txt-white: #ffffff;
+  --link-color: #00B7FF;
+  --link-nav-color: #18A0FB;
+  --link-nav-hover: #212121;
+
+  --box-shadow: 0px 5px 20px 5px rgba(122,122,122,0.4);
+  --border-radius: 15px;
+  --border-radius-image-user: 50%;
+  --topnav-height: 110px;
+  --transition-cubic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* {
   padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  font-family: "Open Sans", sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: var(--link-color);
 }
 
 /* HEADER TAGS */
-header{
-  -webkit-box-shadow: 0px 5px 20px 5px rgba(122,122,122,0.4); 
-  box-shadow: 0px 5px 20px 5px rgba(122,122,122,0.4);
+section.header {
+  -webkit-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
 }
 
-header .logo{
+.header h1 {
+  margin: 0;
+}
+
+.header .logo {
   margin-right: 50px;
 }
 
-header nav{
-  font-size: 24px;
+.topnav {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
   font-weight: 600;
   line-height: 120px;
   margin-right: 30px;
 }
-header nav a{
-  color: #18A0FB;
+.topnav a {
+  color: var(--link-nav-color);
   line-height: 24px;
   margin-left: 20px;
   text-decoration: none;
 }
 
-header nav a:hover{
-  color: #212121;
+.topnav a:hover {
+  color: var(--link-nav-hover);
   text-decoration: underline;
 }
 
-header h1{
-  margin: 0;
+.profile-image {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 240px;;
 }
 
-header .wrapper{
+.profile-image-user{
+  width: 100%;
+  max-width: 70px;
+  border-radius: var(--border-radius-image-user);
+}
+
+.wrapper {
+  width: 100%;
   display: flex;
   justify-content: flex-start;
-}
-
-.wrapper{
-  max-width: 1400px;
+  height: var(--topnav-height);
+  max-width: 1000px;
   margin: 0 auto;
   text-align: left;
-  background-color: #FFFFFF;
+  background-color: var(--main-bg);
 }
 
 
 
 /* CONTENT TAGS */
-content{
-  background-color: #681717;
+.conteudo {
+  /* background-color: #681717; */
   width: 100%;
 }
