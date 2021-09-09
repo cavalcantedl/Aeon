@@ -26,6 +26,30 @@ body {
   .navbar-fixed-top {
     border: 0;
   }
+
+  .navbar-inverse {
+    background-color: var(--main-bg);
+    box-shadow: var(--box-shadow);
+  }
+
+  .navbar-brand {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .navbar-brand .logo {
+    display: flex;
+    width: 100%;
+    max-width: 120px;
+  }
+
+  @media (min-width: 768px){
+    .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+      margin-right: 50px;
+      margin-left: 50px;
+    }
+}
   
   /*
    * Sidebar
