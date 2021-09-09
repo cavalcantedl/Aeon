@@ -112,6 +112,34 @@ body {
   .clients-name p {
     line-height: 2.5rem;;
   }
+
+  @media (max-width: 768px) {
+    .clients-accounts {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      flex-direction: column;
+    }
+  
+    .clients-name {
+      background-color: #212529;
+      margin: 5px;
+      padding: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      border-radius: 5px;
+    }
+  
+    .clients-name h2, p {
+      color: var(--txt-white);
+    }
+  
+    .clients-name p {
+      line-height: 2.5rem;;
+    }
+  }
   
   
   /*
