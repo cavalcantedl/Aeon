@@ -2,6 +2,8 @@
  * Base structure
  */
 
+ @import 'style.css';
+
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
     padding-top: 50px;
@@ -83,23 +85,51 @@ body {
   .main .page-header {
     margin-top: 0;
   }
+
+  /*box content clients*/
+
+  .clients-accounts {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  .clients-name {
+    background-color: #212529;
+    margin: 5px;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-radius: 5px;
+  }
+
+  .clients-name h2, p {
+    color: var(--txt-white);
+  }
+
+  .clients-name p {
+    line-height: 2.5rem;;
+  }
   
   
   /*
    * Placeholder dashboard ideas
    */
   
-  .placeholders {
+  .graphs {
     margin-bottom: 30px;
     text-align: center;
+    background-color: #f2f2f2;
   }
-  .placeholders h4 {
+  .graphs h4 {
     margin-bottom: 0;
   }
-  .placeholder {
+  .graph {
     margin-bottom: 20px;
   }
-  .placeholder img {
+  .graph img {
     display: inline-block;
     border-radius: 50%;
   }
