@@ -149,7 +149,7 @@ body {
   .graphs {
     margin-bottom: 30px;
     text-align: center;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
   }
   .graphs h4 {
     margin-bottom: 0;
