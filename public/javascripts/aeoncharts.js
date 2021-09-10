@@ -1,29 +1,34 @@
 let ctx = document.getElementById('aeonChart');
 const data = {
-    labels: ['05', '06', '07', '08', '09', '10'],
+    labels: ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN','JUL','AGO','SET','OUT','NOV','DEZ'],
     datasets: [
       {
         label: 'Dataset 1',
-        data: [21,236,32,12,35,15],
+        data: [21,236,32,12,35,15,-15,0,159,-36,88,350],
         borderColor: 'blue',
         backgroundColor: 'blue',
       },
       {
         label: 'Dataset 2',
-        data: [55,66,132,102,5,150],
+        data: [210,23,32,102,305,105,-85,80,15,-66,28,50],
         borderColor: 'red',
         backgroundColor: 'red',
       }
     ]
   };
 let aeonChart = new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
+  type: 'line',
+  data: data,
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Chart.js Line Chart'
+      }
     }
+  },
 });

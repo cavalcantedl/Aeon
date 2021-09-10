@@ -185,4 +185,10 @@ body {
     display: inline-block;
     border-radius: 50%;
   }
+
+  .charts {
+    /* width: 100% !important;
+    height: 350px !important; */
+    padding-bottom: 200px;
+  }
   
