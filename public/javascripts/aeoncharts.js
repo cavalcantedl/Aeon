@@ -27,7 +27,7 @@ let aeonChart = new Chart(ctx, {
       },
       title: {
         display: true,
-        text: 'Chart.js Line Chart'
+        text: 'Custos e Receitas'
       }
     }
   },
