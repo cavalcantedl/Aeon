@@ -19,6 +19,11 @@ const data = {
 let aeonChart = new Chart(ctx, {
     type: 'line',
     data: data,
-    
-
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
 });
