@@ -3,16 +3,16 @@ const data = {
     labels: ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN','JUL','AGO','SET','OUT','NOV','DEZ'],
     datasets: [
       {
-        label: 'Dataset 1',
+        label: 'Receita',
         data: [21,236,32,12,35,15,-15,0,159,-36,88,350],
-        borderColor: 'blue',
-        backgroundColor: 'blue',
+        borderColor: '#00b7ff8c',
+        backgroundColor: '#00b7ff8c',
       },
       {
-        label: 'Dataset 2',
+        label: 'Custo',
         data: [210,23,32,102,305,105,-85,80,15,-66,28,50],
-        borderColor: 'red',
-        backgroundColor: 'red',
+        borderColor: '#18a0fbc7',
+        backgroundColor: '#18a0fbc7',
       }
     ]
   };
@@ -21,14 +21,13 @@ let aeonChart = new Chart(ctx, {
   data: data,
   options: {
     responsive: true,
+    maintainAspectRatio: false,
+    onResize: null,
+    aspectRatio: 1,
     plugins: {
       legend: {
         position: 'top',
       },
-      title: {
-        display: true,
-        text: 'Custos e Receitas'
-      }
     }
   },
 });
