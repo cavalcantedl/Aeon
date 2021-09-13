@@ -7,7 +7,7 @@ var logger = require('morgan');
 //inicio das requisições das rotas
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var aeonRouter = require('./routes/aeonRoutes');
+let aeonRouter = require('./routes/aeonRoutes');
 
 //fim das requisições das rotas
 
