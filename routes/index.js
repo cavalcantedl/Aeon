@@ -31,4 +31,18 @@ router.get('/vantagens', function(req, res, ) {
   res.render('vantagens');
 });
 
+/* GET login. */
+router.get('/login', function(req, res, ) {
+  res.render('login');
+});
+
+/* GET Signup. */
+router.get('/signup', function(req, res, ) {
+  res.render('signup');
+});
+
+/* GET senha. */
+router.get('/senha', function(req, res, ) {
+  res.render('senha');
+});
 module.exports = router;
