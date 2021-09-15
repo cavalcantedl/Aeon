@@ -1,9 +1,8 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+const aeonController = require('../controllers/aeonControllers');
 
-/* GET Application. */
-router.get('/', function(req, res, next) {
-  res.render('sistema/home', { title: 'Aeon - Gestão Descomplicada para Agência de Marketing' }); /* Indica o caminho da homepage da aplicação */ 
-});
+/* GET rotas via controllers. */
+router.get('/', aeonController.home);
 
 module.exports = router;
