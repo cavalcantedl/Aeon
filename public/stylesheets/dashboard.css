@@ -9,6 +9,11 @@ body {
   padding-top: 50px;
 }
 
+section {
+  width: 100%;
+  padding-top: 10px;
+}
+
 
 /*
    * Global add-ons
@@ -234,7 +239,7 @@ p {
     width: 80vw;
   } */
 
-  .footer {
+.footer {
     position: relative;
     display: flex;
     bottom: 0;
@@ -245,12 +250,30 @@ p {
     align-items: center;
     border-top: 1px solid rgb(221, 218, 218);
     flex-wrap: wrap;
+    padding: 0 50px;
 }
+
+@media (max-width: 768px) {
+  .footer {
+    position: relative;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgb(221, 218, 218);
+    flex-wrap: wrap;
+    padding: 0 50px;
+  }
+}
+
+
 footer .logo-icon img {
   width: 270px;
   padding-left: 100px;
 }
-.p_footer{
+.p_footer {
   color: #000000;
-  padding-right: 100px;
 }

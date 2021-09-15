@@ -12,20 +12,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Recuperação de senha</title>
+    <title><%= title %></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../stylesheets/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/stylesheets/signin.css" rel="stylesheet">
+    <link href="../stylesheets/signin.css" rel="stylesheet">
+    <link href="../stylesheets/dashboard.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="../javascripts/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -35,22 +36,31 @@
   </head>
 
   <body>
-    <h1>Recuperar acesso</h1>
+    <h1>Você está pronto para revolucionar a gestão da sua agênica?</h1>
     <br>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-    <div class="container_senha">
+    <div class="container">
      
       <form class="form-signin">
+        <a href="login" class="form-signin-heading">Entrar</a> |
+        <a href="signup" class="form-signin-heading">Abrir Conta</a>
+        <br><br><br>
         <label for="inputEmail" class="sr-only"></label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+        <label for="inputPassword" class="sr-only"></label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
         <br><br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Recuperar acesso</button>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Lembrar informações
+          </label>
+        </div>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar</button>
+        <br><br>
+        <a href="senha" class="form-signin-foot">esqueci minha senha</a>
       </form>
 
     </div> <!-- /container -->
 
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
-</html>
+<%- include("./partials/footer") %>
