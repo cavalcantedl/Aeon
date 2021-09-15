@@ -8,5 +8,6 @@ router.get('/gestaoclientes', aeonController.gestaoClientes);
 router.get('/login', aeonController.login);
 router.get('/signup', aeonController.signup);
 router.get('/senha', aeonController.senha);
+router.get('/emailsenha', aeonController.emailSenha);
 
 module.exports = router;

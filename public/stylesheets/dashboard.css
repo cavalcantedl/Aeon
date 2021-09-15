@@ -14,6 +14,10 @@ section {
   padding-top: 10px;
 }
 
+p {
+  color: var(--txt-dark);
+}
+
 
 /*
    * Global add-ons
@@ -168,8 +172,7 @@ section {
   border-radius: 5px;
 }
 
-.clients-name h2,
-p {
+.clients-name h2, .clients-name p {
   color: var(--txt-white);
 }
 
@@ -198,7 +201,7 @@ p {
   }
 
   .clients-name h2,
-  p {
+  .clients-name p {
     color: var(--txt-white);
   }
 
@@ -208,6 +211,11 @@ p {
   }
 }
 
+.email {
+  clear: both;
+  height: 66vh;
+  text-align: center;
+}
 
 /*
    * Placeholder dashboard ideas

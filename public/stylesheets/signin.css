@@ -1,3 +1,12 @@
+@media (max-width:768px) {
+  h1, p {
+    padding: 0 20px;
+  }
+  .footer p {
+    padding: 0px;
+  }
+}
+
 body {
     background-color: rgb(255, 255, 255);
     width: 100%;
@@ -36,7 +45,7 @@ body {
        -moz-box-sizing: border-box;
             box-sizing: border-box;
     padding: 10px;
-    margin: 10px;;
+    margin: 10px 0;
     font-size: 16px;
   }
   .form-signin .form-control:focus ,.form-signup{
