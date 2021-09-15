@@ -26,7 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //inicio das chamadas das rotas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/home', aeonRouter);
+app.use('/sistema/home', aeonRouter);
+app.use('/sistema/gestaoclientes', aeonRouter);
 
 //fim das chamadas das rotas
 
