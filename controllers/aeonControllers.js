@@ -28,7 +28,12 @@ let aeonController = {
         res.render('sistema/emailsenha', {
             title: 'Aeon - E-mail de senha enviado com sucesso'
         }); /* Indica o caminho da página de recuperacao de senha*/ 
-    }
+    },
+    cadastroCliente: (req, res, next) => {
+        res.render('sistema/cadastrocliente', {
+            title: 'Aeon - Cadastrar Cliente'
+        }); /* Indica o caminho da página de cadastro de novo cliente*/ 
+    },
 };
 
 module.exports = aeonController;

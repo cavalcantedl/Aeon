@@ -1,0 +1,26 @@
+<%- include("./partials/header") %>
+
+<div class="container">
+  <div class="cadastro">
+  <form class="form-signin">
+      <br><br><br>
+    <h2 class="form-signin-heading">Cadastrar novo cliente</h2>
+    <br><br>
+    <label for="name" class="sr-only"></label>
+    <input type="text" id="name" class="form-control" placeholder="Nome" required>
+    <br>
+    <label for="segmento" class="sr-only"></label>
+    <input type="text" id="segmento" class="form-control" placeholder="Segmento" required>
+    <br>
+    <label for="valor" class="sr-only"></label>
+    <input type="number" id="valor" class="form-control" placeholder="Valor mensal" required>
+    <br>
+    <label for="investimento" class="sr-only"></label>
+    <input type="number" id="investimento" class="form-control" placeholder="Investimento em mídia paga" required>
+    <br><br>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
+    <br><br>
+  </form>
+</div>
+</div>
+<%- include("./partials/footer") %>

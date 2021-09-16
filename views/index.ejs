@@ -69,25 +69,16 @@
         <h3>Venha falar conosco!</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et illum in, maxime quod, repudiandae iste officiis voluptas velit asperiores deserunt tenetur repellat expedita iusto aliquid nemo perspiciatis qui aperiam reiciendis. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et illum in, maxime quod, repudiandae iste officiis voluptas velit asperiores deserunt tenetur repellat expedita iusto aliquid nemo perspiciatis qui aperiam reiciendis.</p>
         </div>
-        <form action="post">
-            <label for="nome">Nome</label>
-            <br>
-            <input type="text" name="nome" id="nome">
-            <br>
-            <label for="email">Email</label>
-            <br>
-            <input type="email" name="email" id="email">
-            <br>
-            <label for="site">Website</label>
-            <br>
-            <input type="text" name="site" id="site">
-            <br>
-            <label for="telefone">Telefone</label>
-            <br>
-            <input type="telefone" name="tel" id="tel">
-            <br>
-            <button type="submit">ENVIAR</button>
-        </form>
+        <form class="form-signin">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <label for="inputEmail" class="sr-only"></label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <label for="password" class="sr-only"></label>
+            <input type="password" id="password" class="form-control" placeholder="Password" required>
+            <label for="tel" class="sr-only"></label>
+            <input type="tel" id="tel" class="form-control" placeholder="Telefone" required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Enviar</button>
+          </form>
     </div>
     </div>
 </content>
