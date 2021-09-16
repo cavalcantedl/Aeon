@@ -10,5 +10,5 @@ router.get('/signup', aeonController.signup);
 router.get('/senha', aeonController.senha);
 router.get('/emailsenha', aeonController.emailSenha);
 router.get('/cadastrocliente', aeonController.cadastroCliente);
-
+router.get('/cadastrousuario', aeonController.cadastroUsuario);
 module.exports = router;

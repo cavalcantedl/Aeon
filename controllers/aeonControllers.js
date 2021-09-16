@@ -34,6 +34,11 @@ let aeonController = {
             title: 'Aeon - Cadastrar Cliente'
         }); /* Indica o caminho da página de cadastro de novo cliente*/ 
     },
+    cadastroUsuario: (req, res, next) => {
+        res.render('sistema/cadastrousuario', {
+            title: 'Aeon - Cadastrar Usuário'
+        }); /* Indica o caminho da página de cadastro de usuário*/ 
+    },
 };
 
 module.exports = aeonController;
