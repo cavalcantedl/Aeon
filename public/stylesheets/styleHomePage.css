@@ -7,8 +7,6 @@ body{
     margin: 0;
 }
 header{
-    line-height: 80px;
-    height: 80px;
     width: 100%;
     border: #777777;
 }
@@ -25,11 +23,13 @@ header nav a{
 }
 header .wrapper{
     display: flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    align-content: center;
     align-items: center;
     justify-content: space-around;
 }
 .logo{
-    height: 50px;
     padding: 15px 60px;
 }
 .box_1{
