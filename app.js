@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //inicio das chamadas das rotas
-app.use('/', indexRouter);
+app.use('/', aeonRouter);
 app.use('/users', usersRouter);
 app.use('/sistema', aeonRouter);
 //fim das chamadas das rotas

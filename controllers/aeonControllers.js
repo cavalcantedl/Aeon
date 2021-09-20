@@ -1,4 +1,10 @@
 let aeonController = {
+    index: (req, res, next) => {
+        res.render('index', { 
+            title: 'Aeon - Gestão Descomplicada para Agência de Marketing' 
+        }); /* Indica o caminho da homepage da aplicação */ 
+    },
+
     home: (req, res, next) => {
         res.render('sistema/home', { 
             title: 'Aeon - Gestão Descomplicada para Agência de Marketing' 
