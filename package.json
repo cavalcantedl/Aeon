@@ -6,8 +6,6 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.4",
-    "bootstrap": "^3.4.1",
     "chart.js": "^3.5.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
