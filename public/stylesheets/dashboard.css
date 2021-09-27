@@ -1,81 +1,15 @@
-/*
- * Base structure
- */
-
-@import 'style.css';
-
-/* Move down content because we have a fixed navbar that is 50px tall */
+/* Base structure */
 body {
   font-size: .875rem;
 }
 
-.feather {
-  width: 16px;
-  height: 16px;
-  vertical-align: text-bottom;
+/* Header */
+header {
+  background-color: #ffffff;
+  
 }
 
-/*
- * Sidebar
- */
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  /* rtl:raw:
-  right: 0;
-  */
-  bottom: 0;
-  /* rtl:remove */
-  left: 0;
-  z-index: 100; /* Behind the navbar */
-  padding: 48px 0 0; /* Height of navbar */
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-}
-
-@media (max-width: 767.98px) {
-  .sidebar {
-    top: 5rem;
-  }
-}
-
-.sidebar-sticky {
-  position: relative;
-  top: 0;
-  height: calc(100vh - 48px);
-  padding-top: .5rem;
-  overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-}
-
-.sidebar .nav-link {
-  font-weight: 500;
-  color: #333;
-}
-
-.sidebar .nav-link .feather {
-  margin-right: 4px;
-  color: #727272;
-}
-
-.sidebar .nav-link.active {
-  color: #2470dc;
-}
-
-.sidebar .nav-link:hover .feather,
-.sidebar .nav-link.active .feather {
-  color: inherit;
-}
-
-.sidebar-heading {
-  font-size: .75rem;
-  text-transform: uppercase;
-}
-
-/*
- * Navbar
- */
-
+/* Navbar */
 .navbar-brand {
   padding-top: .75rem;
   padding-bottom: .75rem;
@@ -106,141 +40,13 @@ body {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
 
-
-/*box content clients*/
-
-.clients-accounts {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
+/* Content */
+.content {
+  margin-top: 10%;
 }
 
-.clients-name {
-  background-color: #212529;
-  margin: 5px;
-  padding: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  border-radius: 5px;
-}
-
-.clients-name h2, .clients-name p {
-  color: var(--txt-white);
-}
-
-.clients-name p {
-  line-height: 2.5rem;
-  ;
-}
-
-@media (max-width: 768px) {
-  .clients-accounts {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    flex-direction: column;
+@media (max-width: 420px) {
+  .content {
+    margin-top: 70%;
   }
-
-  .clients-name {
-    background-color: #212529;
-    margin: 5px;
-    padding: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    border-radius: 5px;
-  }
-
-  .clients-name h2,
-  .clients-name p {
-    color: var(--txt-white);
-  }
-
-  .clients-name p {
-    line-height: 2.5rem;
-    ;
-  }
-}
-
-.email {
-  clear: both;
-  height: 66vh;
-  text-align: center;
-}
-
-/*
-   * Placeholder dashboard ideas
-   */
-
-.graphs {
-  margin-bottom: 30px;
-  text-align: center;
-  /* background-color: #f2f2f2; */
-}
-
-.graphs h4 {
-  margin-bottom: 0;
-}
-
-.graph {
-  margin-bottom: 20px;
-}
-
-.graph img {
-  display: inline-block;
-  border-radius: 50%;
-}
-
-/* .graph .charts {
-    position: relative;
-    margin: auto;
-    height: 80vh;
-    width: 80vw;
-  } */
-
-.footer {
-    position: relative;
-    display: flex;
-    bottom: 0;
-    width: 100%;
-    height: 150px;
-    background-color: #fff;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgb(221, 218, 218);
-    flex-wrap: wrap;
-    padding: 0 50px;
-    
-}
-
-@media (max-width: 768px) {
-  .footer {
-    position: relative;
-    display: flex;
-    bottom: 0;
-    width: 100%;
-    height: 150px;
-    background-color: #fff;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid rgb(221, 218, 218);
-    flex-wrap: wrap;
-    padding: 0 50px;
-  }
-}
-
-
-footer .logo-icon img {
-  width: 270px;
-  padding-left: 100px;
-}
-.p_footer {
-  color: #000000;
-}
-.cadastro{
-  justify-content: flex-start;
-  display: flex;
 }
