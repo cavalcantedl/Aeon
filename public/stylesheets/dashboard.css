@@ -18,6 +18,7 @@
 
 body {
   font-size: .875rem;
+  height: 100vh;
 }
 
 /* Header */
@@ -68,10 +69,6 @@ header {
 }
 
 /* Content */
-main {
-  margin-bottom: 50px;
-}
-
 .content {
   margin-top: 10%;
 }
@@ -80,6 +77,10 @@ main {
   .content {
     margin-top: 70%;
   }
+}
+
+main {
+  margin-bottom: 50px;
 }
 
 /* Footer */
