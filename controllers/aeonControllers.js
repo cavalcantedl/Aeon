@@ -9,6 +9,11 @@ const listaClientes = [
         "empresa":"Pizzaria Domino's",
         "criada":"23-09-2021",
     },
+    {
+        "id": 3,
+        "empresa":"Philips",
+        "criada":"30-09-2021",
+    }
 ];
 
 let aeonController = {
@@ -25,6 +30,7 @@ let aeonController = {
     },
     gestaoClientes: (req, res, next) => {
         res.render('sistema/gestaoclientes', {
+            clientes: listaClientes,
             title: 'Aeon - Gestão de Clientes',
         }); /* Indica o caminho da gestão de clientes */ 
     },
@@ -50,7 +56,6 @@ let aeonController = {
     },
     cadastroCliente: (req, res, next) => {
         res.render('sistema/cadastrocliente', {
-            clientes: listaClientes,
             title: 'Aeon - Cadastrar Cliente'
         }); /* Indica o caminho da página de cadastro de novo cliente*/ 
     },
