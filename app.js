@@ -8,6 +8,7 @@ var logger = require('morgan');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let aeonRouter = require('./routes/aeonRoutes');
+let loginRouter = require('./routes/loginRoutes');
 
 //fim das requisições das rotas
 
@@ -32,6 +33,7 @@ app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 app.use('/', aeonRouter);
 app.use('/users', usersRouter);
 app.use('/sistema', aeonRouter);
+app.use('/', loginRouter);
 //fim das chamadas das rotas
 
 

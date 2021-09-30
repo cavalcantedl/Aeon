@@ -1,135 +1,83 @@
-@media (max-width:768px) {
-  h1, p {
-    padding: 0 20px;
-  }
-  .footer p {
-    padding: 0px;
+/* General tags */
+:root {
+  --main-bg: #ffffff;
+  --blue-bg: #18A0FB;
+  --txt-white: #ffffff;
+  --txt-dark: #212121;
+  --link-color: #00B7FF;
+  --link-nav-color: #18A0FB;
+  --link-nav-hover: #212121;
+
+  --box-shadow: 0px 5px 10px 5px rgba(122, 122, 122, 0.4);
+  --border-radius: 15px;
+  --border-radius-top: 10px 10px 0 0;
+  --border-radius-image-user: 50%;
+  --topnav-height: 110px;
+  --transition-cubic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.form .mb-3 {
+  margin-bottom: 2rem !important;
+}
+
+/* Logo */
+.logo-aeon {
+  max-width: 100%;
+}
+
+/* content */
+.content-login {
+  margin-top: 3%;
+}
+
+@media (max-width: 420px) {
+  .content-login {
+    margin-top: 10%;
   }
 }
 
-body {
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    height: 100%;
-    font-family: 'Montserrat', sans-serif;
-    display: flex;  
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .form-signin ,.form-signup {
-    max-width: 35%;
-    margin: 0 auto;
-    padding: 0 27px;
-  }
-  .form-signin .form-signin-heading ,
-  .form-signin .checkbox , .form-signup{
-    margin-bottom: 10px;
-  }
-  .form-signin-heading{
-    color: black;
-    font-weight: bolder;
-  }
-  .form-signin-foot{
-    color: rgb(80, 78, 78);
-    
-  }
-  .form-signin .checkbox ,.form-signup{
-    font-weight: normal;
-  }
-  .form-signin .form-control ,.form-signup{
-    position: relative;
-    height: auto;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 16px;
-  }
-  .form-signin .form-control:focus ,.form-signup{
-    z-index: 2;
-  }
-  .form-signin input{
-   box-sizing: border-box;
-  }
-  .form-signup label{
-    display: block;
-    margin-bottom: 5px;
+/* Form   */
+.form-main {
+  width: 100%;
+  max-width: 450px;
 }
-  button{
-    background-color: #2f96db;
-    color: #eee;  
-    font-size: 16px;
-    padding: 5px 10px;
-    border-radius: 4px;
 
-  }
-  .container{
-    padding: 30px 0;
-    margin-top: 2%;
-    width: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-width: thin;
-    border-style: solid; 
-    border-color: rgb(153, 151, 151);
-  }
-  .container_signup{
-    padding: 30px 0;
-    width: 30%;
-    margin-top: 2%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-width: thin;
-    border-style: solid; 
-    border-color: rgb(153, 151, 151);
-  }
-  .container_senha{
-    width: 40%;
-    padding: 80px;
-    width: 30%;
-    margin-top: 2%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-width: thin;
-    border-style: solid; 
-    border-color: rgb(153, 151, 151);
-  }
-  @media (max-width:768px) {
-    .container{
-      width: 100%;
-    }
-    .container_signup{
-      width: 100%;
-    }
-    .form-signin {
-      max-width: max-content;
-      margin: 0;
-    }
-    .form-signup{
-      max-width: max-content;
-      margin: 0;
-    }
-  }
-  @media (min-width:768px){
-    .container{
-      width: 500px;
-    }
-    .container_signup{
-      width: 500px;
-    }
-    .form-signin {
-      max-width: max-content;
-      margin: 0 ;
-    }
-    .form-signup{
-      max-width: max-content;
-      margin: 0;
-      padding: 100px;
-    }
-  }
+.form-content {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.panel-title {
+  background: var(--blue-bg);
+  border-radius: var(--border-radius-top);
+  padding: 20px;
+}
+
+.form-signin-heading {
+  color: var(--txt-white);
+  margin: 5px;
+  font-size: 1.2rem;
+}
+
+.form {
+  padding: 20px;
+  border: 1px var(--link-color) solid;
+}
+
+.checkbox, .lgpd {
+  margin-bottom: 15px;
+}
+
+.form-signin-foot {
+  margin-top: 20px;
+}
+
+/* Footer */
+footer .logo-aeon{
+  max-width: 70%;
+}
+
+footer .text-footer {
+  display: flex;
+  align-items: flex-end;
+}
