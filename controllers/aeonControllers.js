@@ -1,3 +1,16 @@
+const listaClientes = [
+    {
+        "id": 1,
+        "empresa":"C&C",
+        "criada":"23-09-2021",
+    },
+    {
+        "id": 2,
+        "empresa":"Pizzaria Domino's",
+        "criada":"23-09-2021",
+    },
+];
+
 let aeonController = {
     index: (req, res, next) => {
         res.render('index', { 
@@ -12,7 +25,7 @@ let aeonController = {
     },
     gestaoClientes: (req, res, next) => {
         res.render('sistema/gestaoclientes', {
-            title: 'Aeon - Gestão de Clientes'
+            title: 'Aeon - Gestão de Clientes',
         }); /* Indica o caminho da gestão de clientes */ 
     },
     login: (req, res, next) => {
@@ -37,6 +50,7 @@ let aeonController = {
     },
     cadastroCliente: (req, res, next) => {
         res.render('sistema/cadastrocliente', {
+            clientes: listaClientes,
             title: 'Aeon - Cadastrar Cliente'
         }); /* Indica o caminho da página de cadastro de novo cliente*/ 
     },
@@ -45,6 +59,9 @@ let aeonController = {
             title: 'Aeon - Cadastrar Usuário'
         }); /* Indica o caminho da página de cadastro de usuário*/ 
     },
-};
+    novoCliente: (req, res, next)=>{
+         let {nome, segmento, valor, investimento} = req.body;
 
+    }
+};
 module.exports = aeonController;
