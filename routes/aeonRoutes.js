@@ -8,4 +8,5 @@ router.get('/sistema', aeonController.home);
 router.get('/gestaoclientes', aeonController.gestaoClientes);
 router.get('/cadastrocliente', aeonController.cadastroCliente);
 router.get('/cadastrousuario', aeonController.cadastroUsuario);
+router.post('/cadastrocliente', aeonController.novoCliente);
 module.exports = router;

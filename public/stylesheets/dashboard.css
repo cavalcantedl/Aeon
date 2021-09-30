@@ -105,3 +105,11 @@ main {
     align-items: center;
   }
 }
+.alinhargestao{
+  display: flex;
+  justify-content: space-between;
+}
+button a{
+  text-decoration: none;
+  color: #fff;
+}
