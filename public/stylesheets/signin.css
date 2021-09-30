@@ -59,6 +59,10 @@
   font-size: 1.2rem;
 }
 
+.divider {
+  color: var(--txt-white);
+}
+
 .form {
   padding: 20px;
   border: 1px var(--link-color) solid;
