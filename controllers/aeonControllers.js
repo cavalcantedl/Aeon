@@ -18,7 +18,7 @@ let aeonController = {
             title: 'Aeon - Gestão de Clientes',
         }); /* Indica o caminho da gestão de clientes */ 
     },
-    cadastroCliente: (req, res, next) => {
+    viewCliente: (req, res, next) => {
         res.render('sistema/cadastrocliente', {
             title: 'Aeon - Cadastrar Cliente'
         }); /* Indica o caminho da página de cadastro de novo cliente*/ 
@@ -28,9 +28,17 @@ let aeonController = {
             title: 'Aeon - Cadastrar Usuário'
         }); /* Indica o caminho da página de cadastro de usuário*/ 
     },
-    novoCliente: (req, res, next)=>{
-         let {nome, segmento, valor, investimento} = req.body;
+    cadastroCliente: (req, res, next)=>{
+         const idCliente = req.body.id;
+         const empresaCliente = req.body.empresa;
+         const criadaCliente = req.body.criada;
 
+          listaClientes.push({
+              id: idCliente,
+              empresa: empresaCliente,
+              criada: criadaCliente
+          })
+          res.redirect('gestaoclientes')
     }
 };
 module.exports = aeonController;

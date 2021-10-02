@@ -9,6 +9,7 @@ let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let aeonRouter = require('./routes/aeonRoutes');
 let loginRouter = require('./routes/loginRoutes');
+//let clientRouter = require('./routes/clientRoutes');
 
 //fim das requisições das rotas
 
@@ -34,6 +35,8 @@ app.use('/', aeonRouter);
 app.use('/users', usersRouter);
 app.use('/sistema', aeonRouter);
 app.use('/', loginRouter);
+//app.use('/gestaocliente', clientRouter);
+
 //fim das chamadas das rotas
 
 

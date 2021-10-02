@@ -6,7 +6,8 @@ const aeonController = require('../controllers/aeonControllers');
 router.get('/', aeonController.index);
 router.get('/sistema', aeonController.home);
 router.get('/gestaoclientes', aeonController.gestaoClientes);
-router.get('/cadastrocliente', aeonController.cadastroCliente);
+router.get('/cadastrocliente', aeonController.viewCliente);
 router.get('/cadastrousuario', aeonController.cadastroUsuario);
-router.post('/cadastrocliente', aeonController.novoCliente);
+router.post('/cadastrocliente', aeonController.cadastroCliente);
+
 module.exports = router;
