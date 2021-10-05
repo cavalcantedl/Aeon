@@ -42,8 +42,12 @@ app.use('/', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
-});
+  next(
+    res.render('sistema/erro-404', {
+      title: "Aeon - Página não encontrada!",
+      logoImage: "./images/aeon-logo.png",
+    })
+  )}); // Erro de página 404
 
 // error handler
 app.use(function(err, req, res, next) {
