@@ -83,6 +83,11 @@
   margin-top: 20px;
 }
 
+/* Acesso Restrito */
+.img-acesso {
+  max-width: 230px;
+}
+
 /* Footer */
 footer .logo-aeon{
   max-width: 70%;

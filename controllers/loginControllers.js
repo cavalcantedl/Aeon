@@ -23,6 +23,12 @@ let loginController = {
       logoImage: "./images/aeon-logo.png",
     }); /* Indica o caminho da página de recuperacao de senha*/
   },
+  acessoRestrito: (req, res, next) => {
+    res.render("sistema/acessorestrito", {
+      title: "Aeon - Este acesso é restrito.",
+      logoImage: "./images/aeon-logo.png",
+    }); /* Indica o caminho da página de recuperacao de senha*/
+  },
 };
 
 module.exports = loginController;
