@@ -61,7 +61,7 @@ body {
 ------------------------- */
 
 .featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  margin: 4rem 0; /* Space out the Bootstrap <hr> more */
 }
 
 /* Thin out the marketing headings */
@@ -75,6 +75,10 @@ body {
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
+.first_image img{
+  max-width: 100%;
+  height: auto;
+}
 
 @media (min-width: 40em) {
   /* Bump up size of carousel content */
@@ -96,4 +100,17 @@ body {
 }
 .icons{
   padding: 10px;
+}
+@media (max-width: 1200px) {
+  .icon{
+    width: 150px;
+    height: 150px;
+  }
+  .box_icons{
+    width: 360px;
+    height: 300px;
+  }
+}
+.container{
+ 
 }
