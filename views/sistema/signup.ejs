@@ -63,7 +63,7 @@
               <a href="signup" class="form-signin-heading disabled">Abrir Conta</a>
             </div>
             <div class="form">
-              <form class="form-signin">
+              <form class="form-signin" action="/login" method="POST">
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-alt"></i></span>
                   <input type="text" id="inputFirstName" class="form-control" placeholder="Nome" aria-label="Nome"
@@ -71,13 +71,13 @@
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-alt"></i></span>
-                  <input type="text" id="inputLastName" class="form-control" placeholder="Sobrenome" aria-label="Sobrenome"
-                    aria-describedby="basic-addon1" required autofocus>
+                  <input type="text" id="inputLastName" class="form-control" placeholder="Sobrenome"
+                    aria-label="Sobrenome" aria-describedby="basic-addon1" required autofocus>
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-briefcase"></i></span>
-                  <input type="text" id="inputNameAgency" class="form-control" placeholder="Nome da agência" aria-label="Nome da agência"
-                    aria-describedby="basic-addon1" required autofocus>
+                  <input type="text" id="inputNameAgency" class="form-control" placeholder="Nome da agência"
+                    aria-label="Nome da agência" aria-describedby="basic-addon1" required autofocus>
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope"
@@ -92,7 +92,10 @@
                 <div class="lgpd">
                   <input type="checkbox" value="lgpd" required> Li e Aceito os <a href="#"> Termos de Uso e Serviço.</a>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar</button>
+                <div class="message-success">
+                  <span id="created">Usuário registrado com sucesso!</span>
+                </div>
+                <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar</button> -->
               </form>
             </div>
           </div>
