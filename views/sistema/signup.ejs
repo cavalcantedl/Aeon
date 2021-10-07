@@ -18,7 +18,7 @@
   </title>
 
   <!-- Bootstrap core CSS -->
-  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Fontawesome -->
   <link href="../fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -58,44 +58,41 @@
         <div class="container form-main d-flex flex-nowrap justify-content-center">
           <div class="form-content">
             <div class="panel-title">
-              <a href="login" class="form-signin-heading">Entrar</a>
+              <a href="/login" class="form-signin-heading">Entrar</a>
               <span class="divider"> | </span>
               <a href="signup" class="form-signin-heading disabled">Abrir Conta</a>
             </div>
             <div class="form">
-              <form class="form-signin" action="/login" method="POST">
+              <form class="form-signin" action="/login/signup" method="POST">
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-alt"></i></span>
-                  <input type="text" id="inputFirstName" class="form-control" placeholder="Nome" aria-label="Nome"
+                  <input type="text" name="nome" id="inputFirstName" class="form-control" placeholder="Nome" aria-label="Nome"
                     aria-describedby="basic-addon1" required autofocus>
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-alt"></i></span>
                   <input type="text" id="inputLastName" class="form-control" placeholder="Sobrenome"
-                    aria-label="Sobrenome" aria-describedby="basic-addon1" required autofocus>
+                    aria-label="Sobrenome" name="sobrenome" aria-describedby="basic-addon1" required autofocus>
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-briefcase"></i></span>
-                  <input type="text" id="inputNameAgency" class="form-control" placeholder="Nome da agência"
-                    aria-label="Nome da agência" aria-describedby="basic-addon1" required autofocus>
+                  <input type="text" id="inputNameAgency" class="form-control" placeholder="Empresa"
+                    aria-label="Empresa" name="empresa" aria-describedby="basic-addon1" required autofocus>
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope"
                       aria-hidden="true"></i></span>
-                  <input type="email" id="inputEmail" class="form-control" placeholder="E-mail" aria-label="E-mail"
+                  <input type="email" id="inputEmail" class="form-control" placeholder="E-mail" aria-label="E-mail" name="email"
                     aria-describedby="basic-addon1" required autofocus>
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+                  <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Senha" required>
                 </div>
                 <div class="lgpd">
                   <input type="checkbox" value="lgpd" required> Li e Aceito os <a href="#"> Termos de Uso e Serviço.</a>
                 </div>
-                <div class="message-success">
-                  <span id="created">Usuário registrado com sucesso!</span>
-                </div>
-                <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar</button> -->
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
               </form>
             </div>
           </div>

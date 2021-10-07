@@ -1,32 +1,37 @@
+const loginModel = require("../models/usersAeon");
+
+const { validationResult } = require("express-validator");
+
+
 let loginController = {
-  login: (req, res, next) => {
+  'login': (req, res, next) => {
     res.render("sistema/login", {
       title: "Aeon - Login",
-      logoImage: "./images/aeon-logo.png",
+      logoImage: "../images/aeon-logo.png",
     }); /* Indica o caminho da página de login */
   },
-  signup: (req, res, next) => {
+  'signup': (req, res, next) => {
     res.render("sistema/signup", {
       title: "Aeon - Criar conta",
-      logoImage: "./images/aeon-logo.png",
+      logoImage: "../images/aeon-logo.png",
     }); /* Indica o caminho da página de criar conta */
   },
-  senha: (req, res, next) => {
+  'senha': (req, res, next) => {
     res.render("sistema/senha", {
       title: "Aeon - Recuperar senha",
-      logoImage: "./images/aeon-logo.png",
+      logoImage: "../images/aeon-logo.png",
     }); /* Indica o caminho da página de recuperacao de senha*/
   },
-  emailSenha: (req, res, next) => {
+  'emailSenha': (req, res, next) => {
     res.render("sistema/emailsenha", {
       title: "Aeon - E-mail de senha enviado com sucesso",
-      logoImage: "./images/aeon-logo.png",
+      logoImage: "../images/aeon-logo.png",
     }); /* Indica o caminho da página de recuperacao de senha*/
   },
-  acessoRestrito: (req, res, next) => {
+  'acessoRestrito': (req, res, next) => {
     res.render("sistema/acessorestrito", {
       title: "Aeon - Este acesso é restrito.",
-      logoImage: "./images/aeon-logo.png",
+      logoImage: "../images/aeon-logo.png",
     }); /* Indica o caminho da página de recuperacao de senha*/
   },
 };

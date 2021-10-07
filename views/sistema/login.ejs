@@ -18,7 +18,7 @@
   </title>
 
   <!-- Bootstrap core CSS -->
-  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Fontawesome -->
   <link href="../fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -60,9 +60,12 @@
             <div class="panel-title">
               <a href="login" class="form-signin-heading disabled">Entrar</a>
               <span class="divider"> | </span>
-              <a href="signup" class="form-signin-heading">Abrir Conta</a> <!-- Colocar icone-->
+              <a href="/login/signup" class="form-signin-heading">Abrir Conta</a> <!-- Colocar icone-->
             </div>
             <div class="form">
+              <div class="message-success text-center">
+                <span id="created">Usuário registrado com sucesso!</span>
+              </div>
               <form class="form-signin" action="/sistema" method="POST">
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope"
