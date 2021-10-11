@@ -1,7 +1,5 @@
 const loginModel = require("../models/usersAeon");
-
 const { validationResult } = require("express-validator");
-
 
 let loginController = {
   'login': (req, res, next) => {

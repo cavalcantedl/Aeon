@@ -6,8 +6,8 @@ const listaUsersAeon = [
         "nome":"Maciel",
         "sobrenome":"Eustaquio",
         "empresa":"Teste",
-        "email": "maciel@teste.com.br",
-        "password": "123456",
+        "email": "maciel.seo@gmail.com",
+        "password": "$2b$12$vDkhLUJ7U4f8WdKRFJgJnOQjr8EPmPTGjh/e.1yOE2L0XsAjgIpMe6",
     },
     {
         "id": 2,
@@ -15,7 +15,7 @@ const listaUsersAeon = [
         "sobrenome":"Cavalcante",
         "empresa":"Teste",
         "email": "lucas@teste.com.br",
-        "password": "123456",
+        "password": "$2b$12$vDkhLUJ7U4f8WdKRFJgJnOQjr8EPmPTGjh/e.1yOE2L0XsAjgIpMe",
     },
     {
         "id": 3,
@@ -23,7 +23,7 @@ const listaUsersAeon = [
         "sobrenome":"Borges",
         "empresa":"Teste",
         "email": "paula@teste.com.br",
-        "password": "123456",
+        "password": "$2b$12$vDkhLUJ7U4f8WdKRFJgJnOQjr8EPmPTGjh/e.1yOE2L0XsAjgIpMe",
     },
     {
         "id": 4,
@@ -31,11 +31,8 @@ const listaUsersAeon = [
         "sobrenome":"Zuckerberg",
         "empresa":"Teste",
         "email": "mark@teste.com.br",
-        "password": "123456",
+        "password": "$2b$12$vDkhLUJ7U4f8WdKRFJgJnOQjr8EPmPTGjh/e.1yOE2L0XsAjgIpMe",
     }
 ];
 
-
-module.exports = {
-    listaUsersAeon
-};
+module.exports = listaUsersAeon;

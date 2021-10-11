@@ -8,6 +8,5 @@ function validarAcesso (req, res, next) {
     }
 }
 
-module.exports = {
-    validarAcesso
-};
+module.exports =  validarAcesso;
+
