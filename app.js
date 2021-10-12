@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var session = require("express-session");
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -32,7 +33,7 @@ app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/
 app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 
 //inicio das chamadas das rotas
-app.use('/', aeonRouter);
+app.use('/', indexRouter);
 app.use('/gestaousuarios', usersRouter);
 app.use('/sistema', aeonRouter);
 app.use('/login', loginRouter);

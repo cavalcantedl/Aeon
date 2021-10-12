@@ -4,7 +4,10 @@
   --blue-bg: #18A0FB;
   --txt-white: #ffffff;
   --txt-dark: #212121;
-  --txt-green: #2e7d32
+  --txt-green: #2e7d32;
+  --txt-red: #c62828
+
+  ;
 
 ;
   --link-color: #00B7FF;
@@ -82,6 +85,12 @@
   margin: 0 0 10px 0;
   font-size: 1.2rem;
   color: var(--txt-green);
+}
+
+.message-error {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  color: var(--txt-red);
 }
 
 .form-signin-foot {

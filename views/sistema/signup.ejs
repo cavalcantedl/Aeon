@@ -63,6 +63,16 @@
               <a href="signup" class="form-signin-heading disabled">Abrir Conta</a>
             </div>
             <div class="form">
+              <div class="message-error text-center">
+                <% if(exists){ %>
+                <span id="created">ERRO! E-mail já cadastrado.</span>
+                <% } %>
+                <% if(erros){ %>
+                  <% for(let i=0; i<erros.length; i++) {%>
+                  <span id="created" class="d-flex justify-content-lg-start">-<%= erros[i].msg %> <br/></span>
+                  <% } %>
+                <% } %>
+              </div>              
               <form class="form-signin" action="/login/signup" method="POST">
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-alt"></i></span>
@@ -90,7 +100,7 @@
                   <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Senha" required>
                 </div>
                 <div class="lgpd">
-                  <input type="checkbox" value="lgpd" required> Li e Aceito os <a href="#"> Termos de Uso e Serviço.</a>
+                  <input type="checkbox" class="form-check-input" value="lgpd" required> Li e Aceito os <a href="#"> Termos de Uso e Serviço.</a>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
               </form>
