@@ -18,7 +18,7 @@
   </title>
 
   <!-- Bootstrap core CSS -->
-  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Fontawesome -->
   <link href="../fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -58,27 +58,35 @@
         <div class="container form-main d-flex flex-nowrap justify-content-center">
           <div class="form-content">
             <div class="panel-title">
-              <a href="login" class="form-signin-heading">Entrar</a>
+              <a href="login" class="form-signin-heading disabled">Entrar</a>
               <span class="divider"> | </span>
-              <a href="signup" class="form-signin-heading">Abrir Conta</a> <!-- Colocar icone-->
+              <a href="/login/signup" class="form-signin-heading">Abrir Conta</a> <!-- Colocar icone-->
             </div>
             <div class="form">
-              <form class="form-signin">
+              <div class="message-success text-center">
+                <% if (created){%>
+                <span id="created">Usuário registrado com sucesso!</span>
+                <% } %>
+                <% if (erro){%>
+                  <span id="created" class="message-error">Usuário ou senha incorretos.</span>
+                <% } %>
+                <% if (email){%>
+                  <span id="created" class="message-error">E-mail não existe.</span>
+                <% } %>
+              </div>
+              <form class="form-signin" action="/login" method="POST">
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope"
                       aria-hidden="true"></i></span>
-                  <input type="email" id="inputEmail" class="form-control" placeholder="E-mail" aria-label="E-mail"
+                  <input type="email" name="email" id="inputEmail" class="form-control" placeholder="E-mail" aria-label="E-mail"
                     aria-describedby="basic-addon1" required autofocus>
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+                  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Senha" required>
                 </div>
                 <div class="checkbox">
-                  <input type="checkbox" value="remember-me"> Lembrar informações
-                </div>
-                <div class="lgpd">
-                  <input type="checkbox" value="lgpd" required> Li e Aceito os <a href="#"> Termos de Uso e Serviço.</a>
+                  <input type="checkbox" class="form-check-input" value="remember-me"> Lembrar informações
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar</button>
                 <a href="senha" class="d-flex form-signin-foot">esqueci minha senha</a>

@@ -1,15 +1,17 @@
 var createError = require('http-errors');
 var express = require('express');
+var session = require("express-session");
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 //inicio das requisições das rotas
 let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/users');
+let usersRouter = require('./routes/usersRoutes');
 let aeonRouter = require('./routes/aeonRoutes');
 let loginRouter = require('./routes/loginRoutes');
-let clientRouter = require('./routes/clientRoutes');
+//let clientRouter = require('./routes/clientRoutes');
+//let clientRouter = require('./routes/clientRoutes');
 
 //fim das requisições das rotas
 
@@ -31,19 +33,23 @@ app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/
 app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 
 //inicio das chamadas das rotas
-app.use('/', aeonRouter);
-app.use('/users', usersRouter);
+app.use('/', indexRouter);
+app.use('/gestaousuarios', usersRouter);
 app.use('/sistema', aeonRouter);
-app.use('/', loginRouter);
-app.use('/', clientRouter);
+app.use('/login', loginRouter);
+//app.use('/gestaocliente', clientRouter);
 
 //fim das chamadas das rotas
 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
-});
+  next(
+    res.render('sistema/erro-404', {
+      title: "Aeon - Página não encontrada!",
+      logoImage: "./images/aeon-logo.png",
+    })
+  )}); // Erro de página 404
 
 // error handler
 app.use(function(err, req, res, next) {

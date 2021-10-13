@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet">
-    <link rel="icon" href="../../favicon.ico">
 
-    <title><%= title %></title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet">
+  <link rel="icon" href="../../favicon.ico">
 
-    <!-- Bootstrap core CSS -->
-    <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>
+    <%= title %>
+  </title>
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../stylesheets/ie10-viewport-bug-workaround.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="../stylesheets/signin.css" rel="stylesheet">
-    <link href="../stylesheets/dashboard.css" rel="stylesheet">
+  <!-- Fontawesome -->
+  <link href="../fontawesome-free/css/all.min.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../javascripts/ie-emulation-modes-warning.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="../stylesheets/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
+  <!-- Custom styles for this template -->
+  <link href="../stylesheets/dashboard.css" rel="stylesheet">
+  <link href="../stylesheets/signin.css" rel="stylesheet">
+
+  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+  <script src="../javascripts/ie-emulation-modes-warning.js"></script>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
-    <div class="email">
-      <h1>Um link mágico foi enviado para o seu e-mail</h1>
-      <br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-    </div> <!-- /container -->
-<%- include("./partials/footer") %>
+<body class="d-flex flex-column">
+  <div class="container-fluid content-login">
+    <div class="row">
+      <main class="col-md-9 ms-sm-auto col-lg-12 px-md-4">
+        <div class="row align-items-md-stretch">
+          <div class="logo d-flex flex-nowrap justify-content-center">
+            <a href="/sistema" class="">
+              <img src="<%= logoImage %>" alt="" class="logo-aeon">
+            </a>
+          </div>
+          <h1 class="h1 pt-3 pb-2 mb-3 text-center">Um link mágico foi enviado para o seu e-mail</h1>
+          <p class="pt-3 pb-2 mb-3 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore</p>
+        </div>
+
+      </main>
+    </div>
+  </div>
+  <%- include("./partials/footer") %>

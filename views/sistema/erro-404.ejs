@@ -51,29 +51,16 @@
               <img src="<%= logoImage %>" alt="" class="logo-aeon">
             </a>
           </div>
-          <h1 class="h1 pt-3 pb-2 mb-3 text-center">Recuperar acesso</h1>
-          <p class="pt-3 pb-2 mb-3 border-bottom text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore</p>
+          <h1 class="h1 pt-3 pb-2 mb-3 text-center">Opa! Parece que algo errado não está certo!</h1>
+          <p class="pt-3 pb-2 mb-3 border-bottom text-center"><strong>Erro 404! Essa página não existe!</strong></p>
         </div>
         <div class="container form-main d-flex flex-nowrap justify-content-center">
-          <div class="form-content">
-            <div class="panel-title">
-              <a href="/login" class="form-signin-heading">Entrar</a>
-              <span class="divider"> | </span>
-              <a href="signup" class="form-signin-heading">Abrir Conta</a> <!-- Colocar icone-->
-            </div>
-            <div class="form">
-              <form class="form-signin">
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope"
-                      aria-hidden="true"></i></span>
-                  <input type="email" id="inputEmail" class="form-control" placeholder="E-mail" aria-label="E-mail"
-                    aria-describedby="basic-addon1" required autofocus>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Recuperar acesso</button>
-              </form>
-            </div>
+          <div class="content-image">
+           <img src="../images/coyote2.png" alt="Acesso Restrito" class="img-fluid img-acesso">
           </div>
+        </div>
+        <div class="btn-voltar py-3 d-flex justify-content-center">
+          <button type="button" class="btn btn-outline-primary me-2" onclick="window.open('http://localhost:3000/login')">Voltar</button>
         </div>
       </main>
     </div>
