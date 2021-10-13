@@ -1,7 +1,7 @@
 const {body, check,} = require("express-validator");
 
 const validaLogin = [
-    check("email").notEmpty().withMessage("Deve Informar o login").bail().bail().isEmail().withMessage("Informar Email valido"),
+    check("email").notEmpty().withMessage("Deve Informar o login").bail().isEmail().withMessage("Informar Email valido"),
     check("password").notEmpty().withMessage("Informar senha")
 ];
 // validar com os campos name do form signup
