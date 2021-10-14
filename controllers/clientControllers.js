@@ -25,15 +25,17 @@ let clientController = {
          res.redirect('sistema/gestaoclientes'); //Indica o caminho de cadastro de clientes // 
    },
    attClienteView: (req,res, next)=>{
-        const {id} = req.params;
-
-        res.render('sistema/attcliente', { cliente : clienteEncontrado[id]}); 
-        // Indica o caminho da edição de cadastro de clientes // 
+       const {id} = req.params;
+        clientes = listaClientes;
+        res.render('sistema/attcliente', {cliente : listaClientes[id]}, {
+            title: 'Aeon - Gestão de Clientes',
+        }); 
    },
-   attCliente: (req,res, next)=>{
-        res.render('sistema/gestaoclientes/editar/:id', {
-        title: 'Aeon - Gestão de Clientes',
-    }); // Indica o caminho da edição de cadastro de clientes // 
-    }
+//    attCliente: (req,res, next)=>{      
+//         res.render('sistema/attcliente/:id', {
+//         clientes : listaClientes[id],
+//         title: 'Aeon - Gestão de Clientes',
+//     }); // Indica o caminho da edição de cadastro de clientes // 
+//     }
 }
-module.exports = clientController;
+module.exports = clientController; 
