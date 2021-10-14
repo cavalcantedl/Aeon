@@ -25,9 +25,10 @@ let clientController = {
          res.redirect('sistema/gestaoclientes'); //Indica o caminho de cadastro de clientes // 
    },
    attClienteView: (req,res, next)=>{
-        res.render('sistema/gestaoclientes/editar/:id', {
-        title: 'Aeon - Gestão de Clientes',
-    }); // Indica o caminho da edição de cadastro de clientes // 
+        const {id} = req.params;
+
+        res.render('sistema/attcliente', { cliente : clienteEncontrado[id]}); 
+        // Indica o caminho da edição de cadastro de clientes // 
    },
    attCliente: (req,res, next)=>{
         res.render('sistema/gestaoclientes/editar/:id', {
