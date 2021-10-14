@@ -4,6 +4,6 @@ const usersAeon = require("../models/usersAeon");
 const userController = require('../controllers/userControllers');
 
 /* GET rotas via controllers. */
-router.get('/', userController.gestaoUsuarios);
+router.get('/gestaousuarios', userController.gestaoUsuarios);
 
 module.exports = router;
