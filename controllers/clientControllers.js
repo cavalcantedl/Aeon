@@ -22,7 +22,17 @@ let clientController = {
              empresa: empresaCliente,
              criada: criadaCliente
          })
-         res.redirect('gestaoclientes')
-   }
+         res.redirect('sistema/gestaoclientes'); //Indica o caminho de cadastro de clientes // 
+   },
+   attClienteView: (req,res, next)=>{
+        res.render('sistema/gestaoclientes/editar/:id', {
+        title: 'Aeon - Gestão de Clientes',
+    }); // Indica o caminho da edição de cadastro de clientes // 
+   },
+   attCliente: (req,res, next)=>{
+        res.render('sistema/gestaoclientes/editar/:id', {
+        title: 'Aeon - Gestão de Clientes',
+    }); // Indica o caminho da edição de cadastro de clientes // 
+    }
 }
 module.exports = clientController;
