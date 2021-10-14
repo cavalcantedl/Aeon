@@ -10,7 +10,7 @@ let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/usersRoutes');
 let aeonRouter = require('./routes/aeonRoutes');
 let loginRouter = require('./routes/loginRoutes');
-//let clientRouter = require('./routes/clientRoutes');
+let clientRouter = require('./routes/clientRoutes');
 //let clientRouter = require('./routes/clientRoutes');
 
 //fim das requisições das rotas
@@ -35,9 +35,9 @@ app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 //inicio das chamadas das rotas
 app.use('/', indexRouter);
 // app.use('/sistema/gestaousuarios', usersRouter);
-app.use('/sistema', aeonRouter, usersRouter);
+app.use('/sistema', aeonRouter, usersRouter, clientRouter);
 app.use('/login', loginRouter);
-//app.use('/gestaocliente', clientRouter);
+// app.use('/gestaocliente', clientRouter);
 
 //fim das chamadas das rotas
 
