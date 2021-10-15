@@ -22,9 +22,14 @@
     "method-override": "^3.0.0",
     "morgan": "~1.9.1",
     "multer": "^1.4.3",
+    "mysql2": "^2.3.0",
     "nodemon": "^2.0.13",
+    "sequelize": "^6.7.0",
     "to": "^0.2.9",
     "update": "^0.7.4",
     "uuidv4": "^6.2.12"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
   }
 }
