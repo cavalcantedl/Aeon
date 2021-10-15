@@ -5,5 +5,6 @@ const userController = require('../controllers/userControllers');
 
 /* GET rotas via controllers. */
 router.get('/gestaousuarios', userController.gestaoUsuarios);
+router.get('/userprofile', userController.gestaoUsuarios);
 
 module.exports = router;
