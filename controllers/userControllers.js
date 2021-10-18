@@ -11,10 +11,11 @@ let userController = {
     }); /* Indica o caminho da gestão de usuários */
   },
 
-  gestaoUsuarios: (req, res, next) => {
+  userProfile: (req, res, next) => {
        res.render("sistema/userprofile", {
       title: "Aeon - Edite seu perfil",
-    }); /* Indica o caminho da gestão de usuários */
+    });
+     /* Indica o caminho da gestão de usuários */
   },
 
   cadastrarUsuario: (req, res) => {

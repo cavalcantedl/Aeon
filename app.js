@@ -34,7 +34,7 @@ app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 
 //inicio das chamadas das rotas
 app.use('/', indexRouter);
-app.use('/sistema/gestaousuarios', usersRouter);
+// app.use('/sistema/gestaousuarios', usersRouter);
 app.use('/sistema', aeonRouter, usersRouter, clientRouter);
 app.use('/login', loginRouter);
 // app.use('/sistema/gestaocliente', clientRouter);
