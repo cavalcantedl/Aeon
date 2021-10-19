@@ -26,7 +26,7 @@ let userController = {
       let resultado = usersAeon.cadastraUsuario(dadosUsuario);
       
       if (resultado.cadastrado) {
-        res.render("sistema/login", {
+        res.render("sistema/login/login", {
           title: "Aeon - Login",
           logoImage: "../images/aeon-logo.png",
           created: true,
@@ -34,7 +34,7 @@ let userController = {
           erro: false,
         });
       } else {
-        res.render("sistema/signup", {
+        res.render("sistema/login/signup", {
           title: "Aeon - Criar conta",
           logoImage: "../images/aeon-logo.png",
           exists: true,
@@ -42,7 +42,7 @@ let userController = {
         });
       }
     } else {
-      res.render("sistema/signup", {
+      res.render("sistema/login/signup", {
         title: "Aeon - Criar conta",
         logoImage: "../images/aeon-logo.png",
         exists: false,

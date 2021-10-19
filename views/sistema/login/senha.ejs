@@ -51,45 +51,26 @@
               <img src="<%= logoImage %>" alt="" class="logo-aeon">
             </a>
           </div>
-          <h1 class="h1 pt-3 pb-2 mb-3 text-center">Você está pronto para revolucionar a gestão da sua agênica?</h1>
+          <h1 class="h1 pt-3 pb-2 mb-3 text-center">Recuperar acesso</h1>
           <p class="pt-3 pb-2 mb-3 border-bottom text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore</p>
         </div>
         <div class="container form-main d-flex flex-nowrap justify-content-center">
           <div class="form-content">
             <div class="panel-title">
-              <a href="login" class="form-signin-heading disabled">Entrar</a>
+              <a href="/login" class="form-signin-heading">Entrar</a>
               <span class="divider"> | </span>
-              <a href="/login/signup" class="form-signin-heading">Abrir Conta</a> <!-- Colocar icone-->
+              <a href="signup" class="form-signin-heading">Abrir Conta</a> <!-- Colocar icone-->
             </div>
             <div class="form">
-              <div class="message-success text-center">
-                <% if (created){%>
-                <span id="created">Usuário registrado com sucesso!</span>
-                <% } %>
-                <% if (erro){%>
-                  <span id="created" class="message-error">Usuário ou senha incorretos.</span>
-                <% } %>
-                <% if (email){%>
-                  <span id="created" class="message-error">E-mail não existe.</span>
-                <% } %>
-              </div>
-              <form class="form-signin" action="/login" method="POST">
+              <form class="form-signin">
                 <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope"
                       aria-hidden="true"></i></span>
-                  <input type="email" name="email" id="inputEmail" class="form-control" placeholder="E-mail" aria-label="E-mail"
+                  <input type="email" id="inputEmail" class="form-control" placeholder="E-mail" aria-label="E-mail"
                     aria-describedby="basic-addon1" required autofocus>
                 </div>
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
-                  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Senha" required>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" class="form-check-input" value="remember-me"> Lembrar informações
-                </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar</button>
-                <a href="senha" class="d-flex form-signin-foot">esqueci minha senha</a>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Recuperar acesso</button>
               </form>
             </div>
           </div>
@@ -97,4 +78,4 @@
       </main>
     </div>
   </div>
-  <%- include("./partials/footer") %>
+  <%- include("../partials/footer") %>
