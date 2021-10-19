@@ -1,4 +1,4 @@
-const listaClientes = require('../models/listaclientes');
+const clientModel = require('../models/clientModel');
 
 let aeonController = {
     index: (req, res, next) => {
