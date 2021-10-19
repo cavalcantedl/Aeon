@@ -1,0 +1,42 @@
+<%- include("./partials/header") %>
+
+<div class="container-fluid content">
+  <div class="row">
+    <main class="col-md-9 ms-sm-auto col-lg-12 px-md-4">
+      <div class="alinhargestao">
+      <h2>Gestão de Usuários</h2> 
+      <button type="button" class="btn btn-info" ><a href="cadastrousuario"> Cadastrar </a></button>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nome Completo</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Empresa</th>
+              <th scope="col">Senha</th>
+              <th scope="col">Editar</th>
+              <th scope="col">Excluir</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i = 0; i < usuarios.length; i++){ %>
+               <tr>
+                  <td><%= usuarios[i].id %></td>
+                  <td><%= usuarios[i].nome %> <%= usuarios[i].sobrenome %> </td>
+                  <td><%= usuarios[i].email %> </td>
+                  <td><%= usuarios[i].empresa %> </td>
+                  <td><%= usuarios[i].password %> </td>
+                  <td><i class="fas fa-edit"><a href=""></a></i></td>
+                  <td><i class="fas fa-trash-alt"><a href=""></a></i></td>
+               </tr>
+           <% } %>           
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+</div>
+<%- include("./partials/footer") %>
