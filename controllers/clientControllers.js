@@ -1,6 +1,6 @@
-const listaClientes = require('../models/listaclientes');
+const clientModel = require('../models/clientModel');
 
-let clientController = {
+const clientController = {
     cadastroCliente: (req, res, next) => {
         res.render('sistema/cadastrocliente', {
             title: 'Aeon - Cadastrar Cliente',
@@ -8,7 +8,7 @@ let clientController = {
     },
     gestaoClientes: (req, res, next) => {
         res.render('sistema/gestaoclientes', {
-            clientes: listaClientes,
+            clientes: clientModel.listaClientes,
             title: 'Aeon - Gestão de Clientes',
         }); // Indica o caminho da gestão de clientes // 
     },
@@ -17,18 +17,21 @@ let clientController = {
         const empresaCliente = req.body.empresa;
         const criadaCliente = req.body.criada;
 
-         listaClientes.push({
+         clientModel.listaClientes.push({
              id: idCliente,
              empresa: empresaCliente,
              criada: criadaCliente
          })
-         res.redirect('sistema/gestaoclientes'); //Indica o caminho de cadastro de clientes // 
+         res.redirect('/sistema'); //Indica o caminho de cadastro de clientes // 
    },
    attClienteView: (req,res, next)=>{
        const {id} = req.params;
-        clientes = listaClientes;
-        res.render('sistema/attcliente', {cliente : listaClientes[id]}, {
+        let resultado = clientModel.buscarClienteID(id);
+        res.render('sistema/attcliente', {
             title: 'Aeon - Gestão de Clientes',
+            id: id,
+            cliente: resultado
+
         }); 
    },
 //    attCliente: (req,res, next)=>{      
