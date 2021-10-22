@@ -34,11 +34,5 @@ const clientController = {
 
         }); 
    },
-//    attCliente: (req,res, next)=>{      
-//         res.render('sistema/attcliente/:id', {
-//         clientes : listaClientes[id],
-//         title: 'Aeon - Gestão de Clientes',
-//     }); // Indica o caminho da edição de cadastro de clientes // 
-//     }
-}
+};
 module.exports = clientController; 

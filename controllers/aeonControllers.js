@@ -6,7 +6,6 @@ let aeonController = {
             title: 'Aeon - Gestão Descomplicada para Agência de Marketing' 
         }); /* Indica o caminho da homepage da aplicação */ 
     },
-
     visaoGeral: (req, res, next) => {
         res.render('sistema/visaogeral', { 
             title: 'Aeon - Gestão Descomplicada para Agência de Marketing' 
@@ -16,11 +15,6 @@ let aeonController = {
         res.render('sistema/cadastrocliente', {
             title: 'Aeon - Cadastrar Cliente'
         }); /* Indica o caminho da página de cadastro de novo cliente*/ 
-    },
-    cadastroUsuario: (req, res, next) => {
-        res.render('sistema/cadastrousuario', {
-            title: 'Aeon - Cadastrar Usuário'
-        }); /* Indica o caminho da página de cadastro de usuário*/ 
     },
     acessoRestrito: (req, res, next) => {
         res.render("sistema/acessorestrito", {
