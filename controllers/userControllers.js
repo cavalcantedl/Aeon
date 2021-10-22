@@ -5,19 +5,16 @@ const { validationResult } = require("express-validator");
 let userController = {
   gestaoUsuarios: (req, res, next) => {
     let listaUsuario = usersAeon.listaUsuarios();
-    res.render("sistema/gestaousuarios", {
+    res.render("sistema/usuarios/gestaousuarios", {
       usuarios: listaUsuario,
       title: "Aeon - Gestão de Usuários",
     }); /* Indica o caminho da gestão de usuários */
   },
-
-  userProfile: (req, res, next) => {
-       res.render("sistema/userprofile", {
-      title: "Aeon - Edite seu perfil",
-    });
-     /* Indica o caminho da gestão de usuários */
+  cadastroUsuario: (req, res, next) => {
+    res.render('sistema/usuarios/cadastrousuario', {
+        title: 'Aeon - Cadastrar Usuário'
+    }); /* Indica o caminho da página de cadastro de usuário*/ 
   },
-
   cadastrarUsuario: (req, res) => {
     let erros = validationResult(req);
 

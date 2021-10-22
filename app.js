@@ -11,7 +11,7 @@ let usersRouter = require('./routes/usersRoutes');
 let aeonRouter = require('./routes/aeonRoutes');
 let loginRouter = require('./routes/loginRoutes');
 let clientRouter = require('./routes/clientRoutes');
-// let clientRouter = require('./routes/clientRoutes');
+let perfilRouter = require('./routes/perfilRoutes');
 
 //fim das requisições das rotas
 
@@ -33,11 +33,12 @@ app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/
 app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 
 //inicio das chamadas das rotas
-app.use('/', indexRouter);
-// app.use('/sistema/gestaousuarios', usersRouter);
-app.use('/sistema', aeonRouter, usersRouter, clientRouter);
+app.use('/', indexRouter); //homepage do site institucional.
 app.use('/login', loginRouter);
-// app.use('/sistema/gestaocliente', clientRouter);
+app.use('/sistema', aeonRouter);
+app.use('/sistema/usuarios', usersRouter);
+app.use('/sistema/clientes', clientRouter);
+app.use('/sistema/meuperfil', perfilRouter);
 
 //fim das chamadas das rotas
 
