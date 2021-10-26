@@ -18,6 +18,8 @@ let loginController = {
       let resultado = loginModel.verificaLogin(login);
       console.log(resultado);
       if (resultado.login == true) {
+        req.session.user = login;
+        console.log(req.session);
         res.redirect("/sistema");
       } else if (resultado.erro) {
         res.render("sistema/login/login", {
