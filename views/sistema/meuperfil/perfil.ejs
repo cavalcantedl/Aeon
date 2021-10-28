@@ -1,4 +1,4 @@
-<%- include("./partials/header") %>
+<%- include("../partials/header") %>
 
     <div class="container content userProfile">
         <div class="row">
@@ -210,7 +210,7 @@
                                 </table>
                             </div>
                             <div class="tab-pane" id="edit">
-                                <form action="/sistema/userprofile" method="POST" enctype="multipart/form-data">
+                                 <form action="/sistema/meuperfil" method="POST" enctype="multipart/form-data">
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Nome</label>
                                         <div class="col-lg-9">
@@ -272,7 +272,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Senha</label>
                                         <div class="col-lg-9">
-                                            <input class="form-control" type="senha" name="password" placeholder="mínimo de 6 caracteres">
+                                            <input class="form-control" type="password" name="password" placeholder="mínimo de 6 caracteres">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -286,7 +286,7 @@
                                         <label class="col-lg-3 col-form-label form-control-label"></label>
                                         <div class="col-lg-9">
                                             <input type="reset" class="btn btn-secondary" value="Cancelar">
-                                            <input type="button" class="btn btn-primary" value="Salvar">
+                                            <input type="submit" class="btn btn-primary" value="Salvar">
                                         </div>
                                     </div>
                                 </form>
@@ -300,4 +300,4 @@
     </div>
 
 
-    <%- include("./partials/footer") %>
+    <%- include("../partials/footer") %>

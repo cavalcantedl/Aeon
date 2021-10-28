@@ -3,7 +3,7 @@ const { validationResult } = require("express-validator");
 
 let loginController = {
   login: (req, res, next) => {
-    res.render("sistema/login", {
+    res.render("sistema/login/login", {
       title: "Aeon - Login",
       logoImage: "../images/aeon-logo.png",
       created: false,
@@ -18,9 +18,11 @@ let loginController = {
       let resultado = loginModel.verificaLogin(login);
       console.log(resultado);
       if (resultado.login == true) {
+        req.session.user = login;
+        console.log(req.session);
         res.redirect("/sistema");
       } else if (resultado.erro) {
-        res.render("sistema/login", {
+        res.render("sistema/login/login", {
           title: "Aeon - Login",
           logoImage: "../images/aeon-logo.png",
           created: false,
@@ -28,7 +30,7 @@ let loginController = {
           email: false,
         }); /* Indica o caminho da página de login */
       } else if (resultado.email == false){
-        res.render("sistema/login", {
+        res.render("sistema/login/login", {
           title: "Aeon - Login",
           logoImage: "../images/aeon-logo.png",
           created: false,
@@ -39,7 +41,7 @@ let loginController = {
     }
   },
   signup: (req, res, next) => {
-    res.render("sistema/signup", {
+    res.render("sistema/login/signup", {
       title: "Aeon - Criar conta",
       logoImage: "../images/aeon-logo.png",
       exists: false,
@@ -47,20 +49,14 @@ let loginController = {
     }); /* Indica o caminho da página de criar conta */
   },
   senha: (req, res, next) => {
-    res.render("sistema/senha", {
+    res.render("sistema/login/senha", {
       title: "Aeon - Recuperar senha",
       logoImage: "../images/aeon-logo.png",
     });
   },
   emailSenha: (req, res, next) => {
-    res.render("sistema/emailsenha", {
+    res.render("sistema/login/emailsenha", {
       title: "Aeon - E-mail de senha enviado com sucesso",
-      logoImage: "../images/aeon-logo.png",
-    });
-  },
-  acessoRestrito: (req, res, next) => {
-    res.render("sistema/acessorestrito", {
-      title: "Aeon - Este acesso é restrito.",
       logoImage: "../images/aeon-logo.png",
     });
   },

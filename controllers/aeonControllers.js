@@ -4,11 +4,10 @@ let aeonController = {
     index: (req, res, next) => {
         res.render('index', { 
             title: 'Aeon - Gestão Descomplicada para Agência de Marketing' 
-        }); /* Indica o caminho da homepage da aplicação */ 
+        }); /* Indica o caminho da homepage da do site */ 
     },
-
-    home: (req, res, next) => {
-        res.render('sistema/home', { 
+    visaoGeral: (req, res, next) => {
+        res.render('sistema/visaogeral', { 
             title: 'Aeon - Gestão Descomplicada para Agência de Marketing' 
         }); /* Indica o caminho da homepage da aplicação */ 
     },
@@ -17,10 +16,16 @@ let aeonController = {
             title: 'Aeon - Cadastrar Cliente'
         }); /* Indica o caminho da página de cadastro de novo cliente*/ 
     },
-    cadastroUsuario: (req, res, next) => {
-        res.render('sistema/cadastrousuario', {
+    cadastroUsuario: (req, res, next) =>{
+        res.render('sistema/cadastrocliente', {
             title: 'Aeon - Cadastrar Usuário'
-        }); /* Indica o caminho da página de cadastro de usuário*/ 
-    }
+        });
+    },
+    acessoRestrito: (req, res, next) => {
+        res.render("sistema/acessorestrito", {
+          title: "Aeon - Este acesso é restrito.",
+          logoImage: "../images/aeon-logo.png",
+        });
+      },
 };
 module.exports = aeonController;

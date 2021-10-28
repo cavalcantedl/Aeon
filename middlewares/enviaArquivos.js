@@ -1,7 +1,7 @@
 const multer = require("multer"); 
 const path = require("path");
 
-const enviaArquivos = multer.diskStorage({
+const enviaImagens = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "public/uploads/images");
     },
@@ -9,10 +9,10 @@ const enviaArquivos = multer.diskStorage({
         cb(null, file.fieldname+"-"+Date.now()+"-"+path.extname(file.originalname));
     }
 })
-const uploadArquivo = multer({ storage:enviaArquivos });
+const uploadImagem = multer({ storage:enviaImagens });
 
 
 module.exports = {
-    uploadArquivo
+    uploadImagem
 }
 

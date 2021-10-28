@@ -9,7 +9,6 @@ router.get('/', loginController.login);
 router.get('/signup', loginController.signup);
 router.get('/senha', loginController.senha);
 router.get('/emailsenha', loginController.emailSenha);
-router.get('/acessorestrito', loginController.acessoRestrito);
 
 
 /*Cria rota de login */

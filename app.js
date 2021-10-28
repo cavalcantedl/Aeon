@@ -11,7 +11,7 @@ let usersRouter = require('./routes/usersRoutes');
 let aeonRouter = require('./routes/aeonRoutes');
 let loginRouter = require('./routes/loginRoutes');
 let clientRouter = require('./routes/clientRoutes');
-// let clientRouter = require('./routes/clientRoutes');
+let perfilRouter = require('./routes/perfilRoutes');
 
 //fim das requisições das rotas
 
@@ -27,17 +27,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret:'A&0N-$1ST&M@',
+  saveUninitialized: true,
+  resave: false
+}));
+
 //Chama bootstrap, jquery e fontawesome
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')))
 app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')))
 app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 
 //inicio das chamadas das rotas
-app.use('/', indexRouter);
-// app.use('/sistema/gestaousuarios', usersRouter);
-app.use('/sistema', aeonRouter, usersRouter);
+app.use('/', indexRouter); //homepage do site institucional.
 app.use('/login', loginRouter);
-app.use('/sistema', clientRouter);
+app.use('/sistema', aeonRouter);
+app.use('/sistema/usuarios', usersRouter);
+app.use('/sistema/clientes', clientRouter);
+app.use('/sistema/meuperfil', perfilRouter);
 
 //fim das chamadas das rotas
 

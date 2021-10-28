@@ -5,19 +5,16 @@ const { validationResult } = require("express-validator");
 let userController = {
   gestaoUsuarios: (req, res, next) => {
     let listaUsuario = usersAeon.listaUsuarios();
-    res.render("sistema/gestaousuarios", {
+    res.render("sistema/usuarios/gestaousuarios", {
       usuarios: listaUsuario,
       title: "Aeon - Gestão de Usuários",
     }); /* Indica o caminho da gestão de usuários */
   },
-
-  userProfile: (req, res, next) => {
-       res.render("sistema/userprofile", {
-      title: "Aeon - Edite seu perfil",
-    });
-     /* Indica o caminho da gestão de usuários */
+  cadastroUsuario: (req, res, next) => {
+    res.render('sistema/usuarios/cadastrousuario', {
+        title: 'Aeon - Cadastrar Usuário'
+    }); /* Indica o caminho da página de cadastro de usuário*/ 
   },
-
   cadastrarUsuario: (req, res) => {
     let erros = validationResult(req);
 
@@ -26,7 +23,7 @@ let userController = {
       let resultado = usersAeon.cadastraUsuario(dadosUsuario);
       
       if (resultado.cadastrado) {
-        res.render("sistema/login", {
+        res.render("sistema/login/login", {
           title: "Aeon - Login",
           logoImage: "../images/aeon-logo.png",
           created: true,
@@ -34,7 +31,7 @@ let userController = {
           erro: false,
         });
       } else {
-        res.render("sistema/signup", {
+        res.render("sistema/login/signup", {
           title: "Aeon - Criar conta",
           logoImage: "../images/aeon-logo.png",
           exists: true,
@@ -42,7 +39,7 @@ let userController = {
         });
       }
     } else {
-      res.render("sistema/signup", {
+      res.render("sistema/login/signup", {
         title: "Aeon - Criar conta",
         logoImage: "../images/aeon-logo.png",
         exists: false,

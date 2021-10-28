@@ -3,12 +3,12 @@ const { validationResult } = require("express-validator");
 
 const clientController = {
     cadastroCliente: (req, res, next) => {
-        res.render('sistema/cadastrocliente', {
+        res.render('sistema/clientes/cadastrocliente', {
             title: 'Aeon - Cadastrar Cliente',
         }); // Indica o caminho da página de cadastro de novo cliente// 
     },
     gestaoClientes: (req, res, next) => {
-        res.render('sistema/gestaoclientes', {
+        res.render('sistema/clientes/gestaoclientes', {
             clientes: clientModel.listaClientes,
             title: 'Aeon - Gestão de Clientes',
         }); // Indica o caminho da gestão de clientes // 
@@ -28,7 +28,7 @@ const clientController = {
     attClienteView: (req,res, next)=>{
        const {id} = req.params;
         let resultado = clientModel.buscarClienteID(id);
-        res.render('sistema/attcliente', {
+        res.render('sistema/clientes/attcliente', {
             title: 'Aeon - Gestão de Clientes',
             id: id,
             cliente: resultado
