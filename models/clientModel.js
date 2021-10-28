@@ -23,7 +23,24 @@ function buscarClienteID(id){
     return resultado;
 }
 
+async function editarCliente(id, novosDados){
+    let res = await listaClientes.filter(cliente =>{
+        if(cliente.id == id){
+            cliente.empresa = novosDados.empresa
+        }
+        });
+            if(res != undefined){
+                return true;
+        }
+            else{
+            return false;
+            
+    }
+  
+}
+
 module.exports = {
     listaClientes,
-    buscarClienteID
+    buscarClienteID,
+    editarCliente
 } 

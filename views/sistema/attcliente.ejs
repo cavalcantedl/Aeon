@@ -2,15 +2,12 @@
 
 <div class="container">
   <div class="cadastro">
-  <form class="form-signin" method="POST" action="/attcliente/:id?_method=PUT">
+  <form class="form-signin" method="POST" action="/sistema/gestaoclientes/attcliente/<%=cliente.id%>">
       <br><br><br><br><br>
     <h2 class="form-signin-heading">Editar cliente</h2>
     <br><br>
     <label for="empresa" class="sr-only"></label>
     <input type="text" id="empresa" class="form-control" name="empresa" placeholder="Empresa" value="<%= cliente.empresa %>" required>
-    <br>
-    <label for="criada" class="sr-only"></label>
-    <input type="date" id="criada" class="form-control" name="criada" placeholder="Criada em" value="<%= cliente.criada %>" required>
     <br>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
     <br><br>
