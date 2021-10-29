@@ -1,4 +1,5 @@
 const clientModel = require('../models/clientModel');
+const { validationResult } = require("express-validator");
 
 const clientController = {
     cadastroCliente: (req, res, next) => {
@@ -22,9 +23,9 @@ const clientController = {
              empresa: empresaCliente,
              criada: criadaCliente
          })
-         res.redirect('gestaoclientes'); //Indica o caminho de cadastro de clientes // 
+         res.redirect('/sistema/gestaoclientes'); //Indica o caminho de cadastro de clientes // 
    },
-   attClienteView: (req,res, next)=>{
+    attClienteView: (req,res, next)=>{
        const {id} = req.params;
         let resultado = clientModel.buscarClienteID(id);
         res.render('sistema/clientes/attcliente', {
