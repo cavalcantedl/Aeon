@@ -1,25 +1,9 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <!-- Bootstrap core CSS and Icons -->
-  <link href="./css/bootstrap.min.css" rel="stylesheet">
-  <link href="./bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- Fontawesome -->
-  <link href="./fontawesome-free/css/all.min.css" rel="stylesheet">
-</head>
-
-<body>
+<%- include("../partials/headerPages") %>
   <h1 class="alert alert-primary"><i class="fas fa-address-book"></i>
-    <%= title %>
+    <%= titulo %>
   </h1>
-  <p><i class="fab fa-accessible-icon"></i>Welcome to <%= title %>
+  <p><i class="fab fa-accessible-icon"></i>Welcome to <%= titulo %>
   </p>
   <button type="button" class="btn btn-primary"><i class="bi bi-activity"></i>teste</button>
-</body>
 
-</html>
+  <%- include("../partials/footerPages") %>

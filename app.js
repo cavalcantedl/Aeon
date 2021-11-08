@@ -1,13 +1,22 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
-var homepageRouter = require('./routes/pagesRouters');
-var usersRouter = require('./routes/users');
+// define as rotas das paginas
+let paginasRouter = require('./routes/pagesRouters');
 
-var app = express();
+// define as rotas de usuarios
+let usersRouter = require('./routes/users');
+
+// define as rotas do sistema
+let dashboardRouter = require('./routes/dashboardRouters');
+
+// define as rotas de login
+// let usersRouter = require('./routes/users');
+
+let app = express();
 
 //Bootstrap and FontAwesome
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
@@ -27,8 +36,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', homepageRouter);
+// view paginas
+app.use('/', paginasRouter);
+
+// view sistema
+app.use('/sistema', dashboardRouter);
+
+// view usuarios
 app.use('/users', usersRouter);
+
+// view login
+// app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -43,7 +61,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('pages/error');
+  res.render('pages/error',);
 });
 
 module.exports = app;

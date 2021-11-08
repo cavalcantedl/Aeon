@@ -16,9 +16,12 @@
     "express": "~4.16.1",
     "highcharts": "^9.3.1",
     "http-errors": "~1.6.3",
+    "jquery": "^3.6.0",
     "morgan": "~1.9.1",
     "mysql2": "^2.3.2",
     "nodemon": "^2.0.14",
-    "sequelize": "^6.9.0"
+    "sequelize": "^6.9.0",
+    "to": "^0.2.9",
+    "update": "^0.7.4"
   }
 }
