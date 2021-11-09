@@ -26,6 +26,14 @@ app.use('/bootstrap-icons/font', express.static(path.join(__dirname, 'node_modul
 app.use('/fontawesome-free/css', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free/css')));
 app.use('/fontawesome-free/webfonts', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free/webfonts')));
 
+// JVectorMap
+app.use('/jvectormap', express.static(path.join(__dirname, 'node_modules/jvectormap')));
+
+// Apex Charts
+app.use('/apexcharts/dist', express.static(path.join(__dirname, 'node_modules/apexcharts/dist')));
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
