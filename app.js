@@ -1,21 +1,42 @@
-var createError = require('http-errors');
-var express = require('express');
-var session = require("express-session");
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
-//inicio das requisições das rotas
-let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/usersRoutes');
-let aeonRouter = require('./routes/aeonRoutes');
-let loginRouter = require('./routes/loginRoutes');
-let clientRouter = require('./routes/clientRoutes');
-let perfilRouter = require('./routes/perfilRoutes');
+// define as rotas das paginas
+let paginasRouter = require('./routes/pagesRouters');
 
-//fim das requisições das rotas
+// define as rotas de usuarios
+let usersRouter = require('./routes/users');
 
-var app = express();
+// define as rotas do sistema
+let dashboardRouter = require('./routes/dashboardRouters');
+
+// define as rotas de login
+// let usersRouter = require('./routes/users');
+
+let app = express();
+
+//Bootstrap and FontAwesome
+app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
+app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
+app.use('/jquery/dist/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
+app.use('/bootstrap-icons/font', express.static(path.join(__dirname, 'node_modules/bootstrap-icons/font')));
+app.use('/fontawesome-free/css', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free/css')));
+app.use('/fontawesome-free/webfonts', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free/webfonts')));
+
+// JVectorMap
+app.use('/jvectormap', express.static(path.join(__dirname, 'node_modules/jvectormap')));
+
+// Apex Charts
+app.use('/apexcharts/dist', express.static(path.join(__dirname, 'node_modules/apexcharts/dist')));
+
+// Google Fonts and Icons
+app.use('/font/fonts', express.static(path.join(__dirname, 'node_modules/@mdi/font/fonts')));
+app.use('/font/css', express.static(path.join(__dirname, 'node_modules/@mdi/font/css')));
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,36 +48,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({
-  secret:'A&0N-$1ST&M@',
-  saveUninitialized: true,
-  resave: false
-}));
+// view paginas
+app.use('/', paginasRouter);
 
-//Chama bootstrap, jquery e fontawesome
-app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')))
-app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')))
-app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
+// view sistema
+app.use('/sistema/dashboard', dashboardRouter);
 
-//inicio das chamadas das rotas
-app.use('/', indexRouter); //homepage do site institucional.
-app.use('/login', loginRouter);
-app.use('/sistema', aeonRouter);
-app.use('/sistema/usuarios', usersRouter);
-app.use('/sistema/clientes', clientRouter);
-app.use('/sistema/meuperfil', perfilRouter);
+// view usuarios
+app.use('/users', usersRouter);
 
-//fim das chamadas das rotas
-
+// view login
+// app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(
-    res.render('sistema/erro-404', {
-      title: "Aeon - Página não encontrada!",
-      logoImage: "./images/aeon-logo.png",
-    })
-  )}); // Erro de página 404
+  next(createError(404));
+});
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -66,7 +73,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('pages/error',);
 });
 
 module.exports = app;
