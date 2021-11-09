@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', paginasRouter);
 
 // view sistema
-app.use('/sistema', dashboardRouter);
+app.use('/sistema/dashboard', dashboardRouter);
 
 // view usuarios
 app.use('/users', usersRouter);
