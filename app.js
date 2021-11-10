@@ -36,6 +36,14 @@ app.use('/apexcharts/dist', express.static(path.join(__dirname, 'node_modules/ap
 app.use('/font/fonts', express.static(path.join(__dirname, 'node_modules/@mdi/font/fonts')));
 app.use('/font/css', express.static(path.join(__dirname, 'node_modules/@mdi/font/css')));
 
+// Dripicons
+app.use('/webfont', express.static(path.join(__dirname, 'node_modules/dripicons/webfont')));
+app.use('/webfont/fonts', express.static(path.join(__dirname, 'node_modules/dripicons/webfont/fonts')));
+
+// Unicons
+app.use('/unicons/fonts', express.static(path.join(__dirname, 'node_modules/@iconscout/unicons/fonts')));
+app.use('/unicons/css', express.static(path.join(__dirname, 'node_modules/@iconscout/unicons/css')));
+
 
 
 // view engine setup
