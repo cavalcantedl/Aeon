@@ -18,6 +18,10 @@ let clientesController = {
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
         })
+    },
+    acaoCadastrarClientes:(req, res, next) =>{
+        res.redirect("/sistema/clientes/cadastrar");   
+        // console.log(req.body);
     }
 }
 
