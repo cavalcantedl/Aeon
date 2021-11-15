@@ -44,7 +44,8 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <!-- form start -->
-                                            <form class="needs-validation" method="POST" action="/sistema/clientes/cadastrar" novalidate>
+                                            <form class="needs-validation" method="POST"
+                                                action="/sistema/clientes/cadastrar" enctype="multipart/form-data" novalidate>
                                                 <div class="row g-2">
                                                     <div class="mb-3 col-md-6">
                                                         <label class="form-label" for="validationCustom01">Nome
@@ -56,107 +57,129 @@
                                                     <div class="mb-3 col-md-6">
                                                         <label class="form-label" for="validationCustom02">Razão
                                                             Social</label>
-                                                        <input type="text" class="form-control" id="validationCustom02" name="razaoSocial"
-                                                            placeholder="A razão social do cliente." required>
+                                                        <input type="text" class="form-control" id="validationCustom02"
+                                                            name="razaoSocial" placeholder="A razão social do cliente."
+                                                            required>
                                                     </div>
 
                                                     <div class="mb-3">
                                                         <label for="inputAddress" class="form-label"
                                                             for="validationCustom03">Endereço</label>
-                                                        <input type="text" class="form-control" id="validationCustom03" name="endereco"
-                                                            placeholder="Endereço do cliente" required>
+                                                        <input type="text" class="form-control" id="validationCustom03"
+                                                            name="endereco" placeholder="Endereço do cliente" required>
                                                     </div>
-                                                    
-                                                        <div class="mb-3 col-md-4">
-                                                            <label for="validationCustom03" class="form-label">Cidade</label>
-                                                            <input type="text" class="form-control" id="validationCustom03" name="cidade" placeholder="Cidade" required>
-                                                        </div>
 
-                                                        <div class="mb-3 col-md-3">
-                                                            <label for="validationCustom04" class="form-label">Estado</label>
-                                                            <select id="validationCustom04" name="estado" class="form-select">
-                                                                <option selected disabled>Selecionar</option>
-                                                                <option>Acre (AC)</option>
-                                                                <option>Alagoas (AL)</option>
-                                                                <option>Amapá (AP)</option>
-                                                                <option>Amazonas (AM)</option>
-                                                                <option>Bahia (BA)</option>
-                                                                <option>Ceará (CE)</option>
-                                                                <option>Distrito Federal (DF)</option>
-                                                                <option>Espírito Santo (ES)</option>
-                                                                <option>Goiás (GO)</option>
-                                                                <option>Maranhão (MA)</option>
-                                                                <option>Mato Grosso (MT)</option>
-                                                                <option>Mato Grosso do Sul (MS)</option>
-                                                                <option>Minas Gerais (MG)</option>
-                                                                <option>Pará (PA)</option>
-                                                                <option>Paraíba (PB)</option>
-                                                                <option>Paraná (PR)</option>
-                                                                <option>Pernambuco (PE)</option>
-                                                                <option>Piauí (PI)</option>
-                                                                <option>Rio de Janeiro (RJ)</option>
-                                                                <option>Rio Grande do Norte (RN)</option>
-                                                                <option>Rio Grande do Sul (RS)</option>
-                                                                <option>Rondônia (RO)</option>
-                                                                <option>Roraima (RR)</option>
-                                                                <option>Santa Catarina (SC)</option>
-                                                                <option>São Paulo (SP)</option>
-                                                                <option>Sergipe (SE)</option>
-                                                                <option>Tocantins (TO)</option>
-                                                            </select>
-                                                        </div>
+                                                    <div class="mb-3 col-md-4">
+                                                        <label for="validationCustom03"
+                                                            class="form-label">Cidade</label>
+                                                        <input type="text" class="form-control" id="validationCustom03"
+                                                            name="cidade" placeholder="Cidade" required>
+                                                    </div>
 
-                                                        <div class="mb-3 col-md-3">
-                                                            <label class="form-label">País</label>
-                                                            <input type="text" class="form-control" id="validationCustom03" name="pais" placeholder="País">
-                                                        </div>
-                                                        
-                                                        <div class="mb-3 col-md-2">
-                                                            <label class="form-label" for="validationCustom05">CEP</label>
-                                                            <input type="text" class="form-control" data-toggle="input-mask" data-mask-format="00000-000" id="validationCustom05" name="cep" placeholder="Ex.: xxxxx-xxx" required>
-                                                        </div>
+                                                    <div class="mb-3 col-md-3">
+                                                        <label for="validationCustom04"
+                                                            class="form-label">Estado</label>
+                                                        <select id="validationCustom04" name="estado"
+                                                            class="form-select">
+                                                            <option selected disabled>Selecionar</option>
+                                                            <option>Acre (AC)</option>
+                                                            <option>Alagoas (AL)</option>
+                                                            <option>Amapá (AP)</option>
+                                                            <option>Amazonas (AM)</option>
+                                                            <option>Bahia (BA)</option>
+                                                            <option>Ceará (CE)</option>
+                                                            <option>Distrito Federal (DF)</option>
+                                                            <option>Espírito Santo (ES)</option>
+                                                            <option>Goiás (GO)</option>
+                                                            <option>Maranhão (MA)</option>
+                                                            <option>Mato Grosso (MT)</option>
+                                                            <option>Mato Grosso do Sul (MS)</option>
+                                                            <option>Minas Gerais (MG)</option>
+                                                            <option>Pará (PA)</option>
+                                                            <option>Paraíba (PB)</option>
+                                                            <option>Paraná (PR)</option>
+                                                            <option>Pernambuco (PE)</option>
+                                                            <option>Piauí (PI)</option>
+                                                            <option>Rio de Janeiro (RJ)</option>
+                                                            <option>Rio Grande do Norte (RN)</option>
+                                                            <option>Rio Grande do Sul (RS)</option>
+                                                            <option>Rondônia (RO)</option>
+                                                            <option>Roraima (RR)</option>
+                                                            <option>Santa Catarina (SC)</option>
+                                                            <option>São Paulo (SP)</option>
+                                                            <option>Sergipe (SE)</option>
+                                                            <option>Tocantins (TO)</option>
+                                                        </select>
+                                                    </div>
 
-                                                        <div class="mb-3 col-md-3">
-                                                            <label class="form-label" for="validationCustom06">CNPJ</label>
-                                                            <input type="text" class="form-control" id="validationCustom06" name="cnpj" data-toggle="input-mask" data-mask-format="00.000.000/0000-00" data-reverse="true" placeholder="Ex.: xx.xxx.xxx/xxxx-xx" required>
-                                                        </div>
+                                                    <div class="mb-3 col-md-3">
+                                                        <label class="form-label">País</label>
+                                                        <input type="text" class="form-control" id="validationCustom03"
+                                                            name="pais" placeholder="País">
+                                                    </div>
 
-                                                        <div class="mb-3 col-md-3">
-                                                            <label class="form-label">Celular</label>
-                                                            <input type="text" class="form-control" data-toggle="input-mask" data-mask-format="(00) 00000-0000" name="celular" placeholder="Ex.: (xx) xxxxx-xxxx" required>                                                            
-                                                        </div>
+                                                    <div class="mb-3 col-md-2">
+                                                        <label class="form-label" for="validationCustom05">CEP</label>
+                                                        <input type="text" class="form-control" data-toggle="input-mask"
+                                                            data-mask-format="00000-000" id="validationCustom05"
+                                                            name="cep" placeholder="Ex.: xxxxx-xxx" required>
+                                                    </div>
 
-                                                        <div class="mb-3 col-md-2">
-                                                            <label class="form-label">Telefone Fixo</label>
-                                                            <input type="text" class="form-control" data-toggle="input-mask" data-mask-format="(00) 0000-0000" name="telefoneFixo" placeholder="Ex.: (xx) xxxx-xxxx"> 
-                                                        </div>
+                                                    <div class="mb-3 col-md-3">
+                                                        <label class="form-label" for="validationCustom06">CNPJ</label>
+                                                        <input type="text" class="form-control" id="validationCustom06"
+                                                            name="cnpj" data-toggle="input-mask"
+                                                            data-mask-format="00.000.000/0000-00" data-reverse="true"
+                                                            placeholder="Ex.: xx.xxx.xxx/xxxx-xx" required>
+                                                    </div>
 
-                                                        <div class="mb-3 col-md-2">
-                                                            <label class="form-label" for="validationCustom07">Data de entrada</label>
-                                                            <input type="text" class="form-control" id="validationCustom07" name="dataEntrada" data-toggle="input-mask" data-mask-format="00/00/0000" placeholder="Ex.: DD/MM/AAAA" required>
-                                                        </div>
+                                                    <div class="mb-3 col-md-3">
+                                                        <label class="form-label">Celular</label>
+                                                        <input type="text" class="form-control" data-toggle="input-mask"
+                                                            data-mask-format="(00) 00000-0000" name="celular"
+                                                            placeholder="Ex.: (xx) xxxxx-xxxx" required>
+                                                    </div>
 
-                                                        <div class="mb-3 col-md-2">
-                                                            <label class="form-label">Data de Saída</label>
-                                                            <input type="text" class="form-control" data-toggle="input-mask" data-mask-format="00/00/0000" name="dataSaida" placeholder="Ex.: DD/MM/AAAA">
-                                                        </div>
+                                                    <div class="mb-3 col-md-2">
+                                                        <label class="form-label">Telefone Fixo</label>
+                                                        <input type="text" class="form-control" data-toggle="input-mask"
+                                                            data-mask-format="(00) 0000-0000" name="telefoneFixo"
+                                                            placeholder="Ex.: (xx) xxxx-xxxx">
+                                                    </div>
 
-                                                        <div class="mb-3 col-md-6">
-                                                            <label for="example-fileinput" class="form-label">Logotipo do Cliente</label>
-                                                            <input type="file" id="logotipoCliente" name="logotipoCliente" class="form-control">
-                                                        </div>
+                                                    <div class="mb-3 col-md-2">
+                                                        <label class="form-label" for="validationCustom07">Data de
+                                                            entrada</label>
+                                                        <input type="text" class="form-control" id="validationCustom07"
+                                                            name="dataEntrada" data-toggle="input-mask"
+                                                            data-mask-format="00/00/0000" placeholder="Ex.: DD/MM/AAAA"
+                                                            required>
+                                                    </div>
 
-                                                        <div class="mb-3 col-md-6">
-                                                            <label class="form-label">Nome
-                                                                do Responsável pela empresa</label>
-                                                            <input type="text" class="form-control" id="nomeResponsavel" name="nomeResponsavel"
-                                                                placeholder="Nome do Responsável pela empresa" required>
-                                                        </div>
-                                                    
+                                                    <div class="mb-3 col-md-2">
+                                                        <label class="form-label">Data de Saída</label>
+                                                        <input type="text" class="form-control" data-toggle="input-mask"
+                                                            data-mask-format="00/00/0000" name="dataSaida"
+                                                            placeholder="Ex.: DD/MM/AAAA">
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-6">
+                                                        <label for="example-fileinput" class="form-label">Logotipo do Cliente</label> 
+                                                        <input id="logotipoCliente" name="logotipoCliente" class="form-control" accept=".jpg, .jpeg, .png, .webp" type="file" multiple>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-6">
+                                                        <label class="form-label">Nome
+                                                            do Responsável pela empresa</label>
+                                                        <input type="text" class="form-control" id="nomeResponsavel"
+                                                            name="nomeResponsavel"
+                                                            placeholder="Nome do Responsável pela empresa" required>
+                                                    </div>
+
                                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                                         <button class="btn btn-danger col-md-2 "
-                                                        type="reset">Cancelar</button>
-    
+                                                            type="reset">Cancelar</button>
+
                                                         <button class="btn btn-primary col-md-2 "
                                                             type="submit">Cadastrar cliente</button>
                                                     </div>
