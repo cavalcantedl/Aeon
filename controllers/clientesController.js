@@ -21,8 +21,8 @@ let clientesController = {
     },
     acaoCadastrarClientes:(req, res, next) =>{
         res.redirect("/sistema/clientes/cadastrar");   
-        console.log(req.body);
-        console.log(req.file);
+        // console.log(req.body);
+        // console.log(req.file);
     }
 }
 
