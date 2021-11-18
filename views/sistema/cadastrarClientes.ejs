@@ -79,7 +79,12 @@
                                                         <label for="inputAddress" class="form-label"
                                                             for="validationCustom03">Endereço</label>
                                                         <input type="text" class="form-control" id="validationCustom03"
-                                                            name="endereco" placeholder="Endereço do cliente" required>
+                                                            name="endereco" placeholder="Endereço do cliente" value="<%= locals.formConteudo && formConteudo.endereco %>" required>
+                                                            <% if (locals.alertaErros && alertaErros.endereco) { %>
+                                                                <span class="col-md-5 erroCadastro">
+                                                                    <%= alertaErros.endereco.msg%>
+                                                                </span>
+                                                                <% } %>
                                                     </div>
 
                                                     <div class="mb-3 col-md-4">
