@@ -45,21 +45,34 @@
                                         <div class="card-body">
                                             <!-- form start -->
                                             <form class="needs-validation" method="POST"
-                                                action="/sistema/clientes/cadastrar" enctype="multipart/form-data" novalidate>
+                                                action="/sistema/clientes/cadastrar" enctype="multipart/form-data"
+                                                novalidate>
                                                 <div class="row g-2">
                                                     <div class="mb-3 col-md-6">
                                                         <label class="form-label" for="validationCustom01">Nome
                                                             Fantasia</label>
-                                                        <input type="text" class="form-control" id="validationCustom01" name="nomeFantasia"
-                                                            placeholder="Nome fantasia do cliente" required>
+                                                        <input type="text" class="form-control" id="validationCustom01"
+                                                            name="nomeFantasia" placeholder="Nome fantasia do cliente"
+                                                            value="<%= locals.formConteudo && formConteudo.nomeFantasia %>"
+                                                            required>
+                                                        <% if (locals.alertaErros && alertaErros.nomeFantasia) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.nomeFantasia.msg%>
+                                                            </span>
+                                                            <% } %>
                                                     </div>
 
                                                     <div class="mb-3 col-md-6">
                                                         <label class="form-label" for="validationCustom02">Razão
                                                             Social</label>
                                                         <input type="text" class="form-control" id="validationCustom02"
-                                                            name="razaoSocial" placeholder="A razão social do cliente."
+                                                            name="razaoSocial" placeholder="A razão social do cliente." value="<%= locals.formConteudo && formConteudo.razaoSocial %>"
                                                             required>
+                                                        <% if (locals.alertaErros && alertaErros.razaoSocial) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.razaoSocial.msg%>
+                                                            </span>
+                                                            <% } %>
                                                     </div>
 
                                                     <div class="mb-3">
@@ -164,8 +177,11 @@
                                                     </div>
 
                                                     <div class="mb-3 col-md-6">
-                                                        <label for="example-fileinput" class="form-label">Logotipo do Cliente</label> 
-                                                        <input id="logotipoCliente" name="logotipoCliente" class="form-control" accept=".jpg, .jpeg, .png, .webp" type="file" multiple>
+                                                        <label for="example-fileinput" class="form-label">Logotipo do
+                                                            Cliente</label>
+                                                        <input id="logotipoCliente" name="logotipoCliente"
+                                                            class="form-control" accept=".jpg, .jpeg, .png, .webp"
+                                                            type="file" multiple>
                                                     </div>
 
                                                     <div class="mb-3 col-md-6">
