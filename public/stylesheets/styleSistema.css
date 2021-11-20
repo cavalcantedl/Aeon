@@ -1,0 +1,14 @@
+/* CSS Validação Cadastro Cliente */
+sup, .erroCadastro {
+  color: #b00020;
+  font-weight: 600;
+}
+
+sup {
+  font-size: smaller;
+}
+
+.erroCadastro {
+  font-size: smaller;
+}
+
