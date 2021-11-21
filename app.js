@@ -13,6 +13,7 @@ let usersRouter = require('./routes/users');
 // define as rotas do sistema
 let dashboardRouter = require('./routes/dashboardRouters');
 let clientesRouter = require('./routes/clientesRouters');
+let loginRouter = require('./routes/loginRouters');
 
 // define as rotas de login
 // let usersRouter = require('./routes/users');
@@ -68,7 +69,7 @@ app.use('/sistema/clientes', clientesRouter);
 app.use('/users', usersRouter);
 
 // view login
-// app.use('/users', usersRouter);
+app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
