@@ -13,6 +13,7 @@ let usersRouter = require('./routes/users');
 // define as rotas do sistema
 let dashboardRouter = require('./routes/dashboardRouters');
 let clientesRouter = require('./routes/clientesRouters');
+let funcionariosRouter = require('./routes/funcionariosRouters');
 
 // define as rotas de login
 // let usersRouter = require('./routes/users');
@@ -63,6 +64,8 @@ app.use('/', paginasRouter);
 // view sistema
 app.use('/sistema/dashboard', dashboardRouter);
 app.use('/sistema/clientes', clientesRouter);
+app.use('/sistema/funcionarios', funcionariosRouter);
+
 
 // view usuarios
 app.use('/users', usersRouter);

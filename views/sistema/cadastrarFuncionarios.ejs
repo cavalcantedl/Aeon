@@ -1,0 +1,263 @@
+<%- include("../partials/headerSistema") %>
+    <!-- Begin page -->
+    <div class="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        <%- include("../partials/sidebarSistema") %>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+                    <!-- Topbar Start -->
+                    <%- include("../partials/topbarSistema") %>
+                        <!-- end Topbar -->
+
+                        <!-- Start Content-->
+                        <div class="container-fluid">
+
+                            <!-- start page title -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="page-title-box">
+                                        <div class="page-title-right">
+                                            <ol class="breadcrumb m-0">
+                                                <li class="breadcrumb-item"><a
+                                                        href="http://localhost:3000/sistema/dashboard">Página
+                                                        inicial</a>
+                                                </li>
+                                                <li class="breadcrumb-item"><a
+                                                        href="http://localhost:3000/sistema/clientes">Funcionários</a>
+                                                </li>
+                                                <li class="breadcrumb-item active">Cadastrar Funcionários</li>
+                                            </ol>
+                                        </div>
+                                        <h4 class="page-title">Funcionários - Cadastrar funcionário</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end page title -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <!-- form start -->
+                                            <form class="needs-validation" method="POST"
+                                                action="/sistema/clientes/cadastrar" enctype="multipart/form-data"
+                                                novalidate>
+                                                <div class="row g-2">
+                                                    <div class="mb-3 col-md-6">
+                                                        <label class="form-label" for="validationCustom01">Nome
+                                                            <sup>*</sup> </label>
+                                                        <input type="text" class="form-control" id="validationCustom01"
+                                                            name="nomeFantasia" placeholder="Nome do funcionário"
+                                                            value="<%= locals.formConteudo && formConteudo.nomeFantasia %>"
+                                                            required>
+                                                        <% if (locals.alertaErros && alertaErros.nomeFantasia) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.nomeFantasia.msg%>
+                                                            </span>
+                                                            <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-6">
+                                                        <label class="form-label" for="validationCustom02">Salário
+                                                            <sup>*</sup></label>
+                                                        <input type="text" class="form-control" id="validationCustom02"
+                                                            name="razaoSocial" placeholder="Salário do funcionário." value="<%= locals.formConteudo && formConteudo.razaoSocial %>"
+                                                            required>
+                                                        <% if (locals.alertaErros && alertaErros.razaoSocial) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.razaoSocial.msg%>
+                                                            </span>
+                                                            <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="inputAddress" class="form-label"
+                                                            for="validationCustom03">Função<sup>*</sup></label>
+                                                        <input type="text" class="form-control" id="validationCustom03"
+                                                            name="endereco" placeholder="Função do funcionário" value="<%= locals.formConteudo && formConteudo.endereco %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.endereco) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.endereco.msg%>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="inputAddress" class="form-label"
+                                                            for="validationCustom03">Logradouro<sup>*</sup></label>
+                                                        <input type="text" class="form-control" id="validationCustom03"
+                                                            name="endereco" placeholder="Endereço do funcionário" value="<%= locals.formConteudo && formConteudo.endereco %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.endereco) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.endereco.msg%>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-2">
+                                                        <label class="form-label" for="validationCustom05">Numero<sup>*</sup></label>
+                                                        <input type="text" class="form-control" data-toggle="input-mask"
+                                                             id="validationCustom05"
+                                                            name="cep" placeholder="Numero" value="<%= locals.formConteudo && formConteudo.cep %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.cep) { %>
+                                                                <span class="col-md-5 erroCadastro">
+                                                                    <%= alertaErros.cep.msg%>
+                                                                </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-4">
+                                                        <label class="form-label" for="validationCustom05">Complemento<sup>*</sup></label>
+                                                        <input type="text" class="form-control" data-toggle="input-mask"
+                                                             id="validationCustom05"
+                                                            name="cep" placeholder="Complemento" value="<%= locals.formConteudo && formConteudo.cep %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.cep) { %>
+                                                                <span class="col-md-5 erroCadastro">
+                                                                    <%= alertaErros.cep.msg%>
+                                                                </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-2">
+                                                        <label class="form-label" for="validationCustom05">Bairro<sup>*</sup></label>
+                                                        <input type="text" class="form-control" data-toggle="input-mask"
+                                                             id="validationCustom05"
+                                                            name="cep" placeholder="Bairro" value="<%= locals.formConteudo && formConteudo.cep %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.cep) { %>
+                                                                <span class="col-md-5 erroCadastro">
+                                                                    <%= alertaErros.cep.msg%>
+                                                                </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-4">
+                                                        <label for="validationCustom03"
+                                                            class="form-label">Cidade<sup>*</sup></label>
+                                                        <input type="text" class="form-control" id="validationCustom03"
+                                                            name="cidade" placeholder="Cidade" value="<%= locals.formConteudo && formConteudo.cidade %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.cidade) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.cidade.msg%>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-3">
+                                                        <label for="validationCustom04"
+                                                            class="form-label">Estado<sup>*</sup></label>
+                                                        <select id="validationCustom04" name="estado"
+                                                            class="form-select" value="<%= locals.formConteudo && formConteudo.estado %>" required>
+                                                            <option selected disabled>Selecionar</option>
+                                                            <option>Acre (AC)</option>
+                                                            <option>Alagoas (AL)</option>
+                                                            <option>Amapá (AP)</option>
+                                                            <option>Amazonas (AM)</option>
+                                                            <option>Bahia (BA)</option>
+                                                            <option>Ceará (CE)</option>
+                                                            <option>Distrito Federal (DF)</option>
+                                                            <option>Espírito Santo (ES)</option>
+                                                            <option>Goiás (GO)</option>
+                                                            <option>Maranhão (MA)</option>
+                                                            <option>Mato Grosso (MT)</option>
+                                                            <option>Mato Grosso do Sul (MS)</option>
+                                                            <option>Minas Gerais (MG)</option>
+                                                            <option>Pará (PA)</option>
+                                                            <option>Paraíba (PB)</option>
+                                                            <option>Paraná (PR)</option>
+                                                            <option>Pernambuco (PE)</option>
+                                                            <option>Piauí (PI)</option>
+                                                            <option>Rio de Janeiro (RJ)</option>
+                                                            <option>Rio Grande do Norte (RN)</option>
+                                                            <option>Rio Grande do Sul (RS)</option>
+                                                            <option>Rondônia (RO)</option>
+                                                            <option>Roraima (RR)</option>
+                                                            <option>Santa Catarina (SC)</option>
+                                                            <option>São Paulo (SP)</option>
+                                                            <option>Sergipe (SE)</option>
+                                                            <option>Tocantins (TO)</option>
+                                                        </select>
+                                                        <% if (locals.alertaErros && alertaErros.estado) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.estado.msg%>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-3">
+                                                        <label class="form-label">País</label>
+                                                        <input type="text" class="form-control" id="validationCustom03"
+                                                            name="pais" placeholder="País">
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-2">
+                                                        <label class="form-label" for="validationCustom05">CEP<sup>*</sup></label>
+                                                        <input type="text" class="form-control" data-toggle="input-mask"
+                                                            data-mask-format="00000-000" id="validationCustom05"
+                                                            name="cep" placeholder="Ex.: xxxxx-xxx" value="<%= locals.formConteudo && formConteudo.cep %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.cep) { %>
+                                                                <span class="col-md-5 erroCadastro">
+                                                                    <%= alertaErros.cep.msg%>
+                                                                </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-2">
+                                                        <label class="form-label" for="validationCustom07">Data de
+                                                            Admissão<sup>*</sup></label>
+                                                        <input type="text" class="form-control" id="validationCustom07"
+                                                            name="dataEntrada" data-toggle="input-mask"
+                                                            data-mask-format="0000/00/00" placeholder="Ex.: AAAA/MM/DD" value="<%= locals.formConteudo && formConteudo.dataEntrada %>"
+                                                            required>
+                                                        <% if (locals.alertaErros && alertaErros.dataEntrada) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.dataEntrada.msg%>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-2">
+                                                        <label class="form-label">Data de Demissão</label>
+                                                        <input type="text" class="form-control" data-toggle="input-mask"
+                                                            data-mask-format="0000/00/00" name="dataSaida"
+                                                            placeholder="Ex.: AAAA/MM/DD">
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-6">
+                                                        <label for="example-fileinput" class="form-label">Foto do
+                                                            funcionário</label>
+                                                        <input id="logotipoCliente" name="logotipoCliente"
+                                                            class="form-control" accept=".jpg, .jpeg, .png, .webp"
+                                                            type="file" multiple>
+                                                    </div>
+
+
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button class="btn btn-danger col-md-2 "
+                                                            type="reset">Cancelar</button>
+
+                                                        <button class="btn btn-primary col-md-2 "
+                                                            type="submit">Cadastrar funcionário</button>
+                                                    </div>
+
+
+                                                </div>
+                                            </form>
+                                            <!-- form end -->
+
+
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col -->
+                            </div>
+
+                        </div> <!-- container -->
+
+                </div> <!-- content -->
+
+                <!-- Footer Start -->
+                <%- include("../partials/footerSistema") %>
