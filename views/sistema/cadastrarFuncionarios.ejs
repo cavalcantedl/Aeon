@@ -29,7 +29,7 @@
                                                         inicial</a>
                                                 </li>
                                                 <li class="breadcrumb-item"><a
-                                                        href="http://localhost:3000/sistema/clientes">Funcionários</a>
+                                                        href="http://localhost:3000/sistema/funcionarios">Funcionários</a>
                                                 </li>
                                                 <li class="breadcrumb-item active">Cadastrar Funcionários</li>
                                             </ol>
@@ -45,19 +45,19 @@
                                         <div class="card-body">
                                             <!-- form start -->
                                             <form class="needs-validation" method="POST"
-                                                action="/sistema/clientes/cadastrar" enctype="multipart/form-data"
+                                                action="/sistema/funcionarios/cadastrar" enctype="multipart/form-data"
                                                 novalidate>
                                                 <div class="row g-2">
                                                     <div class="mb-3 col-md-6">
                                                         <label class="form-label" for="validationCustom01">Nome
                                                             <sup>*</sup> </label>
                                                         <input type="text" class="form-control" id="validationCustom01"
-                                                            name="nomeFantasia" placeholder="Nome do funcionário"
-                                                            value="<%= locals.formConteudo && formConteudo.nomeFantasia %>"
+                                                            name="nome" placeholder="Nome do funcionário"
+                                                            value="<%= locals.formConteudo && formConteudo.nome %>"
                                                             required>
-                                                        <% if (locals.alertaErros && alertaErros.nomeFantasia) { %>
+                                                        <% if (locals.alertaErros && alertaErros.nome) { %>
                                                             <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.nomeFantasia.msg%>
+                                                                <%= alertaErros.nome.msg%>
                                                             </span>
                                                             <% } %>
                                                     </div>
@@ -66,11 +66,11 @@
                                                         <label class="form-label" for="validationCustom02">Salário
                                                             <sup>*</sup></label>
                                                         <input type="text" class="form-control" id="validationCustom02"
-                                                            name="razaoSocial" placeholder="Salário do funcionário." value="<%= locals.formConteudo && formConteudo.razaoSocial %>"
+                                                            name="salario" placeholder="Salário do funcionário." value="<%= locals.formConteudo && formConteudo.salario %>"
                                                             required>
-                                                        <% if (locals.alertaErros && alertaErros.razaoSocial) { %>
+                                                        <% if (locals.alertaErros && alertaErros.salario) { %>
                                                             <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.razaoSocial.msg%>
+                                                                <%= alertaErros.salario.msg%>
                                                             </span>
                                                             <% } %>
                                                     </div>
@@ -79,10 +79,10 @@
                                                         <label for="inputAddress" class="form-label"
                                                             for="validationCustom03">Função<sup>*</sup></label>
                                                         <input type="text" class="form-control" id="validationCustom03"
-                                                            name="endereco" placeholder="Função do funcionário" value="<%= locals.formConteudo && formConteudo.endereco %>" required>
-                                                        <% if (locals.alertaErros && alertaErros.endereco) { %>
+                                                            name="funcao" placeholder="Função do funcionário" value="<%= locals.formConteudo && formConteudo.funcao %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.funcao) { %>
                                                             <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.endereco.msg%>
+                                                                <%= alertaErros.funcao.msg%>
                                                             </span>
                                                         <% } %>
                                                     </div>
@@ -91,10 +91,10 @@
                                                         <label for="inputAddress" class="form-label"
                                                             for="validationCustom03">Logradouro<sup>*</sup></label>
                                                         <input type="text" class="form-control" id="validationCustom03"
-                                                            name="endereco" placeholder="Endereço do funcionário" value="<%= locals.formConteudo && formConteudo.endereco %>" required>
-                                                        <% if (locals.alertaErros && alertaErros.endereco) { %>
+                                                            name="logradouro" placeholder="Endereço do funcionário" value="<%= locals.formConteudo && formConteudo.logradouro %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.logradouro) { %>
                                                             <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.endereco.msg%>
+                                                                <%= alertaErros.logradouro.msg%>
                                                             </span>
                                                         <% } %>
                                                     </div>
@@ -103,10 +103,10 @@
                                                         <label class="form-label" for="validationCustom05">Numero<sup>*</sup></label>
                                                         <input type="text" class="form-control" data-toggle="input-mask"
                                                              id="validationCustom05"
-                                                            name="cep" placeholder="Numero" value="<%= locals.formConteudo && formConteudo.cep %>" required>
-                                                        <% if (locals.alertaErros && alertaErros.cep) { %>
+                                                            name="numero" placeholder="Numero" value="<%= locals.formConteudo && formConteudo.numero %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.numero) { %>
                                                                 <span class="col-md-5 erroCadastro">
-                                                                    <%= alertaErros.cep.msg%>
+                                                                    <%= alertaErros.numero.msg%>
                                                                 </span>
                                                         <% } %>
                                                     </div>
@@ -115,22 +115,17 @@
                                                         <label class="form-label" for="validationCustom05">Complemento<sup>*</sup></label>
                                                         <input type="text" class="form-control" data-toggle="input-mask"
                                                              id="validationCustom05"
-                                                            name="cep" placeholder="Complemento" value="<%= locals.formConteudo && formConteudo.cep %>" required>
-                                                        <% if (locals.alertaErros && alertaErros.cep) { %>
-                                                                <span class="col-md-5 erroCadastro">
-                                                                    <%= alertaErros.cep.msg%>
-                                                                </span>
-                                                        <% } %>
+                                                            name="complemento" placeholder="Complemento">
                                                     </div>
 
                                                     <div class="mb-3 col-md-2">
                                                         <label class="form-label" for="validationCustom05">Bairro<sup>*</sup></label>
                                                         <input type="text" class="form-control" data-toggle="input-mask"
                                                              id="validationCustom05"
-                                                            name="cep" placeholder="Bairro" value="<%= locals.formConteudo && formConteudo.cep %>" required>
-                                                        <% if (locals.alertaErros && alertaErros.cep) { %>
+                                                            name="bairro" placeholder="Bairro" value="<%= locals.formConteudo && formConteudo.bairro %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.bairro) { %>
                                                                 <span class="col-md-5 erroCadastro">
-                                                                    <%= alertaErros.cep.msg%>
+                                                                    <%= alertaErros.bairro.msg%>
                                                                 </span>
                                                         <% } %>
                                                     </div>
@@ -191,7 +186,12 @@
                                                     <div class="mb-3 col-md-3">
                                                         <label class="form-label">País</label>
                                                         <input type="text" class="form-control" id="validationCustom03"
-                                                            name="pais" placeholder="País">
+                                                            name="pais" placeholder="País"value="<%= locals.formConteudo && formConteudo.pais %>" required>
+                                                            <% if (locals.alertaErros && alertaErros.pais) { %>
+                                                                <span class="col-md-5 erroCadastro">
+                                                                    <%= alertaErros.pais.msg%>
+                                                                </span>
+                                                            <% } %>
                                                     </div>
 
                                                     <div class="mb-3 col-md-2">
@@ -230,7 +230,7 @@
                                                     <div class="mb-3 col-md-6">
                                                         <label for="example-fileinput" class="form-label">Foto do
                                                             funcionário</label>
-                                                        <input id="logotipoCliente" name="logotipoCliente"
+                                                        <input id="fotoFuncionario" name="fotoFuncionario"
                                                             class="form-control" accept=".jpg, .jpeg, .png, .webp"
                                                             type="file" multiple>
                                                     </div>

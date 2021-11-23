@@ -21,32 +21,32 @@ let funcionariosController = {
             logoImagem: "../images/aeon-logo.png",
         })
     },
-    // acaoCadastrarFuncionarios:(req, res, next) =>{        
-    //     let alertaErros = validationResult(req);
+    acaoCadastrarFuncionarios:(req, res, next) =>{        
+        let alertaErros = validationResult(req);
         
-    //     if (alertaErros.isEmpty()){
-    //         res.redirect("cadastrar");
-    //         console.log(req.body)
-    //         console.log("Deu bom!");
-    //         console.log(alertaErros);
-    //     }
-    //     else {
-    //         res.render("sistema/cadastrarClientes", {
-    //             titulo: "Sistema de Gestão para Agências de Marketing",
-    //             separador: "|",
-    //             marca: "Aeon",
-    //             descricao: "Gestão descoplicada para agências de marketing.",
-    //             favicon: "../images/aeon-logo.png",
-    //             logoImagem: "../images/aeon-logo.png",
-    //             alertaErros: alertaErros.mapped(),
-    //             formConteudo: req.body,
-    //         })
-    //         console.log(alertaErros.mapped());
-    //         console.log(req.body);
-    //         console.log("Deu ruim!");
-    //         console.log(alertaErros);
-    //     }
-    // },
+        if (alertaErros.isEmpty()){
+            res.redirect("/sistema/funcionarios");
+            console.log(req.body)
+            console.log("Deu bom!");
+            console.log(alertaErros);
+        }
+        else {
+            res.render("sistema/cadastrarFuncionarios", {
+                titulo: "Sistema de Gestão para Agências de Marketing",
+                separador: "|",
+                marca: "Aeon",
+                descricao: "Gestão descoplicada para agências de marketing.",
+                favicon: "../images/aeon-logo.png",
+                logoImagem: "../images/aeon-logo.png",
+                alertaErros: alertaErros.mapped(),
+                formConteudo: req.body,
+            })
+            console.log(alertaErros.mapped());
+            console.log(req.body);
+            console.log("Deu ruim!");
+            console.log(alertaErros);
+        }
+    },
 };
 
 module.exports = funcionariosController;
