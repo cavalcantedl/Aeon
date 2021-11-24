@@ -9,7 +9,6 @@ const validaCadastroFuncionario = [
     check("cidade").notEmpty().withMessage("O campo não pode ficar vazio"),
     check("estado").notEmpty().withMessage("O campo não pode ficar vazio"),
     check("cep").notEmpty().withMessage("O campo não pode ficar vazio").isLength({min:9, max:9}).withMessage("Insira um valor de CEP válido"),
-    check("pais").notEmpty().withMessage("O campo não pode ficar vazio"),
     check("dataEntrada").notEmpty().withMessage("O campo não pode ficar vazio").isDate().withMessage("Insira um valor de data válido.")
 ];
 
