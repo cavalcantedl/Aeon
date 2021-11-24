@@ -5,9 +5,9 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        tipo: DataTypes.STRING,
-        valor: DataTypes.DECIMAL(10,2).UNSIGNED,
-        tipoCusto: DataTypes.ENUM('fixo', 'variado'),
+        nome_custo: DataTypes.STRING,
+        valor_custo: DataTypes.DECIMAL(10,2).UNSIGNED,
+        tipo_custo: DataTypes.ENUM('fixo', 'variado'),
         ferramenta: DataTypes.INTEGER.UNSIGNED,
         funcionario: DataTypes.INTEGER.UNSIGNED
 
