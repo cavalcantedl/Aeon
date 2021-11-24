@@ -12,7 +12,7 @@ router.get('/', funcionariosController.funcionarios);
 
 /* GET Cadastrar Funcionários. */
 router.get('/cadastrar', funcionariosController.cadastrarFuncionarios);
-router.post('/cadastrar', /*validaCadastro.validaCadastroFuncionario,*/ funcionariosController.acaoCadastrarFuncionarios);
+router.post('/cadastrar', validaCadastro.validaCadastroFuncionario, funcionariosController.acaoCadastrarFuncionarios);
 
 
 module.exports = router;
