@@ -7,7 +7,7 @@ module.exports = {
         nome_metrica: { type: Sequelize.DataTypes.STRING, allowNull: false },
         tipo_servico: { type: Sequelize.DataTypes.STRING, allowNull: false },
         valor_metrica: { type: Sequelize.DataTypes.DECIMAL(6, 2).UNSIGNED, allowNull: false },
-        id_servico: { type: Sequelize.DataTypes.INTEGER, references: { model: 'servicos', key: 'id_servico' } },
+        id_servico: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'servicos', key: 'id_servico' } },
         createdAt: Sequelize.DataTypes.DATE,
         updatedAt: Sequelize.DataTypes.DATE,
         deletedAt: Sequelize.DataTypes.DATE
