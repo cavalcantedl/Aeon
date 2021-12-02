@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     Contrato.associate = (models) => {
         Contrato.belongsTo(models.Cliente, { as: "clienteObj", foreignKey: "id_cliente" });
         Contrato.belongsTo(models.Funcionario, { as: "funcionarioObj", foreignKey: "id_funcionario " });
-        Contrato.belongsToMany(models.Servico, { as: "servicoObj", foreignKey: "id_servico", through: models.ServicoHasContrato });
+        Contrato.belongsToMany(models.Servico, { as: "servicoObj", foreignKey: "id_servico", through: "models.ServicoHasContrato" });
     } 
  
     return Contrato;
