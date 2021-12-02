@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-     await queryInterface.createTable('cliente_has_funcionario', { 
+     await queryInterface.createTable('clientes_has_funcionarios', { 
         id_cliente: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, allowNull: false, references: { model: 'clientes', key: 'id_cliente' } },
         id_funcionario: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, allowNull: false, references: { model: 'funcionarios', key: 'id_funcionario' } },
         createdAt: Sequelize.DataTypes.DATE,
@@ -13,6 +13,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-     await queryInterface.dropTable('cliente_has_funcionario');
+     await queryInterface.dropTable('clientes_has_funcionarios');
   }
 };
