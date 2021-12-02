@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     Servico.associate = (models) => {
         Servico.hasMany(models.Comissao, { as: "comissaoObj", foreignKey: "id_servico" });
         Servico.hasMany(models.Metrica, { as: "metricaObj", foreignKey: "id_servico" });
-        Servico.belongsToMany(models.Contrato, { as: "contratoObj", foreignKey: "id_contrato", through: models.ServicoHasContrato });
+        Servico.belongsToMany(models.Contrato, { as: "contratoObj", foreignKey: "id_contrato", through: "models.ServicoHasContrato" });
     } 
 
     return Servico;

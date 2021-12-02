@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         Funcionario.hasMany(models.Comissao, { as: "comissaoObj", foreignKey: "id_funcionario" });
         Funcionario.hasMany(models.Endereco, { as: "enderecoObj", foreignKey: "id_funcionario" });
         Funcionario.belongsToMany(models.Cliente, { as: "clienteObj", foreignKey: "id_cliente", through: models.ClienteHasFuncionario });
-        Funcionario.belongsToMany(models.Ferramenta, { as: "ferramentaObj", foreignKey: "id_ferramenta", through: models.FuncionarioHasFerramenta });
+        Funcionario.belongsToMany(models.Ferramenta, { as: "ferramentaObj", foreignKey: "id_ferramenta", through: "models.FuncionarioHasFerramenta" });
     } 
 
 

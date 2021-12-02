@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     Cliente.associate = (models) => {
         Cliente.hasMany(models.Endereco, { as: "enderecoObj", foreignKey: "id_cliente" });
         Cliente.hasMany(models.Contrato, { as: "contratoObj", foreignKey: "id_cliente" });
-        Cliente.belongsToMany(models.Funcionario, { as: "funcionarioObj", foreignKey: "id_funcionario", through: models.ClienteHasFuncionario }); // o sistema não precisa da model funcionario_has_cliente. Nesse caso é só colocar em through o nome da tabela intermediária.
+        Cliente.belongsToMany(models.Funcionario, { as: "funcionarioObj", foreignKey: "id_funcionario", through: "models.ClienteHasFuncionario" }); // o sistema não precisa da model funcionario_has_cliente. Nesse caso é só colocar em through o nome da tabela intermediária.
     } 
 
     return Cliente;

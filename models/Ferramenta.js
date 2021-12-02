@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Ferramenta.associate = (models) => {
-        Ferramenta.belongsToMany(models.Funcionario, { as: "funcionarioObj", foreignKey: "id_funcionario", through: models.FuncionarioHasFerramenta });
+        Ferramenta.belongsToMany(models.Funcionario, { as: "funcionarioObj", foreignKey: "id_funcionario", through: "models.FuncionarioHasFerramenta" });
     } 
 
     return Ferramenta;
