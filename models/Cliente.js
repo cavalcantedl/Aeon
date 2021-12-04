@@ -6,14 +6,14 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         razaoSocial: DataTypes.STRING,
-        cnpj: DataTypes.STRING(14),
+        cnpj: DataTypes.STRING(18),
         nomeFantasia: DataTypes.STRING,
         nomeResponsavel: DataTypes.STRING,
-        telefoneFixo: DataTypes.STRING(12),
-        telefoneCelular: DataTypes.STRING(12),
+        telefoneFixo: DataTypes.STRING(14),
+        telefoneCelular: DataTypes.STRING(15),
         dataEntrada : DataTypes.DATE,
-        dataSaida : DataTypes.DATE
-        
+        dataSaida : DataTypes.DATE,
+        logotipoCliente: DataTypes.BLOB('long')
     }, {
         tableName: 'clientes',
         timestamps: true,
