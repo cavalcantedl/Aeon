@@ -4,7 +4,7 @@ module.exports = {
       return queryInterface.addColumn(
         'Clientes',
         'endereco',
-       Sequelize.BOOLEAN
+        {type: Sequelize.INTEGER.UNSIGNED,  references: { model: 'enderecos', key: 'id_endereco' } }
       );
   
     },
