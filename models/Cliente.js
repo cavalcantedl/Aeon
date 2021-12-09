@@ -1,3 +1,5 @@
+const Endereco = require("./Endereco");
+
 module.exports = (sequelize, DataTypes) => {
     const Cliente = sequelize.define("Cliente", {
         id_cliente : {
@@ -13,7 +15,14 @@ module.exports = (sequelize, DataTypes) => {
         telefoneCelular: DataTypes.STRING(15),
         dataEntrada : DataTypes.DATE,
         dataSaida : DataTypes.DATE,
-        logotipoCliente: DataTypes.BLOB('long')
+        logotipoCliente: DataTypes.BLOB('long'),
+        endereco: { type : DataTypes.INTEGER, 
+            references: {
+                model: Endereco,
+                key: 'endereco'
+            }
+
+        }
     }, {
         tableName: 'clientes',
         timestamps: true,

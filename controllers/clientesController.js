@@ -27,22 +27,29 @@ let clientesController = {
         
         if (alertaErros.isEmpty()){
             console.log(req.body);
-            const { nomeFantasia, razaoSocial, endereco, cidade, estado, pais, cep, cnpj, celular, telefoneFixo, dataEntrada, dataSaida, logotipoCliente, nomeResponsavel } = req.body;
-            const resultado = await Cliente.create ({
-                nomeFantasia: nomeFantasia,
-                razaoSocial: razaoSocial,
-                logradouro: endereco,
-                cidade: cidade,
-                estado: estado,
-                pais: pais,
-                cep: cep,
-                cnpj: cnpj,
-                telefoneCelular: celular,
-                telefoneFixo: telefoneFixo,
-                dataEntrada: dataEntrada,
-                dataSaida: dataSaida,
-                logotipoCliente: logotipoCliente,
-                nomeResponsavel: nomeResponsavel,
+            const clientesObj = {
+                    nomeFantasia: req.body.nomeFantasia,
+                    razaoSocial: req.body.razaoSocial,
+                    cnpj: req.body.cnpj,
+                    telefoneCelular: req.body.celular,
+                    telefoneFixo: req.body.telefoneFixo,
+                    dataEntrada: req.body.dataEntrada,
+                    dataSaida: req.body.dataSaida,
+                    logotipoCliente: req.body.logotipoCliente,
+                    nomeResponsavel: req.body.nomeResponsavel,
+                    endereco : {
+                        logradouro: req.body.logradouro,
+                        numero: req.body.numero,
+                        complemento: req.body.complemento,
+                        bairro: req.body.bairro,
+                        cidade: req.body.cidade,
+                        estado: req.body.estado,
+                        pais: req.body.pais,
+                        cep: req.body.cep,
+                    }
+            }
+            const resultado = await Cliente.create (clientesObj, 
+                { include : ['enderecoObj']
             });
 
             console.log(resultado);
