@@ -1,4 +1,4 @@
-const { Cliente } = require("../models");
+const db  = require("../models");
 const { validationResult } = require("express-validator");
 
 let clientesController = {
@@ -22,20 +22,23 @@ let clientesController = {
             logoImagem: "../images/aeon-logo.png",
         })
     },
-    acaoCadastrarClientes: async (req, res, next) =>{        
+    acaoCadastrarClientes: async (req, res, next) => {        
         let alertaErros = validationResult(req);
         
         if (alertaErros.isEmpty()){
             console.log(req.body);
             const { nomeFantasia, razaoSocial, endereco, cidade, estado, pais, cep, cnpj, celular, telefoneFixo, dataEntrada, dataSaida, logotipoCliente, nomeResponsavel } = req.body;
-            const resultado = await Cliente.create ({
+            const clienteObj = {
                 nomeFantasia: nomeFantasia,
                 razaoSocial: razaoSocial,
-                logradouro: endereco,
-                cidade: cidade,
-                estado: estado,
-                pais: pais,
-                cep: cep,
+                enderecoObj: 
+                    {
+                        logradouro: endereco,
+                        cidade: cidade,
+                        estado: estado,
+                        pais: pais,
+                        cep: cep
+                    },
                 cnpj: cnpj,
                 telefoneCelular: celular,
                 telefoneFixo: telefoneFixo,
@@ -43,9 +46,11 @@ let clientesController = {
                 dataSaida: dataSaida,
                 logotipoCliente: logotipoCliente,
                 nomeResponsavel: nomeResponsavel,
-            });
+            };
 
-            console.log(resultado);
+            await db.Cliente.create(clienteObj, { include: ["enderecoObj"]});
+
+            console.log(clienteObj);
 
             res.redirect("cadastrar");
             console.log(req.body)
