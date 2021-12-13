@@ -1,4 +1,4 @@
-const { Cliente } = require("../models");
+const db  = require("../models");
 const { validationResult } = require("express-validator");
 
 let clientesController = {
@@ -22,37 +22,35 @@ let clientesController = {
             logoImagem: "../images/aeon-logo.png",
         })
     },
-    acaoCadastrarClientes: async (req, res, next) =>{        
+    acaoCadastrarClientes: async (req, res, next) => {        
         let alertaErros = validationResult(req);
         
         if (alertaErros.isEmpty()){
             console.log(req.body);
-            const clientesObj = {
-                    nomeFantasia: req.body.nomeFantasia,
-                    razaoSocial: req.body.razaoSocial,
-                    cnpj: req.body.cnpj,
-                    telefoneCelular: req.body.celular,
-                    telefoneFixo: req.body.telefoneFixo,
-                    dataEntrada: req.body.dataEntrada,
-                    dataSaida: req.body.dataSaida,
-                    logotipoCliente: req.body.logotipoCliente,
-                    nomeResponsavel: req.body.nomeResponsavel,
-                    endereco : {
-                        logradouro: req.body.logradouro,
-                        numero: req.body.numero,
-                        complemento: req.body.complemento,
-                        bairro: req.body.bairro,
-                        cidade: req.body.cidade,
-                        estado: req.body.estado,
-                        pais: req.body.pais,
-                        cep: req.body.cep,
-                    }
-            }
-            const resultado = await Cliente.create (clientesObj, 
-                { include : ['enderecoObj']
-            });
+            const { nomeFantasia, razaoSocial, endereco, cidade, estado, pais, cep, cnpj, celular, telefoneFixo, dataEntrada, dataSaida, logotipoCliente, nomeResponsavel } = req.body;
+            const clienteObj = {
+                nomeFantasia: nomeFantasia,
+                razaoSocial: razaoSocial,
+                enderecoObj: 
+                    {
+                        logradouro: endereco,
+                        cidade: cidade,
+                        estado: estado,
+                        pais: pais,
+                        cep: cep
+                    },
+                cnpj: cnpj,
+                telefoneCelular: celular,
+                telefoneFixo: telefoneFixo,
+                dataEntrada: dataEntrada,
+                dataSaida: dataSaida,
+                logotipoCliente: logotipoCliente,
+                nomeResponsavel: nomeResponsavel,
+            };
 
-            console.log(resultado);
+            await db.Cliente.create(clienteObj, { include: ["enderecoObj"]});
+
+            console.log(clienteObj);
 
             res.redirect("cadastrar");
             console.log(req.body)
