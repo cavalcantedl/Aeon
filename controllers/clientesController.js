@@ -27,13 +27,16 @@ let clientesController = {
         
         if (alertaErros.isEmpty()){
             console.log(req.body);
-            const { nomeFantasia, razaoSocial, endereco, cidade, estado, pais, cep, cnpj, celular, telefoneFixo, dataEntrada, dataSaida, logotipoCliente, nomeResponsavel } = req.body;
+            const { nomeFantasia, razaoSocial, endereco, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, celular, telefoneFixo, dataEntrada, dataSaida, logotipoCliente, nomeResponsavel } = req.body;
             const clienteObj = {
                 nomeFantasia: nomeFantasia,
                 razaoSocial: razaoSocial,
                 enderecoObj: 
                     {
                         logradouro: endereco,
+                        numero: numero,
+                        complemento: complemento,
+                        bairro: bairro,
                         cidade: cidade,
                         estado: estado,
                         pais: pais,

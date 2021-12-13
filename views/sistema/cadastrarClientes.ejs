@@ -75,14 +75,50 @@
                                                             <% } %>
                                                     </div>
 
-                                                    <div class="mb-3">
+                                                    <div class="mb-3 col-md-7">
                                                         <label for="inputAddress" class="form-label"
-                                                            for="validationCustom03">Endereço<sup>*</sup></label>
+                                                            for="validationCustom03">Logradouro<sup>*</sup></label>
                                                         <input type="text" class="form-control" id="validationCustom03"
-                                                            name="endereco" placeholder="Endereço do cliente" value="<%= locals.formConteudo && formConteudo.endereco %>" required>
+                                                            name="endereco" placeholder="Logradouro" value="<%= locals.formConteudo && formConteudo.endereco %>" required>
                                                         <% if (locals.alertaErros && alertaErros.endereco) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.endereco.msg%>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-2">
+                                                        <label for="validationCustom03"
+                                                            class="form-label">Número<sup>*</sup></label>
+                                                        <input type="text" class="form-control" id="validationCustom03"
+                                                            name="numero" placeholder="Número" value="<%= locals.formConteudo && formConteudo.numero %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.numero) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.numero.msg%>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-3">
+                                                        <label for="validationCustom03"
+                                                            class="form-label">Complemento<sup>*</sup></label>
+                                                        <input type="text" class="form-control" id="validationCustom03"
+                                                            name="complemento" placeholder="Complemento" value="<%= locals.formConteudo && formConteudo.complemento %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.complemento) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.complemento.msg%>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-3">
+                                                        <label for="validationCustom03"
+                                                            class="form-label">Bairro<sup>*</sup></label>
+                                                        <input type="text" class="form-control" id="validationCustom03"
+                                                            name="bairro" placeholder="Bairro" value="<%= locals.formConteudo && formConteudo.bairro %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.bairro) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.bairro.msg%>
                                                             </span>
                                                         <% } %>
                                                     </div>
@@ -99,39 +135,39 @@
                                                         <% } %>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-3">
+                                                    <div class="mb-3 col-md-2">
                                                         <label for="validationCustom04"
                                                             class="form-label">Estado<sup>*</sup></label>
                                                         <select id="validationCustom04" name="estado"
                                                             class="form-select" value="<%= locals.formConteudo && formConteudo.estado %>" required>
                                                             <option selected disabled>Selecionar</option>
-                                                            <option>Acre (AC)</option>
-                                                            <option>Alagoas (AL)</option>
-                                                            <option>Amapá (AP)</option>
-                                                            <option>Amazonas (AM)</option>
-                                                            <option>Bahia (BA)</option>
-                                                            <option>Ceará (CE)</option>
-                                                            <option>Distrito Federal (DF)</option>
-                                                            <option>Espírito Santo (ES)</option>
-                                                            <option>Goiás (GO)</option>
-                                                            <option>Maranhão (MA)</option>
-                                                            <option>Mato Grosso (MT)</option>
-                                                            <option>Mato Grosso do Sul (MS)</option>
-                                                            <option>Minas Gerais (MG)</option>
-                                                            <option>Pará (PA)</option>
-                                                            <option>Paraíba (PB)</option>
-                                                            <option>Paraná (PR)</option>
-                                                            <option>Pernambuco (PE)</option>
-                                                            <option>Piauí (PI)</option>
-                                                            <option>Rio de Janeiro (RJ)</option>
-                                                            <option>Rio Grande do Norte (RN)</option>
-                                                            <option>Rio Grande do Sul (RS)</option>
-                                                            <option>Rondônia (RO)</option>
-                                                            <option>Roraima (RR)</option>
-                                                            <option>Santa Catarina (SC)</option>
-                                                            <option>São Paulo (SP)</option>
-                                                            <option>Sergipe (SE)</option>
-                                                            <option>Tocantins (TO)</option>
+                                                            <option>AC</option>
+                                                            <option>AL</option>
+                                                            <option>AP</option>
+                                                            <option>AM</option>
+                                                            <option>BA</option>
+                                                            <option>CE</option>
+                                                            <option>DF</option>
+                                                            <option>ES</option>
+                                                            <option>GO</option>
+                                                            <option>MA</option>
+                                                            <option>MT</option>
+                                                            <option>MS</option>
+                                                            <option>MG</option>
+                                                            <option>PA</option>
+                                                            <option>PB</option>
+                                                            <option>PR</option>
+                                                            <option>PE</option>
+                                                            <option>PI</option>
+                                                            <option>RJ</option>
+                                                            <option>RN</option>
+                                                            <option>RS</option>
+                                                            <option>RO</option>
+                                                            <option>RR</option>
+                                                            <option>SC</option>
+                                                            <option>SP</option>
+                                                            <option>SE</option>
+                                                            <option>TO</option>
                                                         </select>
                                                         <% if (locals.alertaErros && alertaErros.estado) { %>
                                                             <span class="col-md-5 erroCadastro">
@@ -211,7 +247,7 @@
                                                             placeholder="Ex.: AAAA/MM/DD">
                                                     </div>
 
-                                                    <div class="mb-3 col-md-6">
+                                                    <div class="mb-3 col-md-5">
                                                         <label for="example-fileinput" class="form-label">Logotipo do
                                                             Cliente</label>
                                                         <input id="logotipoCliente" name="logotipoCliente"
@@ -219,7 +255,7 @@
                                                             type="file" multiple>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-6">
+                                                    <div class="mb-3 col-md-5">
                                                         <label class="form-label">Nome
                                                             do Responsável pela empresa<sup>*</sup></label>
                                                         <input type="text" class="form-control" id="nomeResponsavel"
