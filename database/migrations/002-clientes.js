@@ -12,7 +12,7 @@ module.exports = {
         nomeResponsavel: { type: Sequelize.DataTypes.STRING, allowNull: false },
         dataEntrada: { type: Sequelize.DataTypes.DATE, allowNull: false },
         dataSaida: { type: Sequelize.DataTypes.DATE, allowNull: true },
-        logotipoCliente: { type: Sequelize.DataTypes.BLOB('long'), allowNull: true },
+        logotipoCliente: { type: Sequelize.DataTypes.STRING, allowNull: true },
         createdAt: Sequelize.DataTypes.DATE,
         updatedAt: Sequelize.DataTypes.DATE,
         deletedAt: Sequelize.DataTypes.DATE

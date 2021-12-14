@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         telefoneCelular: DataTypes.STRING(15),
         dataEntrada : DataTypes.DATE,
         dataSaida : DataTypes.DATE,
-        logotipoCliente: DataTypes.BLOB('long')
+        logotipoCliente: DataTypes.STRING
     }, {
         tableName: 'clientes',
         timestamps: true,

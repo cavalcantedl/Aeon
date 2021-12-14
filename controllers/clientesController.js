@@ -27,7 +27,8 @@ let clientesController = {
         
         if (alertaErros.isEmpty()){
             console.log(req.body);
-            const { nomeFantasia, razaoSocial, endereco, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, celular, telefoneFixo, dataEntrada, dataSaida, logotipoCliente, nomeResponsavel } = req.body;
+            const { nomeFantasia, razaoSocial, endereco, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, celular, telefoneFixo, dataEntrada, dataSaida, nomeResponsavel } = req.body;
+            const logotipoCliente = req.file.path;
             const clienteObj = {
                 nomeFantasia: nomeFantasia,
                 razaoSocial: razaoSocial,
@@ -56,7 +57,8 @@ let clientesController = {
             console.log(clienteObj);
 
             res.redirect("cadastrar");
-            console.log(req.body)
+            console.log(req.body);
+            console.log(req.file);
             console.log("Deu bom!");
             console.log(alertaErros);
         }
