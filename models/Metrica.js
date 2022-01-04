@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         nomeMetrica: DataTypes.STRING,
         tipoMetrica: DataTypes.STRING,
         valorMetrica: DataTypes.DECIMAL(6,2).UNSIGNED,
-        servico: DataTypes.INTEGER.UNSIGNED
+        id_servico: DataTypes.INTEGER.UNSIGNED
 
     }, {
         tableName: 'metricas',

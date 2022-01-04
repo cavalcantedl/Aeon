@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         descricaoContrato: DataTypes.TEXT,
-        cliente: DataTypes.INTEGER.UNSIGNED,
-        funcionario: DataTypes.INTEGER.UNSIGNED
+        id_cliente: DataTypes.INTEGER.UNSIGNED,
+        id_funcionario: DataTypes.INTEGER.UNSIGNED
         
     }, {
         tableName: 'contratos',

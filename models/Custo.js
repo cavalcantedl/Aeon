@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
         nome_custo: DataTypes.STRING,
         valor_custo: DataTypes.DECIMAL(10,2).UNSIGNED,
         tipo_custo: DataTypes.ENUM('fixo', 'variado'),
-        ferramenta: DataTypes.INTEGER.UNSIGNED,
-        funcionario: DataTypes.INTEGER.UNSIGNED
+        id_ferramenta: DataTypes.INTEGER.UNSIGNED,
+        id_funcionario: DataTypes.INTEGER.UNSIGNED
 
     }, {
         tableName: 'custos',

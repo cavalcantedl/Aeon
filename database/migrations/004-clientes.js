@@ -13,6 +13,7 @@ module.exports = {
         dataEntrada: { type: Sequelize.DataTypes.DATE, allowNull: false },
         dataSaida: { type: Sequelize.DataTypes.DATE, allowNull: true },
         logotipoCliente: { type: Sequelize.DataTypes.BLOB('long'), allowNull: true },
+        id_endereco: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'enderecos', key: 'id_endereco' } },
         createdAt: Sequelize.DataTypes.DATE,
         updatedAt: Sequelize.DataTypes.DATE,
         deletedAt: Sequelize.DataTypes.DATE

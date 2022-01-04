@@ -45,7 +45,7 @@
                                         <div class="card-body">
                                             <!-- form start -->
                                             <form class="needs-validation" method="POST"
-                                                action="/sistema/clientes/cadastrar" enctype="multipart/form-data"
+                                                action="<%= formAction %>" enctype="multipart/form-data"
                                                 novalidate>
                                                 <div class="row g-2">
                                                     <div class="mb-3 col-md-6">
@@ -64,7 +64,7 @@
 
                                                     <div class="mb-3 col-md-6">
                                                         <label class="form-label" for="validationCustom02">Razão
-                                                            Social<sup>*</sup></label>
+                                                            Social<sup>*</sup></label>                                                      
                                                         <input type="text" class="form-control" id="validationCustom02"
                                                             name="razaoSocial" placeholder="A razão social do cliente." value="<%= locals.formConteudo && formConteudo.razaoSocial %>"
                                                             required>
@@ -78,11 +78,16 @@
                                                     <div class="mb-3 col-md-7">
                                                         <label for="inputAddress" class="form-label"
                                                             for="validationCustom03">Logradouro<sup>*</sup></label>
+                                                            <%if(isEditing) { %>
+                                                                <input type="text" id="validationCustom01" name="nomeFantasia" placeholder="Nome fantasia do cliente"
+                                                                class="form-control" value="<%=locals.formConteudo && formConteudo.endereco.logradouro%>" required>
+                                                            <%}else{ %>
                                                         <input type="text" class="form-control" id="validationCustom03"
-                                                            name="endereco" placeholder="Logradouro" value="<%= locals.formConteudo && formConteudo.endereco %>" required>
-                                                        <% if (locals.alertaErros && alertaErros.endereco) { %>
+                                                            name="logradouro" placeholder="Logradouro" value="<%= locals.formConteudo && formConteudo.logradouro %>" required>
+                                                            <% } %>
+                                                        <% if (locals.alertaErros && alertaErros.logradouro) { %>
                                                             <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.endereco.msg%>
+                                                                <%= alertaErros.logradouro.msg%>
                                                             </span>
                                                         <% } %>
                                                     </div>
@@ -90,8 +95,13 @@
                                                     <div class="mb-3 col-md-2">
                                                         <label for="validationCustom03"
                                                             class="form-label">Número<sup>*</sup></label>
+                                                            <%if(isEditing) { %>
+                                                                <input type="text" id="validationCustom01" name="nomeFantasia" placeholder="Nome fantasia do cliente"
+                                                                class="form-control" value="<%=locals.formConteudo && formConteudo.endereco.numero%>" required>
+                                                            <%}else{ %>
                                                         <input type="text" class="form-control" id="validationCustom03"
                                                             name="numero" placeholder="Número" value="<%= locals.formConteudo && formConteudo.numero %>" required>
+                                                            <% } %>
                                                         <% if (locals.alertaErros && alertaErros.numero) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.numero.msg%>
@@ -102,8 +112,13 @@
                                                     <div class="mb-3 col-md-3">
                                                         <label for="validationCustom03"
                                                             class="form-label">Complemento<sup>*</sup></label>
+                                                            <%if(isEditing) { %>
+                                                                <input type="text" id="validationCustom01" name="nomeFantasia" placeholder="Nome fantasia do cliente"
+                                                                class="form-control" value="<%=locals.formConteudo && formConteudo.endereco.complemento%>" required>
+                                                            <%}else{ %>
                                                         <input type="text" class="form-control" id="validationCustom03"
                                                             name="complemento" placeholder="Complemento" value="<%= locals.formConteudo && formConteudo.complemento %>" required>
+                                                            <% } %>
                                                         <% if (locals.alertaErros && alertaErros.complemento) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.complemento.msg%>
@@ -114,8 +129,13 @@
                                                     <div class="mb-3 col-md-3">
                                                         <label for="validationCustom03"
                                                             class="form-label">Bairro<sup>*</sup></label>
+                                                            <%if(isEditing) { %>
+                                                                <input type="text" id="validationCustom01" name="nomeFantasia" placeholder="Nome fantasia do cliente"
+                                                                class="form-control" value="<%=locals.formConteudo && formConteudo.endereco.bairro%>" required>
+                                                            <%}else{ %>
                                                         <input type="text" class="form-control" id="validationCustom03"
                                                             name="bairro" placeholder="Bairro" value="<%= locals.formConteudo && formConteudo.bairro %>" required>
+                                                            <% } %>
                                                         <% if (locals.alertaErros && alertaErros.bairro) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.bairro.msg%>
@@ -126,8 +146,13 @@
                                                     <div class="mb-3 col-md-4">
                                                         <label for="validationCustom03"
                                                             class="form-label">Cidade<sup>*</sup></label>
+                                                            <%if(isEditing) { %>
+                                                                <input type="text" id="validationCustom01" name="nomeFantasia" placeholder="Nome fantasia do cliente"
+                                                                class="form-control" value="<%=locals.formConteudo && formConteudo.endereco.cidade%>" required>
+                                                            <%}else{ %>
                                                         <input type="text" class="form-control" id="validationCustom03"
                                                             name="cidade" placeholder="Cidade" value="<%= locals.formConteudo && formConteudo.cidade %>" required>
+                                                            <% } %>
                                                         <% if (locals.alertaErros && alertaErros.cidade) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.cidade.msg%>
@@ -138,6 +163,10 @@
                                                     <div class="mb-3 col-md-2">
                                                         <label for="validationCustom04"
                                                             class="form-label">Estado<sup>*</sup></label>
+                                                            <%if(isEditing) { %>
+                                                                <input type="text" id="validationCustom01" name="nomeFantasia" placeholder="Nome fantasia do cliente"
+                                                                class="form-control" value="<%=locals.formConteudo && formConteudo.endereco.estado%>" required>
+                                                            <%}else{ %>
                                                         <select id="validationCustom04" name="estado"
                                                             class="form-select" value="<%= locals.formConteudo && formConteudo.estado %>" required>
                                                             <option selected disabled>Selecionar</option>
@@ -169,6 +198,7 @@
                                                             <option>SE</option>
                                                             <option>TO</option>
                                                         </select>
+                                                        <% } %>
                                                         <% if (locals.alertaErros && alertaErros.estado) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.estado.msg%>
@@ -178,15 +208,30 @@
 
                                                     <div class="mb-3 col-md-3">
                                                         <label class="form-label">País</label>
+                                                        <%if(isEditing) { %>
+                                                            <input type="text" id="validationCustom01" name="nomeFantasia" placeholder="Nome fantasia do cliente"
+                                                            class="form-control" value="<%=locals.formConteudo && formConteudo.endereco.pais%>" required>
+                                                        <%}else{ %>
                                                         <input type="text" class="form-control" id="validationCustom03"
-                                                            name="pais" placeholder="País">
+                                                            name="pais" placeholder="País"value="<%= locals.formConteudo && formConteudo.pais %>" required>
+                                                            <% } %>
+                                                            <% if (locals.alertaErros && alertaErros.pais) { %>
+                                                                <span class="col-md-5 erroCadastro">
+                                                                    <%= alertaErros.pais.msg%>
+                                                                </span>
+                                                        <% } %>
                                                     </div>
 
                                                     <div class="mb-3 col-md-2">
                                                         <label class="form-label" for="validationCustom05">CEP<sup>*</sup></label>
+                                                        <%if(isEditing) { %>
+                                                            <input type="text" id="validationCustom01" name="nomeFantasia" placeholder="Nome fantasia do cliente"
+                                                            class="form-control" value="<%=locals.formConteudo && formConteudo.endereco.cep%>" required>
+                                                        <%}else{ %>
                                                         <input type="text" class="form-control" data-toggle="input-mask"
                                                             data-mask-format="00000-000" id="validationCustom05"
                                                             name="cep" placeholder="Ex.: xxxxx-xxx" value="<%= locals.formConteudo && formConteudo.cep %>" required>
+                                                            <% } %>
                                                         <% if (locals.alertaErros && alertaErros.cep) { %>
                                                                 <span class="col-md-5 erroCadastro">
                                                                     <%= alertaErros.cep.msg%>
@@ -195,7 +240,7 @@
                                                     </div>
 
                                                     <div class="mb-3 col-md-3">
-                                                        <label class="form-label" for="validationCustom06">CNPJ<sup>*</sup></label>
+                                                        <label class="form-label" for="validationCustom06">CNPJ<sup>*</sup></label>                                                       
                                                         <input type="text" class="form-control" id="validationCustom06"
                                                             name="cnpj" data-toggle="input-mask"
                                                             data-mask-format="00.000.000/0000-00" data-reverse="true"
@@ -208,13 +253,13 @@
                                                     </div>
 
                                                     <div class="mb-3 col-md-3">
-                                                        <label class="form-label">Celular<sup>*</sup></label>
+                                                        <label class="form-label">Celular<sup>*</sup></label>                                                    
                                                         <input type="text" class="form-control" data-toggle="input-mask"
                                                             data-mask-format="(00) 00000-0000" name="celular"
-                                                            placeholder="Ex.: (xx) xxxxx-xxxx" value="<%= locals.formConteudo && formConteudo.celular %>" required>
-                                                        <% if (locals.alertaErros && alertaErros.celular) { %>
+                                                            placeholder="Ex.: (xx) xxxxx-xxxx" value="<%= locals.formConteudo && formConteudo.telefoneCelular %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.telefoneCelular) { %>
                                                                 <span class="col-md-5 erroCadastro">
-                                                                    <%= alertaErros.celular.msg%>
+                                                                    <%= alertaErros.telefoneCelular.msg%>
                                                                 </span>
                                                         <% } %>
                                                     </div>
@@ -228,7 +273,7 @@
 
                                                     <div class="mb-3 col-md-2">
                                                         <label class="form-label" for="validationCustom07">Data de
-                                                            entrada<sup>*</sup></label>
+                                                            entrada<sup>*</sup></label>                                                          
                                                         <input type="text" class="form-control" id="validationCustom07"
                                                             name="dataEntrada" data-toggle="input-mask"
                                                             data-mask-format="0000/00/00" placeholder="Ex.: AAAA/MM/DD" value="<%= locals.formConteudo && formConteudo.dataEntrada %>"
@@ -257,7 +302,7 @@
 
                                                     <div class="mb-3 col-md-5">
                                                         <label class="form-label">Nome
-                                                            do Responsável pela empresa<sup>*</sup></label>
+                                                            do Responsável pela empresa<sup>*</sup></label>                                                       
                                                         <input type="text" class="form-control" id="nomeResponsavel"
                                                             name="nomeResponsavel"
                                                             placeholder="Nome do Responsável pela empresa" value="<%= locals.formConteudo && formConteudo.nomeResponsavel %>" required>
@@ -273,7 +318,7 @@
                                                             type="reset">Cancelar</button>
 
                                                         <button class="btn btn-primary col-md-2 "
-                                                            type="submit">Cadastrar cliente</button>
+                                                            type="submit"><%= buttonMessage %></button>
                                                     </div>
 
 

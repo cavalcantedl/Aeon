@@ -9,6 +9,7 @@ module.exports = {
         nome_funcao: { type: Sequelize.DataTypes.STRING, allowNull: false },
         data_admissao: { type: Sequelize.DataTypes.DATE, allowNull: false },
         data_demissao: { type: Sequelize.DataTypes.DATE },
+        id_endereco: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'enderecos', key: 'id_endereco' } },
         createdAt: Sequelize.DataTypes.DATE,
         updatedAt: Sequelize.DataTypes.DATE,
         deletedAt: Sequelize.DataTypes.DATE
