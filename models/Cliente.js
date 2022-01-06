@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         telefoneCelular: DataTypes.STRING(15),
         dataEntrada : DataTypes.DATE,
         dataSaida : DataTypes.DATE,
+        id_endereco: DataTypes.INTEGER.UNSIGNED,
         logotipoCliente: DataTypes.STRING
     }, {
         tableName: 'clientes',
@@ -23,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Cliente.associate = (models) => {
-        Cliente.hasMany(models.Endereco, { as: "enderecoObj", foreignKey: "id_cliente" });
+        Cliente.belongsTo(models.Endereco, { as: "endereco", foreignKey: "id_endereco" });
         Cliente.hasMany(models.Contrato, { as: "contratoObj", foreignKey: "id_cliente" });
         Cliente.belongsToMany(models.Funcionario, { as: "funcionarioObj", foreignKey: "id_funcionario", through: "ClienteHasFuncionario" }); // o sistema não precisa da model funcionario_has_cliente. Nesse caso é só colocar em through o nome da tabela intermediária.
     } 

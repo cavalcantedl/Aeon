@@ -12,8 +12,6 @@ module.exports = {
         estado:{ type: Sequelize.DataTypes.STRING(2), allowNull: false },
         pais:{ type: Sequelize.DataTypes.STRING, allowNull: true },
         cep:{ type: Sequelize.DataTypes.STRING(9), allowNull: false },
-        id_cliente: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'clientes', key: 'id_cliente' } },
-        id_funcionario: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'funcionarios', key: 'id_funcionario' } },
         createdAt: Sequelize.DataTypes.DATE,
         updatedAt: Sequelize.DataTypes.DATE,
         deletedAt: Sequelize.DataTypes.DATE

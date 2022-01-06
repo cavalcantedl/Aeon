@@ -1,3 +1,5 @@
+const Cliente = require("./Cliente");
+
 module.exports = (sequelize, DataTypes) => {
     const Endereco = sequelize.define("Endereco",{
         id_endereco : {
@@ -12,9 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         cidade: DataTypes.STRING(45),
         estado: DataTypes.STRING(2),
         pais: DataTypes.STRING(45),
-        cep: DataTypes.STRING(9),
-        cliente: DataTypes.INTEGER.UNSIGNED,
-        funcionario: DataTypes.INTEGER.UNSIGNED
+        cep: DataTypes.STRING(9)
         
     }, {
         tableName: 'enderecos',
@@ -23,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Endereco.associate = (models) => {
-        Endereco.belongsTo(models.Cliente, { as: "clienteObj", foreignKey: "id_cliente" });
-        Endereco.belongsTo(models.Funcionario, { as: "funcionarioObj", foreignKey: "id_funcionario" });
+        Endereco.hasMany(models.Cliente, { as: "cliente", foreignKey: "id_endereco" });
+        Endereco.hasMany(models.Funcionario, { as: "funcionario", foreignKey: "id_endereco" });
     }  
 
     return Endereco;

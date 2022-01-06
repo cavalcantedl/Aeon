@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         valorComissao:  DataTypes.DECIMAL(4,2).UNSIGNED,
-        funcionario: DataTypes.INTEGER.UNSIGNED,
-        servico: DataTypes.INTEGER.UNSIGNED
+        id_funcionario: DataTypes.INTEGER.UNSIGNED,
+        id_servico: DataTypes.INTEGER.UNSIGNED
         
     }, {
         tableName: 'comissoes',
