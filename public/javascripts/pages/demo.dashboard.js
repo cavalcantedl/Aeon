@@ -9,10 +9,10 @@
       grid: { padding: { left: 0, right: 0 } },
       colors: ["#727cf5", "#0acf97", "#fa5c7c", "#ffbc00"],
     };
-    var e = ["#727cf5", "#0acf97", "#fa5c7c", "#ffbc00"],
+    let e = ["#727cf5", "#0acf97", "#fa5c7c", "#ffbc00"],
       t = o("#revenue-chart").data("colors");
     t && (e = t.split(","));
-    var r = {
+    let r = {
       chart: {
         height: 364,
         type: "line",
@@ -21,15 +21,15 @@
       dataLabels: { enabled: !1 },
       stroke: { curve: "smooth", width: 4 },
       series: [
-        { name: "Current Week", data: [10, 20, 15, 25, 20, 30, 20] },
-        { name: "Previous Week", data: [0, 15, 10, 30, 15, 35, 25] },
+        { name: "Semana atual", data: [10, 20, 15, 25, 20, 30, 20] },
+        { name: "Semana anterior", data: [0, 15, 10, 30, 15, 35, 25] },
       ],
       colors: e,
       zoom: { enabled: !1 },
       legend: { show: !1 },
       xaxis: {
         type: "string",
-        categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        categories: ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"],
         tooltip: { enabled: !1 },
         axisBorder: { show: !1 },
       },
@@ -52,11 +52,11 @@
       stroke: { show: !0, width: 2, colors: ["transparent"] },
       series: [
         {
-          name: "Actual",
+          name: "Real",
           data: [65, 59, 80, 81, 56, 89, 40, 32, 65, 59, 80, 81],
         },
         {
-          name: "Projection",
+          name: "Projeção",
           data: [89, 40, 32, 65, 59, 80, 81, 56, 89, 40, 65, 59],
         },
       ],
@@ -66,17 +66,17 @@
       xaxis: {
         categories: [
           "Jan",
-          "Feb",
+          "Fev",
           "Mar",
-          "Apr",
-          "May",
+          "Abr",
+          "Mar",
           "Jun",
           "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
+          "Ago",
+          "Set",
+          "Out",
           "Nov",
-          "Dec",
+          "Dez",
         ],
         axisBorder: { show: !1 },
       },
