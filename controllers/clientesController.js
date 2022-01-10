@@ -106,7 +106,8 @@ let clientesController = {
         // console.log(cliente)
     },
     acaoAlterar: async (req, res) => {
-        const { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, celular, telefoneFixo, dataEntrada, dataSaida, logotipoCliente, nomeResponsavel } = req.body;
+        const { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, celular, telefoneFixo, dataEntrada, dataSaida, nomeResponsavel } = req.body;
+        const logotipoCliente = req.file.path;
         const clienteObj = {
             nomeFantasia: nomeFantasia,
             razaoSocial: razaoSocial,

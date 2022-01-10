@@ -1,6 +1,7 @@
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
+let methodOverride = require('method-override');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
@@ -58,6 +59,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 
 // view paginas
 app.use('/', paginasRouter);
