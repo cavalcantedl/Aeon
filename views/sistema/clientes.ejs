@@ -1,0 +1,143 @@
+<%- include("../partials/headerSistema") %>
+    <!-- Begin page -->
+    <div class="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        <%- include("../partials/sidebarSistema") %>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+                    <!-- Topbar Start -->
+                    <%- include("../partials/topbarSistema") %>
+                        <!-- end Topbar -->
+
+                        <!-- Start Content-->
+                        <div class="container-fluid">
+
+                            <!-- start page title -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="page-title-box">
+                                        <div class="page-title-right">
+                                            <ol class="breadcrumb m-0">
+                                                <li class="breadcrumb-item"><a
+                                                        href="/sistema/dashboard">Página
+                                                        inicial</a>
+                                                </li>
+                                                <li class="breadcrumb-item"><a href="#">Clientes</a>
+                                                </li>
+                                                <li class="breadcrumb-item active">Visão Geral</li>
+                                            </ol>
+                                        </div>
+                                        <h4 class="page-title">Clientes - Visão Geral</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end page title -->
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col-sm-4">
+                                                    <a href="/sistema/clientes/cadastrar"
+                                                        class="btn btn-danger mb-2"><i
+                                                            class="mdi mdi-plus-circle me-2"></i> Cadastrar Cliente</a>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="text-sm-end">
+                                                        <button type="button" class="btn btn-success mb-2 me-1"><i
+                                                                class="mdi mdi-cog"></i></button>
+                                                        <button type="button"
+                                                            class="btn btn-light mb-2 me-1">Importar</button>
+                                                        <button type="button"
+                                                            class="btn btn-light mb-2">Exportar</button>
+                                                    </div>
+                                                </div><!-- end col-->
+                                            </div>
+
+                                            <div class="table-responsive">
+                                                <table
+                                                    class="table table-centered table-borderless table-hover w-100 dt-responsive nowrap"
+                                                    id="products-datatable">
+                                                    <thead class="table-light">
+                                                        <tr>
+                                                            <th style="width: 20px;">
+                                                                <div class="form-check">
+                                                                    <input type="checkbox" class="form-check-input"
+                                                                        id="customCheck1">
+                                                                    <label class="form-check-label"
+                                                                        for="customCheck1">&nbsp;</label>
+                                                                </div>
+                                                            </th>
+                                                            <th>ID</th>
+                                                            <th>Ativo?</th>
+                                                            <th>Cliente</th>
+                                                            <th>CNPJ</th>
+                                                            <th>Data de Entrada</th>
+                                                            <th>Data de Saída</th>
+                                                            <th>QTD Serviços</th>
+                                                            <th style="width: 75px;">Ações</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <input type="checkbox" class="form-check-input"
+                                                                        id="customCheck2">
+                                                                    <label class="form-check-label"
+                                                                        for="customCheck2">&nbsp;</label>
+                                                                </div>
+                                                            </td>
+                                                            <td scope="row">
+                                                                <span class="fw-semibold">1</span>
+                                                            </td>
+                                                            <td class="table-user-ativo">
+                                                                <span class="fw-semibold">Sim</span>
+                                                            </td>
+                                                            <td class="table-user">
+                                                                <img src="../images/users/avatar-4.jpg" alt="table-user"
+                                                                    class="me-2 rounded-circle">
+                                                                <a href="javascript:void(0);"
+                                                                    class="text-body fw-semibold">Paul J.
+                                                                    Friend</a>
+                                                            </td>
+                                                            <td>
+                                                                <span class="fw-semibold">76.940.762/0001-30</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="fw-semibold">07/07/2018</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="fw-semibold">07/07/2019</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="fw-semibold">5</span>
+                                                            </td>
+                                                            <td>
+                                                                <a href="javascript:void(0);" class="action-icon"> <i
+                                                                        class="mdi mdi-square-edit-outline"></i></a>
+                                                                <a href="javascript:void(0);" class="action-icon"> <i
+                                                                        class="mdi mdi-delete"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col -->
+                            </div>
+                            <!-- end row -->
+
+                        </div> <!-- container -->
+
+                </div>
+                <!-- content -->
+                <%- include("../partials/footerSistema") %>
