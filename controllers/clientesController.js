@@ -63,7 +63,7 @@ let clientesController = {
             res.redirect("cadastrar");
             console.log(req.body);
             console.log(req.file);
-            console.log("Deu bom!");
+            console.log("Sucessoo!");
             console.log(alertaErros);
         }
         else {
