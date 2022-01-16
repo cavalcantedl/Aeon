@@ -15,6 +15,6 @@ router.get('/cadastrar', clientesController.cadastrarClientes);
 router.post('/cadastrar', logoCliente.single("logotipoCliente"), validaCadastro.validaCadastroCliente, clientesController.acaoCadastrarClientes);
 router.get('/alterar/:id', clientesController.alterar);
 router.post('/alterar/:id', clientesController.acaoAlterar);
-// router.get('/excluir/:id', clientesController.excluir);
+router.get('/excluir/:id', clientesController.excluir);
 
 module.exports = router;

@@ -103,39 +103,71 @@ let clientesController = {
         });
         // console.log(cliente)
     },
+    // acaoAlterar: async (req, res) => {
+    //     const { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, celular, telefoneFixo, dataEntrada, dataSaida, logotipoCliente, nomeResponsavel } = req.body;
+    //     const clienteObj = {
+    //         nomeFantasia: nomeFantasia,
+    //         razaoSocial: razaoSocial,
+    //         endereco: 
+    //             {
+    //                 logradouro: logradouro,
+    //                 numero: numero,
+    //                 complemento: complemento,
+    //                 bairro: bairro,
+    //                 cidade: cidade,
+    //                 estado: estado,
+    //                 pais: pais,
+    //                 cep: cep
+    //             },
+    //         cnpj: cnpj,
+    //         telefoneCelular: celular,
+    //         telefoneFixo: telefoneFixo,
+    //         dataEntrada: dataEntrada,
+    //         dataSaida: dataSaida,
+    //         logotipoCliente: logotipoCliente,
+    //         nomeResponsavel: nomeResponsavel,
+    //     };
+
+    //     await db.Cliente.update(clienteObj, { where: { id: req.params.id }});
+
+    //     console.log(clienteObj + "Resultado")
+
+    //     res.redirect("/sistema/clientes");
+    // },
     acaoAlterar: async (req, res) => {
-        const { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, celular, telefoneFixo, dataEntrada, dataSaida, logotipoCliente, nomeResponsavel } = req.body;
+        
         const clienteObj = {
-            nomeFantasia: nomeFantasia,
-            razaoSocial: razaoSocial,
+            nomeFantasia: req.body.nomeFantasia,
+            razaoSocial: req.body.razaoSocial,
             endereco: 
                 {
-                    logradouro: logradouro,
-                    numero: numero,
-                    complemento: complemento,
-                    bairro: bairro,
-                    cidade: cidade,
-                    estado: estado,
-                    pais: pais,
-                    cep: cep
+                    logradouro: req.body.logradouro,
+                    numero: req.body.numero,
+                    complemento: req.body.complemento,
+                    bairro: req.body.bairro,
+                    cidade: req.body.cidade,
+                    estado: req.body.estado,
+                    pais: req.body.pais,
+                    cep: req.body.cep
                 },
-            cnpj: cnpj,
-            telefoneCelular: celular,
-            telefoneFixo: telefoneFixo,
-            dataEntrada: dataEntrada,
-            dataSaida: dataSaida,
-            logotipoCliente: logotipoCliente,
-            nomeResponsavel: nomeResponsavel,
+            cnpj: req.body.cnpj,
+            telefoneCelular: req.body.celular,
+            telefoneFixo: req.body.telefoneFixo,
+            dataEntrada: req.body.dataEntrada,
+            dataSaida: req.body.dataSaida,
+            logotipoCliente: req.body.logotipoCliente,
+            nomeResponsavel: req.body.nomeResponsavel,
         };
 
-        await db.Cliente.update(clienteObj, { where: { id: req.params.id }});
+         await db.Cliente.update(clienteObj, {returning: true, where: { id_cliente: req.params.id } })
+
 
         console.log(clienteObj + "Resultado")
 
         res.redirect("/sistema/clientes");
     },
     excluir: async (req, res) => {
-        await db.Cliente.destroy({ where: { id: req.params.id } });
+        await db.Cliente.destroy({ where: { id_cliente: req.params.id } });
         res.redirect("/sistema/clientes");
     },
 };

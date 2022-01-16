@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Endereco.associate = (models) => {
-        Endereco.hasMany(models.Cliente, { as: "cliente", foreignKey: "id_endereco" });
+        Endereco.hasMany(models.Cliente, { as: "cliente", foreignKey: "id_endereco", onDelete: 'CASCADE' });
         Endereco.hasMany(models.Funcionario, { as: "funcionario", foreignKey: "id_endereco" });
     }  
 
