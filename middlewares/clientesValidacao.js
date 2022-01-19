@@ -7,7 +7,7 @@ const validaCadastroCliente = [
     check("estado").notEmpty().withMessage("O campo não pode ficar vazio"),
     check("cep").notEmpty().withMessage("O campo não pode ficar vazio").isLength({min:9, max:9}).withMessage("Insira um valor de CEP válido"),
     check("cnpj").notEmpty().withMessage("O campo não pode ficar vazio").isLength({min:18, max:18}).withMessage("Insira um valor de CNPJ válido"),
-    check("celular").notEmpty().withMessage("O campo não pode ficar vazio").isLength({min:15, max:15}).withMessage("Insira um valor de celular válido"),
+    check("telefoneCelular").notEmpty().withMessage("O campo não pode ficar vazio").isLength({min:15, max:15}).withMessage("Insira um valor de celular válido"),
     check("dataEntrada").notEmpty().withMessage("O campo não pode ficar vazio").isDate().withMessage("Insira um valor de data válido."),
     check("nomeResponsavel").notEmpty().withMessage("O campo não pode ficar vazio").isLength({min:3}).withMessage("O nome do responsável deve ser maior que 2 caracteres"),
 ];
