@@ -30,11 +30,11 @@
                                                 <li class="breadcrumb-item"><a href="/sistema/clientes">Clientes</a>
                                                 </li>
                                                 <li class="breadcrumb-item active">
-                                                    Cadastrar clientes
+                                                    Editar clientes
                                                 </li>
                                             </ol>
                                         </div>
-                                        <h4 class="page-title">Clientes - Cadastrar Clientes</h4>
+                                        <h4 class="page-title">Clientes - Editar Clientes</h4>
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <!-- form start -->
-                                            <form class="needs-validation" method="POST" action="<%= formAction %>"
+                                            <form class="needs-validation" action="<%= formAction %>" method="POST"
                                                 enctype="multipart/form-data" novalidate>
                                                 <div class="row g-2">
                                                     <div class="mb-3 col-md-6">
@@ -81,7 +81,7 @@
 
                                                         <input type="text" class="form-control" id="validationCustom03"
                                                             name="logradouro" placeholder="Logradouro"
-                                                            value="<%= locals.formConteudo && formConteudo.logradouro %>"
+                                                            value="<%= locals.formConteudo && formConteudo.endereco.logradouro %>"
                                                             required>
 
                                                         <% if (locals.alertaErros && alertaErros.endereco) { %>
@@ -97,7 +97,7 @@
 
                                                         <input type="text" class="form-control" id="validationCustom04"
                                                             name="numero" placeholder="Número"
-                                                            value="<%= locals.formConteudo && formConteudo.numero %>"
+                                                            value="<%= locals.formConteudo && formConteudo.endereco.numero %>"
                                                             required>
 
                                                         <% if (locals.alertaErros && alertaErros.numero) { %>
@@ -113,7 +113,7 @@
 
                                                         <input type="text" class="form-control" id="validationCustom05"
                                                             name="complemento" placeholder="Complemento"
-                                                            value="<%= locals.formConteudo && formConteudo.complemento %>"
+                                                            value="<%= locals.formConteudo && formConteudo.endereco.complemento %>"
                                                             required>
 
                                                         <% if (locals.alertaErros && alertaErros.complemento) { %>
@@ -129,7 +129,7 @@
 
                                                         <input type="text" class="form-control" id="validationCustom06"
                                                             name="bairro" placeholder="Bairro"
-                                                            value="<%= locals.formConteudo && formConteudo.bairro %>"
+                                                            value="<%= locals.formConteudo && formConteudo.endereco.bairro %>"
                                                             required>
 
                                                         <% if (locals.alertaErros && alertaErros.bairro) { %>
@@ -145,7 +145,7 @@
 
                                                         <input type="text" class="form-control" id="validationCustom07"
                                                             name="cidade" placeholder="Cidade"
-                                                            value="<%= locals.formConteudo && formConteudo.cidade %>"
+                                                            value="<%= locals.formConteudo && formConteudo.endereco.cidade %>"
                                                             required>
 
                                                         <% if (locals.alertaErros && alertaErros.cidade) { %>
@@ -160,10 +160,8 @@
                                                             class="form-label">Estado<sup>*</sup></label>
 
                                                         <select id="validationCustom08" name="estado"
-                                                            class="form-select"
-                                                            value="<%= locals.formConteudo && formConteudo.estado %>"
-                                                            required>
-                                                            <option selected disabled>Selecionar</option>
+                                                            class="form-select" required>
+                                                            <option selected disabled><%= locals.formConteudo && formConteudo.endereco.estado %></option>
                                                             <option>AC</option>
                                                             <option>AL</option>
                                                             <option>AP</option>
@@ -205,7 +203,7 @@
 
                                                         <input type="text" class="form-control" id="validationCustom09"
                                                             name="pais" placeholder="País"
-                                                            value="<%= locals.formConteudo && formConteudo.pais %>">
+                                                            value="<%= locals.formConteudo && formConteudo.endereco.pais %>">
 
                                                         <% if (locals.alertaErros && alertaErros.pais) { %>
                                                             <span class="col-md-5 erroCadastro">
@@ -221,7 +219,7 @@
                                                         <input type="text" class="form-control" data-toggle="input-mask"
                                                             data-mask-format="00000-000" id="validationCustom10"
                                                             name="cep" placeholder="Ex.: xxxxx-xxx"
-                                                            value="<%= locals.formConteudo && formConteudo.cep %>"
+                                                            value="<%= locals.formConteudo && formConteudo.endereco.cep %>"
                                                             required>
 
                                                         <% if (locals.alertaErros && alertaErros.cep) { %>
@@ -265,7 +263,7 @@
                                                         <label class="form-label">Telefone Fixo</label>
                                                         <input type="text" class="form-control" data-toggle="input-mask"
                                                             data-mask-format="(00) 0000-0000" name="telefoneFixo"
-                                                            placeholder="Ex.: (xx) xxxx-xxxx">
+                                                            placeholder="Ex.: (xx) xxxx-xxxx" value="<%= locals.formConteudo && formConteudo.telefoneFixo %>">
                                                     </div>
 
                                                     <div class="mb-3 col-md-2">
@@ -287,7 +285,7 @@
                                                         <label class="form-label">Data de Saída</label>
                                                         <input type="text" class="form-control" data-toggle="input-mask"
                                                             data-mask-format="0000/00/00" name="dataSaida"
-                                                            placeholder="Ex.: AAAA/MM/DD">
+                                                            placeholder="Ex.: AAAA/MM/DD" value="<%= locals.formConteudo && formConteudo.dataSaida %>">
                                                     </div>
 
                                                     <div class="mb-3 col-md-5">

@@ -1,6 +1,7 @@
 const db  = require("../models");
 const { validationResult } = require("express-validator");
 
+
 let clientesController = {
     clientes: (req, res, next) => {
         return res.render("sistema/clientes", {
@@ -16,23 +17,26 @@ let clientesController = {
         return res.render("sistema/cadastrarClientes", {
             formAction: `/sistema/clientes/cadastrar`,
             buttonMessage: "Cadastrar",
-            formConteudo: {},
+            formConteudo: req.body,
             titulo: "Sistema de Gestão para Agências de Marketing",
             separador: "|",
             marca: "Aeon",
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
-            isEditing: false,
         })
     },
     acaoCadastrarClientes: async (req, res, next) => {        
         let alertaErros = validationResult(req);
-        
         if (alertaErros.isEmpty()){
-            console.log(req.body);
-            const { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, celular, telefoneFixo, dataEntrada, dataSaida, nomeResponsavel } = req.body;
-            const logotipoCliente = req.file.path;
+            const { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, telefoneCelular, telefoneFixo, dataEntrada, dataSaida, nomeResponsavel } = req.body;
+            let logotipoCliente = null;
+            if (req.file !== undefined) {
+                logotipoCliente = req.file.path;
+                console.log(req.file);
+            }
+            console.log(dataEntrada);
+            console.log(dataSaida);
             const clienteObj = {
                 nomeFantasia: nomeFantasia,
                 razaoSocial: razaoSocial,
@@ -48,7 +52,7 @@ let clientesController = {
                         cep: cep
                     },
                 cnpj: cnpj,
-                telefoneCelular: celular,
+                telefoneCelular: telefoneCelular,
                 telefoneFixo: telefoneFixo,
                 dataEntrada: dataEntrada,
                 dataSaida: dataSaida,
@@ -63,7 +67,7 @@ let clientesController = {
             res.redirect("cadastrar");
             console.log(req.body);
             console.log(req.file);
-            console.log("Deu bom!");
+            console.log("Sucessoo!");
             console.log(alertaErros);
         }
         else {
@@ -72,8 +76,7 @@ let clientesController = {
             console.log("Deu ruim!");
             console.log(alertaErros);
             return res.render("sistema/cadastrarClientes", {
-                formAction: `/sistema/clientes/cadastrar`,
-                isEditing: false,
+                formAction: `sistema/clientes/cadastrar`,
                 buttonMessage: "Cadastrar",
                 titulo: "Sistema de Gestão para Agências de Marketing",
                 separador: "|",
@@ -82,17 +85,15 @@ let clientesController = {
                 favicon: "../images/aeon-logo.png",
                 logoImagem: "../images/aeon-logo.png",
                 alertaErros: alertaErros.mapped(),
-                formConteudo: req.body,   
+                formConteudo: req.body,
             })
-           
         }
         
     },
-    alterar: async (req, res) => {
-        const cliente = await db.Cliente.findByPk(req.params.id, {include: 'endereco'});
-
-        res.render("sistema/cadastrarClientes", {
-            formAction: `/sistema/clientes/alterar/${req.params.id}`,
+    editarCliente: async (req, res, next) => {
+        const cliente = await db.Cliente.findByPk(req.params.id, {include: ["endereco"]});
+        return res.render("sistema/editarClientes", {
+            formAction: `/sistema/clientes/editar/${req.params.id}?_method=PUT`,
             buttonMessage: "Atualizar",
             formConteudo: cliente,
             titulo: "Sistema de Gestão para Agências de Marketing",
@@ -101,13 +102,13 @@ let clientesController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
-            isEditing: true
         });
-        // console.log(cliente)
     },
-    acaoAlterar: async (req, res) => {
-        const { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, celular, telefoneFixo, dataEntrada, dataSaida, nomeResponsavel } = req.body;
-        const logotipoCliente = req.file.path;
+    acaoEditarCliente: async (req, res, next) =>{
+        console.log(req.body);
+        const cliente = await db.Cliente.findByPk(req.params.id, {include: ["endereco"]});
+        const { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, telefoneCelular, telefoneFixo, dataEntrada, dataSaida, nomeResponsavel } = req.body;
+        const logotipoCliente = req.files;
         const clienteObj = {
             nomeFantasia: nomeFantasia,
             razaoSocial: razaoSocial,
@@ -123,24 +124,26 @@ let clientesController = {
                     cep: cep
                 },
             cnpj: cnpj,
-            telefoneCelular: celular,
+            telefoneCelular: telefoneCelular,
             telefoneFixo: telefoneFixo,
             dataEntrada: dataEntrada,
             dataSaida: dataSaida,
             logotipoCliente: logotipoCliente,
             nomeResponsavel: nomeResponsavel,
         };
+        console.log(req.body);
+        console.log(clienteObj);
+        await db.Cliente.update(clienteObj, { where: { id_cliente: req.params.id }})
 
-        await db.Cliente.update(clienteObj, { where: { id: req.params.id }});
-
-        console.log(clienteObj + "Resultado")
-
-        res.redirect("/sistema/clientes");
-    },
-    excluir: async (req, res) => {
-        await db.Cliente.destroy({ where: { id: req.params.id } });
-        res.redirect("/sistema/clientes");
-    },
+        .then((clienteObj) => {
+            return clienteObj;
+          })
+        .catch((error) => {
+            console.log(error);
+            return;
+        });
+    }
+    
 };
 
 module.exports = clientesController 

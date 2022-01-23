@@ -1,7 +1,7 @@
 let createError = require('http-errors');
 let express = require('express');
-let path = require('path');
-let methodOverride = require('method-override');
+const path = require('path');
+const methodOverride = require('method-override');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
