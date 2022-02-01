@@ -148,7 +148,6 @@ let clientesController = {
             return;
         });
     }
-    console.log("Sucessoo!");
 };
 
 module.exports = clientesController 
