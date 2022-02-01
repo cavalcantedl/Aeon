@@ -1,5 +1,6 @@
 const db  = require("../models");
 const { validationResult } = require("express-validator");
+const moment = require("moment");
 
 
 let clientesController = {
@@ -105,10 +106,14 @@ let clientesController = {
         });
     },
     acaoEditarCliente: async (req, res, next) =>{
-        console.log(req.body);
         const cliente = await db.Cliente.findByPk(req.params.id, {include: ["endereco"]});
         const { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, telefoneCelular, telefoneFixo, dataEntrada, dataSaida, nomeResponsavel } = req.body;
-        const logotipoCliente = req.files;
+        let logotipoCliente = null;
+        if (req.file !== undefined) {
+            logotipoCliente = req.file.path;
+            console.log(req.file);
+        }
+        console.log(logotipoCliente + " " + "aquiiiiiiiiiiiiiiiiiiiiiiiiii");
         const clienteObj = {
             nomeFantasia: nomeFantasia,
             razaoSocial: razaoSocial,
@@ -134,7 +139,7 @@ let clientesController = {
         console.log(req.body);
         console.log(clienteObj);
         await db.Cliente.update(clienteObj, { where: { id_cliente: req.params.id }})
-
+        
         .then((clienteObj) => {
             return clienteObj;
           })
@@ -143,7 +148,7 @@ let clientesController = {
             return;
         });
     }
-    
+    console.log("Sucessoo!");
 };
 
 module.exports = clientesController 

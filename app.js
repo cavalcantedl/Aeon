@@ -1,9 +1,10 @@
-let createError = require('http-errors');
-let express = require('express');
+const createError = require('http-errors');
+const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
-let cookieParser = require('cookie-parser');
-let logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const moment = require('moment');
 
 // define as rotas das paginas
 let paginasRouter = require('./routes/pagesRouters');
