@@ -4,7 +4,10 @@ const moment = require("moment");
 
 
 let clientesController = {
-    clientes: (req, res, next) => {
+    clientes: async (req, res, next) => {
+        const clienteObj = await db.Cliente.findAll();
+        console.log(clienteObj);
+
         return res.render("sistema/clientes", {
             titulo: "Sistema de Gestão para Agências de Marketing",
             separador: "|",
@@ -12,6 +15,7 @@ let clientesController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            clienteObj,
         })
     },
     cadastrarClientes: (req, res, next) => {
@@ -31,13 +35,12 @@ let clientesController = {
         let alertaErros = validationResult(req);
         if (alertaErros.isEmpty()){
             const { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, telefoneCelular, telefoneFixo, dataEntrada, dataSaida, nomeResponsavel } = req.body;
+            
             let logotipoCliente = null;
             if (req.file !== undefined) {
-                logotipoCliente = req.file.path;
-                console.log(req.file);
+                logotipoCliente = req.file.filename;
             }
-            console.log(dataEntrada);
-            console.log(dataSaida);
+
             const clienteObj = {
                 nomeFantasia: nomeFantasia,
                 razaoSocial: razaoSocial,
@@ -62,20 +65,10 @@ let clientesController = {
             };
 
             await db.Cliente.create(clienteObj, { include: ["endereco"]});
-
-            console.log(clienteObj);
-
             res.redirect("cadastrar");
-            console.log(req.body);
-            console.log(req.file);
-            console.log("Sucessoo!");
-            console.log(alertaErros);
+
         }
         else {
-            console.log(alertaErros.mapped());
-            console.log(req.body);
-            console.log("Deu ruim!");
-            console.log(alertaErros);
             return res.render("sistema/cadastrarClientes", {
                 formAction: `sistema/clientes/cadastrar`,
                 buttonMessage: "Cadastrar",
@@ -106,48 +99,68 @@ let clientesController = {
         });
     },
     acaoEditarCliente: async (req, res, next) =>{
-        const cliente = await db.Cliente.findByPk(req.params.id, {include: ["endereco"]});
-        const { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, telefoneCelular, telefoneFixo, dataEntrada, dataSaida, nomeResponsavel } = req.body;
-        let logotipoCliente = null;
-        if (req.file !== undefined) {
-            logotipoCliente = req.file.path;
-            console.log(req.file);
+        let alertaErros = validationResult(req);
+        if (alertaErros.isEmpty()){
+            const cliente = await db.Cliente.findByPk(req.params.id, {include: ["endereco"]});
+            let { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, telefoneCelular, telefoneFixo, dataEntrada, dataSaida, nomeResponsavel } = req.body;
+            console.log(req.body);
+
+            if(dataSaida == ""){
+                dataSaida = null;
+            }
+            console.log(dataSaida + " DataSaida");
+
+            const clienteObj = {
+                nomeFantasia: nomeFantasia,
+                razaoSocial: razaoSocial,
+                endereco: 
+                    {
+                        logradouro: logradouro,
+                        numero: numero,
+                        complemento: complemento,
+                        bairro: bairro,
+                        cidade: cidade,
+                        estado: estado,
+                        pais: pais,
+                        cep: cep
+                    },
+                cnpj: cnpj,
+                telefoneCelular: telefoneCelular,
+                telefoneFixo: telefoneFixo,
+                dataEntrada: dataEntrada,
+                dataSaida: dataSaida,
+                nomeResponsavel: nomeResponsavel,
+            };
+
+            await db.Cliente.update(clienteObj, { where: { id_cliente: req.params.id }}, { include: ["endereco"]})
+
+            res.redirect("/sistema/clientes");
+
         }
-        console.log(logotipoCliente + " " + "aquiiiiiiiiiiiiiiiiiiiiiiiiii");
-        const clienteObj = {
-            nomeFantasia: nomeFantasia,
-            razaoSocial: razaoSocial,
-            endereco: 
-                {
-                    logradouro: logradouro,
-                    numero: numero,
-                    complemento: complemento,
-                    bairro: bairro,
-                    cidade: cidade,
-                    estado: estado,
-                    pais: pais,
-                    cep: cep
-                },
-            cnpj: cnpj,
-            telefoneCelular: telefoneCelular,
-            telefoneFixo: telefoneFixo,
-            dataEntrada: dataEntrada,
-            dataSaida: dataSaida,
-            logotipoCliente: logotipoCliente,
-            nomeResponsavel: nomeResponsavel,
-        };
-        console.log(req.body);
-        console.log(clienteObj);
-        await db.Cliente.update(clienteObj, { where: { id_cliente: req.params.id }})
-        
-        .then((clienteObj) => {
-            return clienteObj;
-          })
-        .catch((error) => {
-            console.log(error);
-            return;
-        });
-    }
+        else {
+            console.log(alertaErros.mapped());
+            console.log(req.body);
+            console.log("Deu ruim!");
+            console.log(alertaErros);
+            return res.render("sistema/editarClientes", {
+                formAction: `/sistema/clientes/editar/${req.params.id}?_method=PUT`,
+                buttonMessage: "Cadastrar",
+                titulo: "Sistema de Gestão para Agências de Marketing",
+                separador: "|",
+                marca: "Aeon",
+                descricao: "Gestão descoplicada para agências de marketing.",
+                favicon: "../images/aeon-logo.png",
+                logoImagem: "../images/aeon-logo.png",
+                alertaErros: alertaErros.mapped(),
+                formConteudo: req.body,
+            })
+        }
+    },
+
+    excluir: async (req, res) => {
+        await db.Cliente.destroy({ where: { id_cliente: req.params.id } });
+        res.redirect("/sistema/clientes");
+    },
 };
 
 module.exports = clientesController 

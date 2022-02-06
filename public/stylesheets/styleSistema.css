@@ -12,3 +12,13 @@ sup {
   font-size: smaller;
 }
 
+
+/* CSS página de cliente */
+.table .table-user img {
+  height: auto;
+  width: 100%;
+}
+
+.logotipoCliente {
+  max-width: 100px;
+}

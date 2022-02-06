@@ -75,8 +75,7 @@
                                                                         for="customCheck1">&nbsp;</label>
                                                                 </div>
                                                             </th>
-                                                            <th>ID</th>
-                                                            <th>Ativo?</th>
+                                                            <th>ID</th>                                                            
                                                             <th>Cliente</th>
                                                             <th>CNPJ</th>
                                                             <th>Data de Entrada</th>
@@ -86,6 +85,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        <% clienteObj.forEach(cliente => { %> 
                                                         <tr>
                                                             <td>
                                                                 <div class="form-check">
@@ -96,37 +96,35 @@
                                                                 </div>
                                                             </td>
                                                             <td scope="row">
-                                                                <span class="fw-semibold">1</span>
+                                                                <span class="fw-semibold"><%= cliente.id_cliente %></span>
                                                             </td>
-                                                            <td class="table-user-ativo">
-                                                                <span class="fw-semibold">Sim</span>
-                                                            </td>
+
                                                             <td class="table-user">
-                                                                <img src="../images/users/avatar-4.jpg" alt="table-user"
-                                                                    class="me-2 rounded-circle">
+                                                                <img src="../uploads/<%= cliente.logotipoCliente %>" alt="table-user"
+                                                                    class="me-2 img-thumbnail img-fluid logotipoCliente"/>
                                                                 <a href="javascript:void(0);"
-                                                                    class="text-body fw-semibold">Paul J.
-                                                                    Friend</a>
+                                                                    class="text-body fw-semibold"><%= cliente.nomeFantasia %></a>
                                                             </td>
                                                             <td>
-                                                                <span class="fw-semibold">76.940.762/0001-30</span>
+                                                                <span class="fw-semibold"><%= cliente.cnpj %></span>
                                                             </td>
                                                             <td>
-                                                                <span class="fw-semibold">07/07/2018</span>
+                                                                <span class="fw-semibold"><%= cliente.dataEntrada %></span>
                                                             </td>
                                                             <td>
-                                                                <span class="fw-semibold">07/07/2019</span>
+                                                                <span class="fw-semibold"><%= cliente.dataSaida %></span>
                                                             </td>
                                                             <td>
                                                                 <span class="fw-semibold">5</span>
                                                             </td>
                                                             <td>
-                                                                <a href="javascript:void(0);" class="action-icon"> <i
+                                                                <a href="/sistema/clientes/editar/<%= cliente.id_cliente %>" class="action-icon"> <i
                                                                         class="mdi mdi-square-edit-outline"></i></a>
                                                                 <a href="javascript:void(0);" class="action-icon"> <i
                                                                         class="mdi mdi-delete"></i></a>
                                                             </td>
                                                         </tr>
+                                                        <% }); %>
                                                     </tbody>
                                                 </table>
                                             </div>

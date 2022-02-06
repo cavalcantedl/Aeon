@@ -249,7 +249,7 @@
 
                                                     <div class="mb-3 col-md-3">
                                                         <label class="form-label">Celular<sup>*</sup></label>
-                                                        <input type="text" class="form-control" data-toggle="input-mask"
+                                                        <input type="text" class="form-control" id="validationCustom12" data-toggle="input-mask"
                                                             data-mask-format="(00) 00000-0000" name="telefoneCelular"
                                                             placeholder="Ex.: (xx) xxxxx-xxxx"
                                                             value="<%= locals.formConteudo && formConteudo.telefoneCelular %>"
@@ -262,8 +262,8 @@
                                                     </div>
 
                                                     <div class="mb-3 col-md-2">
-                                                        <label class="form-label">Telefone Fixo</label>
-                                                        <input type="text" class="form-control" data-toggle="input-mask"
+                                                        <label class="form-label" for="validationCustom06">Telefone Fixo</label>
+                                                        <input type="text" class="form-control" id="validationCustom13" data-toggle="input-mask"
                                                             data-mask-format="(00) 0000-0000" name="telefoneFixo"
                                                             placeholder="Ex.: (xx) xxxx-xxxx">
                                                     </div>
@@ -271,7 +271,7 @@
                                                     <div class="mb-3 col-md-2">
                                                         <label class="form-label" for="validationCustom07">Data de
                                                             entrada<sup>*</sup></label>
-                                                        <input type="text" class="form-control" id="validationCustom13"
+                                                        <input type="text" class="form-control" id="validationCustom14"
                                                             name="dataEntrada" data-toggle="input-mask"
                                                             data-mask-format="0000/00/00" placeholder="Ex.: AAAA/MM/DD"
                                                             value="<%= locals.formConteudo && formConteudo.dataEntrada %>"
@@ -281,13 +281,6 @@
                                                                 <%= alertaErros.dataEntrada.msg%>
                                                             </span>
                                                             <% } %>
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-2">
-                                                        <label class="form-label">Data de Saída</label>
-                                                        <input type="text" class="form-control" data-toggle="input-mask"
-                                                            data-mask-format="0000/00/00" name="dataSaida"
-                                                            placeholder="Ex.: AAAA/MM/DD">
                                                     </div>
 
                                                     <div class="mb-3 col-md-5">
