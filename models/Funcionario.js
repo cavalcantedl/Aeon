@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         nome: DataTypes.STRING,
-        dataAdmissao : DataTypes.DATE,
-        dataDemissao : DataTypes.DATE,
+        dataAdmissao : DataTypes.DATEONLY,
+        dataDemissao : DataTypes.DATEONLY,
         nomeFuncao:  DataTypes.STRING,
         salario: DataTypes.DECIMAL(7,2),
         id_endereco: DataTypes.INTEGER.UNSIGNED,

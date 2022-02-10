@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
         nomeResponsavel: DataTypes.STRING,
         telefoneFixo: DataTypes.STRING(14),
         telefoneCelular: DataTypes.STRING(15),
-        dataEntrada : DataTypes.DATE,
-        dataSaida : DataTypes.DATE,
+        dataEntrada : DataTypes.DATEONLY,
+        dataSaida : DataTypes.DATEONLY,
         id_endereco: DataTypes.INTEGER.UNSIGNED,
         logotipoCliente: DataTypes.STRING
     }, {
