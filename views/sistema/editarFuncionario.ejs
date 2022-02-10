@@ -31,10 +31,10 @@
                                                 <li class="breadcrumb-item"><a
                                                         href="http://localhost:3000/sistema/funcionarios">Funcionários</a>
                                                 </li>
-                                                <li class="breadcrumb-item active">Cadastrar Funcionários</li>
+                                                <li class="breadcrumb-item active">Editar Funcionários</li>
                                             </ol>
                                         </div>
-                                        <h4 class="page-title">Funcionários - Cadastrar funcionário</h4>
+                                        <h4 class="page-title">Funcionários - Editar funcionário</h4>
                                     </div>
                                 </div>
                             </div>
@@ -44,10 +44,9 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <!-- form start -->
-                                            <form class="needs-validation" method="POST"
-                                                action="/sistema/funcionarios/cadastrar" enctype="multipart/form-data"
+                                            <form class="needs-validation" action="<%= formAction %>" method="POST" enctype="multipart/form-data"
                                                 novalidate>
-                                                <div class="row g-2">
+                                                <div class="row g-2"> 
                                                     <div class="mb-3 col-md-6">
                                                         <label class="form-label" for="validationCustom01">Nome
                                                             <sup>*</sup> </label>
@@ -91,7 +90,7 @@
                                                         <label for="inputAddress" class="form-label"
                                                             for="validationCustom03">Logradouro<sup>*</sup></label>
                                                         <input type="text" class="form-control" id="validationCustom03"
-                                                            name="logradouro" placeholder="Endereço do funcionário" value="<%= locals.formConteudo && formConteudo.logradouro %>" required>
+                                                            name="logradouro" placeholder="Endereço do funcionário" value="<%= locals.formConteudo && formConteudo.endereco.logradouro %>" required>
                                                         <% if (locals.alertaErros && alertaErros.logradouro) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.logradouro.msg%>
@@ -103,7 +102,7 @@
                                                         <label class="form-label" for="validationCustom05">Numero<sup>*</sup></label>
                                                         <input type="text" class="form-control" data-toggle="input-mask"
                                                              id="validationCustom05"
-                                                            name="numero" placeholder="Numero" value="<%= locals.formConteudo && formConteudo.numero %>" required>
+                                                            name="numero" placeholder="Numero" value="<%= locals.formConteudo && formConteudo.endereco.numero %>" required>
                                                         <% if (locals.alertaErros && alertaErros.numero) { %>
                                                                 <span class="col-md-5 erroCadastro">
                                                                     <%= alertaErros.numero.msg%>
@@ -122,7 +121,7 @@
                                                         <label class="form-label" for="validationCustom05">Bairro<sup>*</sup></label>
                                                         <input type="text" class="form-control" data-toggle="input-mask"
                                                              id="validationCustom05"
-                                                            name="bairro" placeholder="Bairro" value="<%= locals.formConteudo && formConteudo.bairro %>" required>
+                                                            name="bairro" placeholder="Bairro" value="<%= locals.formConteudo && formConteudo.endereco.bairro %>" required>
                                                         <% if (locals.alertaErros && alertaErros.bairro) { %>
                                                                 <span class="col-md-5 erroCadastro">
                                                                     <%= alertaErros.bairro.msg%>
@@ -134,7 +133,7 @@
                                                         <label for="validationCustom03"
                                                             class="form-label">Cidade<sup>*</sup></label>
                                                         <input type="text" class="form-control" id="validationCustom03"
-                                                            name="cidade" placeholder="Cidade" value="<%= locals.formConteudo && formConteudo.cidade %>" required>
+                                                            name="cidade" placeholder="Cidade" value="<%= locals.formConteudo && formConteudo.endereco.cidade %>" required>
                                                         <% if (locals.alertaErros && alertaErros.cidade) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.cidade.msg%>
@@ -146,7 +145,7 @@
                                                         <label for="validationCustom04"
                                                             class="form-label">Estado<sup>*</sup></label>
                                                         <select id="validationCustom04" name="estado"
-                                                            class="form-select" value="<%= locals.formConteudo && formConteudo.estado %>" required>
+                                                            class="form-select" value="<%= locals.formConteudo && formConteudo.endereco.estado %>" required>
                                                             <option selected disabled>Selecionar</option>
                                                             <option>AC</option>
                                                             <option>AL</option>
@@ -186,7 +185,7 @@
                                                     <div class="mb-3 col-md-3">
                                                         <label class="form-label">País</label>
                                                         <input type="text" class="form-control" id="validationCustom03"
-                                                            name="pais" placeholder="País"value="<%= locals.formConteudo && formConteudo.pais %>" required>
+                                                            name="pais" placeholder="País"value="<%= locals.formConteudo && formConteudo.endereco.pais %>" required>
                                                             <% if (locals.alertaErros && alertaErros.pais) { %>
                                                                 <span class="col-md-5 erroCadastro">
                                                                     <%= alertaErros.pais.msg%>
@@ -198,7 +197,7 @@
                                                         <label class="form-label" for="validationCustom05">CEP<sup>*</sup></label>
                                                         <input type="text" class="form-control" data-toggle="input-mask"
                                                             data-mask-format="00000-000" id="validationCustom05"
-                                                            name="cep" placeholder="Ex.: xxxxx-xxx" value="<%= locals.formConteudo && formConteudo.cep %>" required>
+                                                            name="cep" placeholder="Ex.: xxxxx-xxx" value="<%= locals.formConteudo && formConteudo.endereco.cep %>" required>
                                                         <% if (locals.alertaErros && alertaErros.cep) { %>
                                                                 <span class="col-md-5 erroCadastro">
                                                                     <%= alertaErros.cep.msg%>
@@ -227,21 +226,12 @@
                                                             placeholder="Ex.: AAAA/MM/DD"value="<%= locals.formConteudo && formConteudo.dataDemissao %>">
                                                     </div>
 
-                                                    <div class="mb-3 col-md-6">
-                                                        <label for="example-fileinput" class="form-label">Foto do
-                                                            funcionário</label>
-                                                        <input id="fotoFuncionario" name="fotoFuncionario"
-                                                            class="form-control" accept=".jpg, .jpeg, .png, .webp"
-                                                            type="file" multiple>
-                                                    </div>
-
-
                                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                                         <button class="btn btn-danger col-md-2 "
                                                             type="reset">Cancelar</button>
 
                                                         <button class="btn btn-primary col-md-2 "
-                                                            type="submit">Cadastrar funcionário</button>
+                                                            type="submit">Atualizar</button>
                                                     </div>
 
 

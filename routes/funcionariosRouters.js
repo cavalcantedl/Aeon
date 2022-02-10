@@ -13,6 +13,9 @@ router.get('/', funcionariosController.funcionarios);
 /* GET Cadastrar Funcionários. */
 router.get('/cadastrar', funcionariosController.cadastrarFuncionarios);
 router.post('/cadastrar', fotoFuncionario.single("fotoFuncionario"), validaCadastro.validaCadastroFuncionario, funcionariosController.acaoCadastrarFuncionarios);
+router.get('/editar/:id', funcionariosController.editarFuncionario);
+router.put('/editar/:id', fotoFuncionario.single("fotoFuncionario"), validaCadastro.validaCadastroFuncionario, funcionariosController.acaoEditarFuncionario);
+router.delete('/excluir/:id', funcionariosController.excluir);
 
 
-module.exports = router;
+module.exports = router; 

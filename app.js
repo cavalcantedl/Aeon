@@ -17,6 +17,8 @@ let dashboardRouter = require('./routes/dashboardRouters');
 let clientesRouter = require('./routes/clientesRouters');
 let funcionariosRouter = require('./routes/funcionariosRouters');
 let loginRouter = require('./routes/loginRouters');
+let servicosRouter = require('./routes/servicosrouters');
+const servicosController = require('./controllers/servicosController');
 
 // define as rotas de login
 // let usersRouter = require('./routes/users');
@@ -69,6 +71,7 @@ app.use('/', paginasRouter);
 app.use('/sistema/dashboard', dashboardRouter);
 app.use('/sistema/clientes', clientesRouter);
 app.use('/sistema/funcionarios', funcionariosRouter);
+app.use('/sistema/servicos', servicosRouter);
 
 
 // view usuarios
