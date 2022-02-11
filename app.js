@@ -4,13 +4,10 @@ const path = require('path');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const moment = require('moment');
+
 
 // define as rotas das paginas
 let paginasRouter = require('./routes/pagesRouters');
-
-// define as rotas de usuarios
-let usersRouter = require('./routes/users');
 
 // define as rotas do sistema
 let dashboardRouter = require('./routes/dashboardRouters');
@@ -18,8 +15,8 @@ let clientesRouter = require('./routes/clientesRouters');
 let funcionariosRouter = require('./routes/funcionariosRouters');
 let loginRouter = require('./routes/loginRouters');
 
-// define as rotas de login
-// let usersRouter = require('./routes/users');
+// define as rotas do admin
+let adminRouter = require('./routes/admin/adminRouters');
 
 let app = express();
 
@@ -70,12 +67,11 @@ app.use('/sistema/dashboard', dashboardRouter);
 app.use('/sistema/clientes', clientesRouter);
 app.use('/sistema/funcionarios', funcionariosRouter);
 
-
-// view usuarios
-app.use('/users', usersRouter);
-
 // view login
 app.use('/login', loginRouter);
+
+// view admin
+app.use('/sistema/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
