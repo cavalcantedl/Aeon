@@ -1,5 +1,6 @@
 const db  = require("../../models");
 const { validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
 
 let usuariosController = {
     index: (req, res, next) => {
@@ -45,6 +46,9 @@ let usuariosController = {
         if (alertaErros.isEmpty()){
             const { nomeUsuario, usernameUsuario, emailUsuario, senhaUsuario, isAdministrador } = req.body;
             console.log("form aqui" , req.body);
+
+            senhaCriptografada = await bcrypt.hash(senhaUsuario, 10);
+
             let imagemUsuario = null;
             if (req.file !== undefined) {
                 imagemUsuario = req.file.filename;
@@ -56,7 +60,7 @@ let usuariosController = {
                 nome: nomeUsuario,
                 username: usernameUsuario,
                 email: emailUsuario,
-                senha: senhaUsuario,
+                senha: senhaCriptografada,
                 is_administrador: isAdministrador,
                 imagem: imagemUsuario,
             };
@@ -83,8 +87,19 @@ let usuariosController = {
 
     },
 
-    editarUsuario:(req, res, next) => {
-
+    editarUsuario: async (req, res, next) => {
+        const usuarioObj = await db.Usuario.findByPk(req.params.id);
+        return res.render("sistema/admin/editarUsuarios", {
+            formAction: `/sistema/admin/usuarios/editar/${req.params.id}?_method=PUT`,
+            buttonMessage: "Atualizar",
+            formConteudo: usuarioObj,
+            titulo: "Sistema de Gestão para Agências de Marketing",
+            separador: "|",
+            marca: "Aeon",
+            descricao: "Gestão descoplicada para agências de marketing.",
+            favicon: "../images/aeon-logo.png",
+            logoImagem: "../images/aeon-logo.png",
+        });
     },
 
     acaoEditarUsuario:(req, res, next) => {

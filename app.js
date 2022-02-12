@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const loginAuth = require('./middlewares/loginAuth');
+const session = require('express-session');
 
 // define as rotas das paginas
 let paginasRouter = require('./routes/pagesRouters');
@@ -19,6 +20,16 @@ let loginRouter = require('./routes/loginRouters');
 let usuarioRouter = require('./routes/admin/usuariosRouters');
 
 let app = express();
+// app.use(session({ secret: "AeonMarketingDigitalDescomplicadoDevelopmentSystem"}));
+
+app.use(session({
+  secret: 'AeonMarketingDigitalDescomplicadoDevelopmentSystem',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
+
+
 
 //Bootstrap and FontAwesome
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
@@ -66,7 +77,7 @@ app.use('/', paginasRouter);
 app.use('/login', loginRouter);
 
 // view sistema
-// app.use('/sistema', loginAuth, dashboardRouter);
+app.use('/sistema', loginAuth, dashboardRouter);
 app.use('/sistema/dashboard', dashboardRouter);
 app.use('/sistema/clientes', clientesRouter);
 app.use('/sistema/funcionarios', funcionariosRouter);

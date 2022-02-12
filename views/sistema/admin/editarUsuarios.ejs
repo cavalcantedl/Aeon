@@ -27,14 +27,14 @@
                                                 <li class="breadcrumb-item"><a href="/sistema/dashboard">Página
                                                         inicial</a>
                                                 </li>
-                                                <li class="breadcrumb-item"><a href="/sistema/clientes">Clientes</a>
+                                                <li class="breadcrumb-item"><a href="/sistema/admin">Adminitrador</a>
                                                 </li>
                                                 <li class="breadcrumb-item active">
-                                                    Editar clientes
+                                                    Cadastrar usuários
                                                 </li>
                                             </ol>
                                         </div>
-                                        <h4 class="page-title">Clientes - Editar Clientes</h4>
+                                        <h4 class="page-title">Usuários - Cadastrar Usuários</h4>
                                     </div>
                                 </div>
                             </div>
@@ -44,271 +44,114 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <!-- form start -->
-                                            <form class="needs-validation" action="<%= formAction %>" method="POST"
+                                            <form class="needs-validation" method="POST" action="<%= formAction %>"
                                                 enctype="multipart/form-data" novalidate>
                                                 <div class="row g-2">
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label" for="validationCustom01">Nome
-                                                            Fantasia<sup>*</sup> </label>
+                                                        <label class="form-label"
+                                                            for="validationCustom01">Nome<sup>*</sup> </label>
                                                         <input type="text" class="form-control" id="validationCustom01"
-                                                            name="nomeFantasia" placeholder="Nome fantasia do cliente"
-                                                            value="<%= locals.formConteudo && formConteudo.nomeFantasia %>"
+                                                            name="nomeUsuario" placeholder="Nome e Sobrenome do usuário"
+                                                            value="<%= locals.formConteudo && formConteudo.nome %>"
                                                             required>
-                                                        <% if (locals.alertaErros && alertaErros.nomeFantasia) { %>
+                                                        <div class="invalid-feedback">
+                                                            Coloque o nome do usuário.
+                                                        </div>
+                                                        <% if (locals.alertaErros && alertaErros.nome) { %>
                                                             <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.nomeFantasia.msg%>
+                                                                <%= alertaErros.nome.msg%>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-6">
+                                                        <label for="validationCustomUsername"
+                                                            class="form-label">Username<sup>*</sup></label>
+                                                        <div class="input-group has-validation">
+                                                            <span class="input-group-text"
+                                                                id="validationCustom02">@</span>
+                                                            <input type="text" class="form-control"
+                                                                id="validationCustomUsername" name="usernameUsuario"
+                                                                aria-describedby="validationCustom02"
+                                                                placeholder="Escolha um username"
+                                                                value="<%= locals.formConteudo && formConteudo.username %>"
+                                                                required>
+                                                            <div class="invalid-feedback">
+                                                                Escolha um nome de usuário.
+                                                            </div>
+                                                            <% if (locals.alertaErros && alertaErros.username) {
+                                                                %>
+                                                                <span class="col-md-5 erroCadastro">
+                                                                    <%= alertaErros.username.msg%>
+                                                                </span>
+                                                                <% } %>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="mb-3 col-md-6">
+                                                        <label for="exampleInputEmail1" class="form-label">E-mail<sup>*</sup></label>
+                                                        <input type="email" class="form-control" id="inputEmail"
+                                                            name="emailUsuario" placeholder="E-mail do usuário"
+                                                            aria-describedby="validationCustom03"
+                                                            value="<%= locals.formConteudo && formConteudo.email %>"
+                                                            required>
+                                                        <div class="invalid-feedback">
+                                                            Digite o e-mail do usuário.
+                                                        </div>
+                                                        <% if (locals.alertaErros && alertaErros.email) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.email.msg%>
                                                             </span>
                                                             <% } %>
                                                     </div>
 
                                                     <div class="mb-3 col-md-6">
-                                                        <label class="form-label" for="validationCustom02">Razão
-                                                            Social<sup>*</sup></label>
-                                                        <input type="text" class="form-control" id="validationCustom02"
-                                                            name="razaoSocial" placeholder="A razão social do cliente."
-                                                            value="<%= locals.formConteudo && formConteudo.razaoSocial %>"
-                                                            required>
-                                                        <% if (locals.alertaErros && alertaErros.razaoSocial) { %>
+                                                        <label for="exampleInputPassword1"
+                                                            class="form-label">Alterar Senha? </label>
+                                                        <input type="password" class="form-control"
+                                                            id="exampleInputPassword1" name="senhaUsuario"
+                                                            placeholder="Digite uma senha para alterar"
+                                                            aria-describedby="validationCustom04">
+
+                                                        <% if (locals.alertaErros && alertaErros.senha) { %>
                                                             <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.razaoSocial.msg%>
+                                                                <%= alertaErros.senha.msg%>
                                                             </span>
-                                                            <% } %>
+                                                        <% } %>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-7">
-                                                        <label for="inputAddress" class="form-label"
-                                                            for="validationCustom03">Logradouro<sup>*</sup></label>
-
-                                                        <input type="text" class="form-control" id="validationCustom03"
-                                                            name="logradouro" placeholder="Logradouro"
-                                                            value="<%= locals.formConteudo && formConteudo.endereco.logradouro %>"
-                                                            required>
-
-                                                        <% if (locals.alertaErros && alertaErros.endereco) { %>
-                                                            <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.logradouro.msg%>
-                                                            </span>
-                                                            <% } %>
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-2">
-                                                        <label for="validationCustom03"
-                                                            class="form-label">Número<sup>*</sup></label>
-
-                                                        <input type="text" class="form-control" id="validationCustom04"
-                                                            name="numero" placeholder="Número"
-                                                            value="<%= locals.formConteudo && formConteudo.endereco.numero %>"
-                                                            required>
-
-                                                        <% if (locals.alertaErros && alertaErros.numero) { %>
-                                                            <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.numero.msg%>
-                                                            </span>
-                                                            <% } %>
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-3">
-                                                        <label for="validationCustom03"
-                                                            class="form-label">Complemento<sup>*</sup></label>
-
-                                                        <input type="text" class="form-control" id="validationCustom05"
-                                                            name="complemento" placeholder="Complemento"
-                                                            value="<%= locals.formConteudo && formConteudo.endereco.complemento %>"
-                                                            required>
-
-                                                        <% if (locals.alertaErros && alertaErros.complemento) { %>
-                                                            <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.complemento.msg%>
-                                                            </span>
-                                                            <% } %>
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-3">
-                                                        <label for="validationCustom03"
-                                                            class="form-label">Bairro<sup>*</sup></label>
-
-                                                        <input type="text" class="form-control" id="validationCustom06"
-                                                            name="bairro" placeholder="Bairro"
-                                                            value="<%= locals.formConteudo && formConteudo.endereco.bairro %>"
-                                                            required>
-
-                                                        <% if (locals.alertaErros && alertaErros.bairro) { %>
-                                                            <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.bairro.msg%>
-                                                            </span>
-                                                            <% } %>
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-4">
-                                                        <label for="validationCustom03"
-                                                            class="form-label">Cidade<sup>*</sup></label>
-
-                                                        <input type="text" class="form-control" id="validationCustom07"
-                                                            name="cidade" placeholder="Cidade"
-                                                            value="<%= locals.formConteudo && formConteudo.endereco.cidade %>"
-                                                            required>
-
-                                                        <% if (locals.alertaErros && alertaErros.cidade) { %>
-                                                            <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.cidade.msg%>
-                                                            </span>
-                                                            <% } %>
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-2">
-                                                        <label for="validationCustom08"
-                                                            class="form-label">Estado<sup>*</sup></label>
-
-                                                        <select id="validationCustom08" name="estado"
+                                                    <div class="mb-3 col-md-6">
+                                                        <label for="exampleInputPassword1"
+                                                            class="form-label">É Administrador? <sup>*</sup></label>
+                                                            <select id="validationCustom08" name="isAdministrador"
                                                             class="form-select" required>
-                                                            <option selected><%= locals.formConteudo && formConteudo.endereco.estado %></option>
-                                                            <option>AC</option>
-                                                            <option>AL</option>
-                                                            <option>AP</option>
-                                                            <option>AM</option>
-                                                            <option>BA</option>
-                                                            <option>CE</option>
-                                                            <option>DF</option>
-                                                            <option>ES</option>
-                                                            <option>GO</option>
-                                                            <option>MA</option>
-                                                            <option>MT</option>
-                                                            <option>MS</option>
-                                                            <option>MG</option>
-                                                            <option>PA</option>
-                                                            <option>PB</option>
-                                                            <option>PR</option>
-                                                            <option>PE</option>
-                                                            <option>PI</option>
-                                                            <option>RJ</option>
-                                                            <option>RN</option>
-                                                            <option>RS</option>
-                                                            <option>RO</option>
-                                                            <option>RR</option>
-                                                            <option>SC</option>
-                                                            <option>SP</option>
-                                                            <option>SE</option>
-                                                            <option>TO</option>
+                                                            <option selected disabled><%= locals.formConteudo && formConteudo.is_administrador %></option>
+                                                            <option>Sim</option>
+                                                            <option>Não</option>                                                            
                                                         </select>
-
-                                                        <% if (locals.alertaErros && alertaErros.estado) { %>
+                                                        <div class="invalid-feedback">
+                                                            Escolha uma opção.
+                                                        </div>
+                                                        <% if (locals.alertaErros && alertaErros.isAdministrador) { %>
                                                             <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.estado.msg%>
+                                                                <%= alertaErros.isAdministrador.msg%>
                                                             </span>
-                                                            <% } %>
+                                                        <% } %>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-3">
-                                                        <label class="form-label">País</label>
-
-                                                        <input type="text" class="form-control" id="validationCustom09"
-                                                            name="pais" placeholder="País"
-                                                            value="<%= locals.formConteudo && formConteudo.endereco.pais %>">
-
-                                                        <% if (locals.alertaErros && alertaErros.pais) { %>
-                                                            <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.pais.msg%>
-                                                            </span>
-                                                            <% } %>
+                                                    <div class="mb-3 col-md-5">
+                                                        <label for="example-fileinput" class="form-label">Imagem</label>
+                                                        <input id="imagemUsuario" name="imagemUsuario"
+                                                            class="form-control" accept=".jpg, .jpeg, .png, .webp"
+                                                            type="file" multiple>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-2">
-                                                        <label class="form-label"
-                                                            for="validationCustom05">CEP<sup>*</sup></label>
-
-                                                        <input type="text" class="form-control" data-toggle="input-mask"
-                                                            data-mask-format="00000-000" id="validationCustom10"
-                                                            name="cep" placeholder="Ex.: xxxxx-xxx"
-                                                            value="<%= locals.formConteudo && formConteudo.endereco.cep %>"
-                                                            required>
-
-                                                        <% if (locals.alertaErros && alertaErros.cep) { %>
-                                                            <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.cep.msg%>
-                                                            </span>
-                                                            <% } %>
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-3">
-                                                        <label class="form-label"
-                                                            for="validationCustom06">CNPJ<sup>*</sup></label>
-                                                        <input type="text" class="form-control" id="validationCustom11"
-                                                            name="cnpj" data-toggle="input-mask"
-                                                            data-mask-format="00.000.000/0000-00" data-reverse="true"
-                                                            placeholder="Ex.: xx.xxx.xxx/xxxx-xx"
-                                                            value="<%= locals.formConteudo && formConteudo.cnpj %>"
-                                                            required>
-                                                        <% if (locals.alertaErros && alertaErros.cnpj) { %>
-                                                            <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.cnpj.msg%>
-                                                            </span>
-                                                            <% } %>
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-3">
-                                                        <label class="form-label">Celular<sup>*</sup></label>
-                                                        <input type="text" class="form-control" data-toggle="input-mask"
-                                                            data-mask-format="(00) 00000-0000" name="telefoneCelular"
-                                                            placeholder="Ex.: (xx) xxxxx-xxxx"
-                                                            value="<%= locals.formConteudo && formConteudo.telefoneCelular %>"
-                                                            required>
-                                                        <% if (locals.alertaErros && alertaErros.telefoneCelular) { %>
-                                                            <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.telefoneCelular.msg %>
-                                                            </span>
-                                                            <% } %>
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-2">
-                                                        <label class="form-label">Telefone Fixo</label>
-                                                        <input type="text" class="form-control" data-toggle="input-mask"
-                                                            data-mask-format="(00) 0000-0000" name="telefoneFixo"
-                                                            placeholder="Ex.: (xx) xxxx-xxxx" value="<%= locals.formConteudo && formConteudo.telefoneFixo %>">
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-2">
-                                                        <label class="form-label" for="validationCustom07">Data de
-                                                            entrada<sup>*</sup></label>
-                                                        <input type="text" class="form-control" id="validationCustom13"
-                                                            name="dataEntrada" data-toggle="input-mask"
-                                                            data-mask-format="0000/00/00" placeholder="Ex.: AAAA/MM/DD"
-                                                            value="<%= locals.formConteudo && formConteudo.dataEntrada %>"
-                                                            required>
-                                                        <% if (locals.alertaErros && alertaErros.dataEntrada) { %>
-                                                            <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.dataEntrada.msg%>
-                                                            </span>
-                                                            <% } %>
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-2">
-                                                        <label class="form-label">Data de Saída</label>
-                                                        <input type="text" class="form-control" data-toggle="input-mask"
-                                                            data-mask-format="0000/00/00" name="dataSaida"
-                                                            placeholder="Ex.: AAAA/MM/DD" value="<%= locals.formConteudo && formConteudo.dataSaida %>">
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-3">
-                                                        <label class="form-label">Nome
-                                                            do Responsável pela empresa<sup>*</sup></label>
-                                                        <input type="text" class="form-control" id="nomeResponsavel"
-                                                            name="nomeResponsavel"
-                                                            placeholder="Nome do Responsável pela empresa"
-                                                            value="<%= locals.formConteudo && formConteudo.nomeResponsavel %>"
-                                                            required>
-                                                        <% if (locals.alertaErros && alertaErros.nomeResponsavel) { %>
-                                                            <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.nomeResponsavel.msg%>
-                                                            </span>
-                                                            <% } %>
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-3 d-grid gap-2 d-md-flex justify-content-md-start align-items-md-end">
-                                                    <div></div>
-                                                        <button class="btn btn-danger col-md-6 "
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button class="btn btn-danger col-md-2 "
                                                             type="reset">Cancelar</button>
 
-                                                        <button class="btn btn-primary col-md-6 " type="submit">
+                                                        <button class="btn btn-primary col-md-2 " type="submit">
                                                             <%= buttonMessage %>
                                                         </button>
                                                     </div>
