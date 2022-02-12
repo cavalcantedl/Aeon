@@ -79,7 +79,7 @@ app.use('/', paginasRouter);
 app.use('/login', loginRouter);
 
 // view sistema
-app.use('/sistema', loginAuth, dashboardRouter);
+app.use('/sistema', dashboardRouter);
 app.use('/sistema/dashboard', dashboardRouter);
 app.use('/sistema/clientes', clientesRouter);
 app.use('/sistema/funcionarios', funcionariosRouter);
