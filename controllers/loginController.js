@@ -1,4 +1,6 @@
+const db  = require("../models");
 const { validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
 
 let loginController = {
     login: (req, res, next) => {
@@ -11,6 +13,14 @@ let loginController = {
             logoImagem: "../images/aeon-logo.png",
         })
     },
+
+    loginAcao: async (req, res) => {
+        const { email, senha } = req.body;
+
+        const loginUsuario = await db.Usuario.findOne({ where: { email: email}});
+        console.log(loginUsuario);
+    },
+
     logout: (req,res,next) => {
         res.render("login/logout", {
             titulo: "Sistema de Gestão para Agências de Marketing",

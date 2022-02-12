@@ -1,4 +1,4 @@
- const loginAuth = (req, res, next) => {
+const loginAuth = (req, res, next) => {
     // Verifica session
     console.log(req.session)
     if (typeof req.session.aeonAdminUser === "undefined") {
@@ -6,6 +6,6 @@
         return;
     }
     next();
- }
+}
 
- module.exports = loginAuth;
+module.exports = loginAuth;
