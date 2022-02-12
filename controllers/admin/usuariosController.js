@@ -27,7 +27,7 @@ let usuariosController = {
     },
 
     cadastroUsuario:(req, res, next) => {
-        return res.render("sistema/admin/cadastrarusuarios", {
+        return res.render("sistema/admin/cadastrarUsuarios", {
             formAction: `/sistema/admin/usuarios/cadastrar`,
             buttonMessage: "Cadastrar",
             formConteudo: req.body,
@@ -40,15 +40,53 @@ let usuariosController = {
         })
     },
     
-    acaoCadastroUsuario:(req, res, next) => {
+    acaoCadastroUsuario: async (req, res, next) => {
+        let alertaErros = validationResult(req);
+        if (alertaErros.isEmpty()){
+            const { nomeUsuario, usernameUsuario, emailUsuario, senhaUsuario } = req.body;
+            console.log("form aqui" , req.body);
+            let imagemUsuario = null;
+            if (req.file !== undefined) {
+                imagemUsuario = req.file.filename;
+            } else {
+                imagemUsuario = "logotipoCliente.png";
+            }
+
+            const usuarioObj = {
+                nome: nomeUsuario,
+                username: usernameUsuario,
+                email: emailUsuario,
+                senha: senhaUsuario,
+                imagem: imagemUsuario,
+            };
+            console.log(usuarioObj);
+
+            await db.Usuario.create(usuarioObj);
+            res.redirect("/sistema/admin/usuarios");
+
+        }
+        else {
+            return res.render("sistema/admin/usuarios/cadastrar", {
+                formAction: `/sistema/admin/usuarios/cadastrar`,
+                buttonMessage: "Cadastrar",
+                titulo: "Sistema de Gestão para Agências de Marketing",
+                separador: "|",
+                marca: "Aeon",
+                descricao: "Gestão descoplicada para agências de marketing.",
+                favicon: "../images/aeon-logo.png",
+                logoImagem: "../images/aeon-logo.png",
+                alertaErros: alertaErros.mapped(),
+                formConteudo: req.body,
+            })
+        }
 
     },
 
-    alteraUsuario:(req, res, next) => {
+    editarUsuario:(req, res, next) => {
 
     },
 
-    acaoAlteraUsuario:(req, res, next) => {
+    acaoEditarUsuario:(req, res, next) => {
 
     },
 

@@ -8,7 +8,7 @@ module.exports = {
         nome: { type: Sequelize.DataTypes.STRING, allowNull: false },
         email: { type: Sequelize.DataTypes.STRING, allowNull: false },
         senha: { type: Sequelize.DataTypes.STRING, allowNull: false },
-        imagem: { type: Sequelize.DataTypes.STRING, allowNull: true },
+        imagem: { type: Sequelize.DataTypes.BLOB('long'), allowNull: true },
         is_administrador: { type: Sequelize.DataTypes.ENUM('sim', 'não'), allowNull: false },
         ativo: { type: Sequelize.DataTypes.ENUM('sim', 'não'), allowNull: false },
         createdAt: Sequelize.DataTypes.DATE,
