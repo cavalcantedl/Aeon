@@ -118,7 +118,28 @@
                                                         </div>
                                                         <% if (locals.alertaErros && alertaErros.senhaUsuario) { %>
                                                             <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.esenhaUsuario.msg%>
+                                                                <%= alertaErros.sesenhaUsuario.msg%>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-6">
+                                                        <label for="exampleInputPassword1"
+                                                            class="form-label">É Administrador? <sup>*</sup></label>
+                                                            <select id="validationCustom08" name="isAdministrador"
+                                                            class="form-select"
+                                                            value="<%= locals.formConteudo && formConteudo.isAdministrador %>"
+                                                            required>
+                                                            <option selected disabled></option>
+                                                            <option>Sim</option>
+                                                            <option>Não</option>                                                            
+                                                        </select>
+                                                        <div class="invalid-feedback">
+                                                            Escolha uma opção.
+                                                        </div>
+                                                        <% if (locals.alertaErros && alertaErros.isAdministrador) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.isAdministrador.msg%>
                                                             </span>
                                                         <% } %>
                                                     </div>

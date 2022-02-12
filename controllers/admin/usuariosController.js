@@ -43,7 +43,7 @@ let usuariosController = {
     acaoCadastroUsuario: async (req, res, next) => {
         let alertaErros = validationResult(req);
         if (alertaErros.isEmpty()){
-            const { nomeUsuario, usernameUsuario, emailUsuario, senhaUsuario } = req.body;
+            const { nomeUsuario, usernameUsuario, emailUsuario, senhaUsuario, isAdministrador } = req.body;
             console.log("form aqui" , req.body);
             let imagemUsuario = null;
             if (req.file !== undefined) {
@@ -57,6 +57,7 @@ let usuariosController = {
                 username: usernameUsuario,
                 email: emailUsuario,
                 senha: senhaUsuario,
+                is_administrador: isAdministrador,
                 imagem: imagemUsuario,
             };
             console.log(usuarioObj);
