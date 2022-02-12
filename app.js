@@ -4,7 +4,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
+const loginAuth = require('./middlewares/loginAuth');
 
 // define as rotas das paginas
 let paginasRouter = require('./routes/pagesRouters');
@@ -16,7 +16,7 @@ let funcionariosRouter = require('./routes/funcionariosRouters');
 let loginRouter = require('./routes/loginRouters');
 
 // define as rotas do admin
-let adminRouter = require('./routes/admin/adminRouters');
+let usuarioRouter = require('./routes/admin/usuariosRouters');
 
 let app = express();
 
@@ -62,16 +62,19 @@ app.use(methodOverride('_method'));
 // view paginas
 app.use('/', paginasRouter);
 
+// view login
+app.use('/login', loginRouter);
+
 // view sistema
+// app.use('/sistema', loginAuth, dashboardRouter);
 app.use('/sistema/dashboard', dashboardRouter);
 app.use('/sistema/clientes', clientesRouter);
 app.use('/sistema/funcionarios', funcionariosRouter);
 
-// view login
-app.use('/login', loginRouter);
+
 
 // view admin
-app.use('/sistema/admin', adminRouter);
+app.use('/sistema/admin', usuarioRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

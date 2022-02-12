@@ -7,7 +7,6 @@ const moment = require("moment");
 let clientesController = {
     clientes: async (req, res, next) => {
         const clienteObj = await db.Cliente.findAll();
-        // console.log(clienteObj);
 
         return res.render("sistema/clientes", {
             titulo: "Sistema de Gestão para Agências de Marketing",
