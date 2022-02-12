@@ -38,15 +38,6 @@
                         <li>
                             <a href="/sistema/dashboard">Visão Geral</a>
                         </li>
-                        <li>
-                            <a href="#">Clientes</a>
-                        </li>
-                        <li>
-                            <a href="#">Custos</a>
-                        </li>
-                        <li>
-                            <a href="#">Projetos</a>
-                        </li>
                     </ul>
                 </div>
             </li>
@@ -91,25 +82,6 @@
             </li>
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarUsuarios" aria-expanded="false"
-                    aria-controls="sidebarUsuarios" class="side-nav-link">
-                    <i class="bi bi-person-circle"></i>
-                    <span> Usuários </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarUsuarios">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="#">Visão Geral</a>
-                        </li>
-                        <li>
-                            <a href="/login/registrar">Cadastrar Usuário</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarServicos" aria-expanded="false"
                     aria-controls="sidebarServicos" class="side-nav-link">
                     <i class="bi bi-briefcase"></i>
@@ -119,10 +91,36 @@
                 <div class="collapse" id="sidebarServicos">
                     <ul class="side-nav-second-level">
                         <li>
+                            <a href="#">Visão Geral</a>
+                        </li>
+                        <li>
+                            <a href="#">Cadastrar Serviço</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarUsuarios" aria-expanded="false"
+                    aria-controls="sidebarUsuarios" class="side-nav-link">
+                    <i class="bi bi-person-circle"></i>
+                    <span> Administrador </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarUsuarios">
+                    <ul class="side-nav-second-level">
+                        <li>
                             <a href="/sistema/servicos">Visão Geral</a>
                         </li>
                         <li>
                             <a href="/sistema/servicos/cadastrar">Cadastrar Serviço</a>
+                            <a href="/sistema/admin/">Visão Geral</a>
+                        </li>
+                        <li>
+                            <a href="/sistema/admin/usuarios">Usuários</a>
+                        </li>
+                        <li>
+                            <a href="/sistema/admin/usuarios/cadastrar">Cadastrar Usuário</a>
                         </li>
                     </ul>
                 </div>

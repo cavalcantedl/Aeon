@@ -1,0 +1,179 @@
+<%- include("../../partials/headerSistema") %>
+    <!-- Begin page -->
+    <div class="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        <%- include("../../partials/sidebarSistema") %>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+                    <!-- Topbar Start -->
+                    <%- include("../../partials/topbarSistema") %>
+                        <!-- end Topbar -->
+
+                        <!-- Start Content-->
+                        <div class="container-fluid">
+
+                            <!-- start page title -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="page-title-box">
+                                        <div class="page-title-right">
+                                            <ol class="breadcrumb m-0">
+                                                <li class="breadcrumb-item"><a href="/sistema/dashboard">Página
+                                                        inicial</a>
+                                                </li>
+                                                <li class="breadcrumb-item"><a href="/sistema/admin">Adminitrador</a>
+                                                </li>
+                                                <li class="breadcrumb-item active">
+                                                    Cadastrar usuários
+                                                </li>
+                                            </ol>
+                                        </div>
+                                        <h4 class="page-title">Usuários - Cadastrar Usuários</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end page title -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <!-- form start -->
+                                            <form class="needs-validation" method="POST" action="<%= formAction %>"
+                                                enctype="multipart/form-data" novalidate>
+                                                <div class="row g-2">
+                                                    <div class="mb-3 col-md-6">
+                                                        <label class="form-label"
+                                                            for="validationCustom01">Nome<sup>*</sup> </label>
+                                                        <input type="text" class="form-control" id="validationCustom01"
+                                                            name="nomeUsuario" placeholder="Nome e Sobrenome do usuário"
+                                                            value="<%= locals.formConteudo && formConteudo.nomeUsuario %>"
+                                                            required>
+                                                        <div class="invalid-feedback">
+                                                            Coloque o nome do usuário.
+                                                        </div>
+                                                        <% if (locals.alertaErros && alertaErros.nomeUsuario) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.nomeUsuario.msg%>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-6">
+                                                        <label for="validationCustomUsername"
+                                                            class="form-label">Username<sup>*</sup></label>
+                                                        <div class="input-group has-validation">
+                                                            <span class="input-group-text"
+                                                                id="validationCustom02">@</span>
+                                                            <input type="text" class="form-control"
+                                                                id="validationCustomUsername" name="usernameUsuario"
+                                                                aria-describedby="validationCustom02"
+                                                                placeholder="Escolha um username"
+                                                                value="<%= locals.formConteudo && formConteudo.usernameUsuario %>"
+                                                                required>
+                                                            <div class="invalid-feedback">
+                                                                Escolha um nome de usuário.
+                                                            </div>
+                                                            <% if (locals.alertaErros && alertaErros.usernameUsuario) {
+                                                                %>
+                                                                <span class="col-md-5 erroCadastro">
+                                                                    <%= alertaErros.usernameUsuario.msg%>
+                                                                </span>
+                                                                <% } %>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="mb-3 col-md-6">
+                                                        <label for="exampleInputEmail1" class="form-label">E-mail<sup>*</sup></label>
+                                                        <input type="email" class="form-control" id="inputEmail"
+                                                            name="emailUsuario" placeholder="E-mail do usuário"
+                                                            aria-describedby="validationCustom03"
+                                                            value="<%= locals.formConteudo && formConteudo.emailUsuario %>"
+                                                            required>
+                                                        <div class="invalid-feedback">
+                                                            Digite o e-mail do usuário.
+                                                        </div>
+                                                        <% if (locals.alertaErros && alertaErros.emailUsuario) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.emailUsuario.msg%>
+                                                            </span>
+                                                            <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-6">
+                                                        <label for="exampleInputPassword1"
+                                                            class="form-label">Senha <sup>*</sup></label>
+                                                        <input type="password" class="form-control"
+                                                            id="exampleInputPassword1" name="senhaUsuario"
+                                                            placeholder="Digite uma senha"
+                                                            aria-describedby="validationCustom04" required>
+                                                        <div class="invalid-feedback">
+                                                            Digite uma senha.
+                                                        </div>
+                                                        <% if (locals.alertaErros && alertaErros.senhaUsuario) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.sesenhaUsuario.msg%>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-6">
+                                                        <label for="exampleInputPassword1"
+                                                            class="form-label">É Administrador? <sup>*</sup></label>
+                                                            <select id="validationCustom08" name="isAdministrador"
+                                                            class="form-select"
+                                                            value="<%= locals.formConteudo && formConteudo.isAdministrador %>"
+                                                            required>
+                                                            <option selected disabled></option>
+                                                            <option>Sim</option>
+                                                            <option>Não</option>                                                            
+                                                        </select>
+                                                        <div class="invalid-feedback">
+                                                            Escolha uma opção.
+                                                        </div>
+                                                        <% if (locals.alertaErros && alertaErros.isAdministrador) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.isAdministrador.msg%>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-5">
+                                                        <label for="example-fileinput" class="form-label">Imagem</label>
+                                                        <input id="imagemUsuario" name="imagemUsuario"
+                                                            class="form-control" accept=".jpg, .jpeg, .png, .webp"
+                                                            type="file" multiple>
+                                                    </div>
+
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button class="btn btn-danger col-md-2 "
+                                                            type="reset">Cancelar</button>
+
+                                                        <button class="btn btn-primary col-md-2 " type="submit">
+                                                            <%= buttonMessage %>
+                                                        </button>
+                                                    </div>
+
+
+                                                </div>
+                                            </form>
+                                            <!-- form end -->
+
+
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col -->
+                            </div>
+
+                        </div> <!-- container -->
+
+                </div> <!-- content -->
+
+                <!-- Footer Start -->
+                <%- include("../../partials/footerSistema") %>

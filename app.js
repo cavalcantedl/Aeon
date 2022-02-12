@@ -4,13 +4,11 @@ const path = require('path');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const moment = require('moment');
+const loginAuth = require('./middlewares/loginAuth');
+const session = require('express-session');
 
 // define as rotas das paginas
 let paginasRouter = require('./routes/pagesRouters');
-
-// define as rotas de usuarios
-let usersRouter = require('./routes/users');
 
 // define as rotas do sistema
 let dashboardRouter = require('./routes/dashboardRouters');
@@ -20,10 +18,20 @@ let loginRouter = require('./routes/loginRouters');
 let servicosRouter = require('./routes/servicosrouters');
 const servicosController = require('./controllers/servicosController');
 
-// define as rotas de login
-// let usersRouter = require('./routes/users');
+// define as rotas do admin
+let usuarioRouter = require('./routes/admin/usuariosRouters');
 
 let app = express();
+// app.use(session({ secret: "AeonMarketingDigitalDescomplicadoDevelopmentSystem"}));
+
+app.use(session({
+  secret: 'AeonMarketingDigitalDescomplicadoDevelopmentSystem',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
+
+
 
 //Bootstrap and FontAwesome
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
@@ -67,18 +75,20 @@ app.use(methodOverride('_method'));
 // view paginas
 app.use('/', paginasRouter);
 
+// view login
+app.use('/login', loginRouter);
+
 // view sistema
+app.use('/sistema', loginAuth, dashboardRouter);
 app.use('/sistema/dashboard', dashboardRouter);
 app.use('/sistema/clientes', clientesRouter);
 app.use('/sistema/funcionarios', funcionariosRouter);
 app.use('/sistema/servicos', servicosRouter);
 
 
-// view usuarios
-app.use('/users', usersRouter);
 
-// view login
-app.use('/login', loginRouter);
+// view admin
+app.use('/sistema/admin', usuarioRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

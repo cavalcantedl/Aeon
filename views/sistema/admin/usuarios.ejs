@@ -1,8 +1,8 @@
-<%- include("../partials/headerSistema") %>
+<%- include("../../partials/headerSistema") %>
     <!-- Begin page -->
     <div class="wrapper">
         <!-- ========== Left Sidebar Start ========== -->
-        <%- include("../partials/sidebarSistema") %>
+        <%- include("../../partials/sidebarSistema") %>
             <!-- Left Sidebar End -->
 
             <!-- ============================================================== -->
@@ -12,7 +12,7 @@
             <div class="content-page">
                 <div class="content">
                     <!-- Topbar Start -->
-                    <%- include("../partials/topbarSistema") %>
+                    <%- include("../../partials/topbarSistema") %>
                         <!-- end Topbar -->
 
                         <!-- Start Content-->
@@ -27,12 +27,12 @@
                                                 <li class="breadcrumb-item"><a href="/sistema/dashboard">Página
                                                         inicial</a>
                                                 </li>
-                                                <li class="breadcrumb-item"><a href="#">Clientes</a>
+                                                <li class="breadcrumb-item"><a href="#">Usuários</a>
                                                 </li>
                                                 <li class="breadcrumb-item active">Visão Geral</li>
                                             </ol>
                                         </div>
-                                        <h4 class="page-title">Clientes - Visão Geral</h4>
+                                        <h4 class="page-title">Usuários - Visão Geral</h4>
                                     </div>
                                 </div>
                             </div>
@@ -74,16 +74,16 @@
                                                                 </div>
                                                             </th>
                                                             <th>ID</th>
-                                                            <th>Cliente</th>
-                                                            <th>CNPJ</th>
-                                                            <th>Data de Entrada</th>
-                                                            <th>Data de Saída</th>
-                                                            <th>QTD Serviços</th>
+                                                            <th>Nome</th>
+                                                            <th>username</th>
+                                                            <th>E-mail</th>
+                                                            <th>Senha</th>
+                                                            <th>Ativo?</th>
                                                             <th style="width: 75px;">Ações</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <% clienteObj.forEach(cliente=> { %>
+                                                        <% usuarioObj.forEach(usuario=> { %>
                                                             <tr>
                                                                 <td>
                                                                     <div class="form-check">
@@ -95,39 +95,41 @@
                                                                 </td>
                                                                 <td scope="row">
                                                                     <span class="fw-semibold">
-                                                                        <%= cliente.id_cliente %>
+                                                                        <%= usuario.id_usuario %>
                                                                     </span>
                                                                 </td>
 
                                                                 <td class="table-user">
-                                                                    <img src="../uploads/<%= cliente.logotipoCliente %>"
+                                                                    <img src="../../uploads/<%= usuario.imagem %>"
                                                                         alt="table-user"
                                                                         class="me-2 img-thumbnail img-fluid logotipoCliente" />
                                                                     <a href="javascript:void(0);"
                                                                         class="text-body fw-semibold">
-                                                                        <%= cliente.nomeFantasia %>
+                                                                        <%= usuario.nome %>
                                                                     </a>
                                                                 </td>
                                                                 <td>
                                                                     <span class="fw-semibold">
-                                                                        <%= cliente.cnpj %>
+                                                                        <%= usuario.username %>
                                                                     </span>
                                                                 </td>
                                                                 <td>
                                                                     <span class="fw-semibold">
-                                                                        <%= cliente.dataEntrada %>
+                                                                        <%= usuario.email %>
                                                                     </span>
                                                                 </td>
                                                                 <td>
                                                                     <span class="fw-semibold">
-                                                                        <%= cliente.dataSaida %>
+                                                                        <%= usuario.senha %>
                                                                     </span>
                                                                 </td>
                                                                 <td>
-                                                                    <span class="fw-semibold">5</span>
+                                                                    <span class="fw-semibold">
+                                                                        <%= usuario.ativo %>
+                                                                    </span>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="/sistema/clientes/editar/<%= cliente.id_cliente %>"
+                                                                    <a href="/sistema/admin/usuarios/editar/<%= usuario.id_usuario %>"
                                                                         class="action-icon"> <i
                                                                             class="mdi mdi-square-edit-outline"></i></a>
                                                                     <a href="#deletar" class="action-icon"
@@ -138,7 +140,7 @@
                                                             <% }); %>
                                                     </tbody>
                                                 </table>
-                                                <% clienteObj.forEach(cliente=> { %>
+                                                <% usuarioObj.forEach(usuario=> { %>
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="deletar" data-bs-backdrop="static"
                                                     data-bs-keyboard="false" tabindex="-1"
@@ -151,12 +153,12 @@
                                                                     data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                Você está prestes a deletar um cliente. Tem certeza que deseja continuar?
+                                                                Você está prestes a deletar um usuário. Tem certeza que deseja continuar?
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-primary"
                                                                     data-bs-dismiss="modal">Não! Cliquei sem querer!</button>
-                                                                <form action="/sistema/clientes/excluir/<%= cliente.id_cliente %>?_method=DELETE" method="POST">
+                                                                <form action="/sistema/admin/usuarios/excluir/<%= usuario.id_usuario %>?_method=DELETE" method="POST">
                                                                     <button type="submit" class="btn btn-danger text-white">
                                                                          Claro! Sei o que estou fazendo.
                                                                     </button>
@@ -178,4 +180,4 @@
 
                 </div>
                 <!-- content -->
-                <%- include("../partials/footerSistema") %>
+                <%- include("../../partials/footerSistema") %>
