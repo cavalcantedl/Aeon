@@ -99,7 +99,7 @@ let funcionariosController = {
         if (alertaErros.isEmpty()){
             const funcionario = await db.Funcionario.findByPk(req.params.id, {include: ["endereco"]});
             let { nome , salario, nomeFuncao, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, dataAdmissao, dataDemissao } = req.body;
-
+               
             if(dataDemissao == ""){
                 dataDemissao = null;
             }

@@ -1,0 +1,136 @@
+<%- include("../partials/headerSistema") %>
+        <!-- Begin page -->
+        <div class="wrapper">
+            <!-- ========== Left Sidebar Start ========== -->
+            <%- include("../partials/sidebarSistema") %>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+                    <!-- Topbar Start -->
+                    <%- include("../partials/topbarSistema") %>
+                    <!-- end Topbar -->
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+                        
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Hyper</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Serviços</a></li>
+                                            <li class="breadcrumb-item active">Cadastrar Serviço</li>
+                                        </ol>
+                                    </div>
+                                    <h4 class="page-title">Cadastrar Serviço</h4>
+                                </div>
+                            </div>
+                        </div>     
+                        <!-- end page title --> 
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                    <form class="needs-validation" method="POST"
+                                        action="/sistema/servicos/cadastrar" enctype="multipart/form-data"
+                                        novalidate>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="mb-3 ">
+                                                    
+                                                    <label class="form-label" for="validationCustom01">Nome do serviço
+                                                        <sup>*</sup> </label>
+                                                    <input type="text" class="form-control" id="validationCustom01"
+                                                        name="nomeServico" placeholder="Nome do serviço"
+                                                        value="<%= locals.formConteudo && formConteudo.nomeServico %>"
+                                                        required>
+                                                    <% if (locals.alertaErros && alertaErros.nomeServico) { %>
+                                                        <span class="col-md-5 erroCadastro">
+                                                            <%= alertaErros.nomeServico.msg%>
+                                                        </span>
+                                                        <% } %>
+                                                </div>
+
+                                                <div class="mb-3 ">
+                                                    
+                                                    <label class="form-label" for="validationCustom01">Descrição
+                                                        <sup>*</sup> </label>
+                                                    <textarea type="text" class="form-control" id="validationCustom01"
+                                                        name="descricaoServico" placeholder="Descrição do serviço"
+                                                        value="<%= locals.formConteudo && formConteudo.descricaoServico %>"
+                                                        required></textarea>
+                                                    <% if (locals.alertaErros && alertaErros.descricaoServico) { %>
+                                                        <span class="col-md-5 erroCadastro">
+                                                            <%= alertaErros.descricaoServico.msg%>
+                                                        </span>
+                                                        <% } %>
+                                                </div>
+                                                
+                                            </div> <!-- end col-->
+
+                                                <div class="col-xl-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="validationCustom01">Tipo do serviço
+                                                            <sup>*</sup> </label>
+                                                        <input type="text" class="form-control" id="validationCustom01"
+                                                            name="tipoServico" placeholder="Tipo de serviço"
+                                                            value="<%= locals.formConteudo && formConteudo.tipoServico %>"
+                                                            required>
+                                                        <% if (locals.alertaErros && alertaErros.tipoServico) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.tipoServico.msg%>
+                                                            </span>
+                                                            <% } %>
+                                                    </div>
+                                                
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="validationCustom02">Valor do serviço
+                                                            <sup>*</sup></label>
+                                                        <input type="text" class="form-control" id="validationCustom02"
+                                                            name="valorServico" placeholder="Valor do serviço." value="<%= locals.formConteudo && formConteudo.valorServico %>"
+                                                            required>
+                                                        <% if (locals.alertaErros && alertaErros.valorServico) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.valorServico.msg%>
+                                                            </span>
+                                                            <% } %>
+                                                    </div>
+                                                    <!-- Preview -->
+                                                    <div class="dropzone-previews mt-3" id="file-previews"></div>
+
+                                                    
+                                    
+                                                </div>
+
+                                            </div> <!-- end col-->
+
+                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                <button class="btn btn-danger col-md-2 "
+                                                    type="reset">Cancelar</button>
+
+                                                <button class="btn btn-primary col-md-2 "
+                                                    type="submit">Cadastrar serviço</button>
+                                            </div>
+                                        </div>
+                                        <!-- end row -->
+                                      </form>
+                                      <!-- form end -->
+
+                                    </div> <!-- end card-body -->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row-->
+                        
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+                <%- include("../partials/footerSistema") %>

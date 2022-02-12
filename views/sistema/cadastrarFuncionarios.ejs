@@ -63,6 +63,18 @@
                                                     </div>
 
                                                     <div class="mb-3 col-md-6">
+                                                        <label for="inputAddress" class="form-label"
+                                                            for="validationCustom03">Função<sup>*</sup></label>
+                                                        <input type="text" class="form-control" id="validationCustom03"
+                                                            name="nomeFuncao" placeholder="Função do funcionário" value="<%= locals.formConteudo && formConteudo.nomeFuncao %>" required>
+                                                        <% if (locals.alertaErros && alertaErros.nomeFuncao) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.nomeFuncao.msg%>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-3">
                                                         <label class="form-label" for="validationCustom02">Salário
                                                             <sup>*</sup></label>
                                                         <input type="text" class="form-control" id="validationCustom02"
@@ -75,19 +87,8 @@
                                                             <% } %>
                                                     </div>
 
-                                                    <div class="mb-3">
-                                                        <label for="inputAddress" class="form-label"
-                                                            for="validationCustom03">Função<sup>*</sup></label>
-                                                        <input type="text" class="form-control" id="validationCustom03"
-                                                            name="nomeFuncao" placeholder="Função do funcionário" value="<%= locals.formConteudo && formConteudo.nomeFuncao %>" required>
-                                                        <% if (locals.alertaErros && alertaErros.nomeFuncao) { %>
-                                                            <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.nomeFuncao.msg%>
-                                                            </span>
-                                                        <% } %>
-                                                    </div>
 
-                                                    <div class="mb-3">
+                                                    <div class="mb-3 col-md-6">
                                                         <label for="inputAddress" class="form-label"
                                                             for="validationCustom03">Logradouro<sup>*</sup></label>
                                                         <input type="text" class="form-control" id="validationCustom03"
@@ -99,7 +100,7 @@
                                                         <% } %>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-2">
+                                                    <div class="mb-3 col-md-3">
                                                         <label class="form-label" for="validationCustom05">Numero<sup>*</sup></label>
                                                         <input type="text" class="form-control" data-toggle="input-mask"
                                                              id="validationCustom05"
@@ -111,7 +112,7 @@
                                                         <% } %>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-4">
+                                                    <div class="mb-3 col-md-3">
                                                         <label class="form-label" for="validationCustom05">Complemento<sup>*</sup></label>
                                                         <input type="text" class="form-control" data-toggle="input-mask"
                                                              id="validationCustom05"
@@ -220,14 +221,8 @@
                                                         <% } %>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-2">
-                                                        <label class="form-label">Data de Demissão</label>
-                                                        <input type="text" class="form-control" data-toggle="input-mask"
-                                                            data-mask-format="0000/00/00" name="dataDemissao"
-                                                            placeholder="Ex.: AAAA/MM/DD"value="<%= locals.formConteudo && formConteudo.dataDemissao %>">
-                                                    </div>
 
-                                                    <div class="mb-3 col-md-6">
+                                                    <div class="mb-3 col-md-5">
                                                         <label for="example-fileinput" class="form-label">Foto do
                                                             funcionário</label>
                                                         <input id="fotoFuncionario" name="fotoFuncionario"
