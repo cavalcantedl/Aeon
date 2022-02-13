@@ -9,8 +9,10 @@ const loginController = require("../controllers/loginController");
 
 /* GET Clientes. */
 router.get('/', loginController.login);
+router.post('/', loginController.acaoLogin);
+
 router.get('/logout', loginController.logout);
-router.get('/registrar', loginController.registrar);
+
 router.get('/confirmar', loginController.confirmar);
 router.get('/recuperar', loginController.recuperar);
 router.get('/lock', loginController.lock);

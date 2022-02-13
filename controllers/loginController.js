@@ -11,14 +11,30 @@ let loginController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            formAction: `/login`,
+            buttonMessage: " Entrar ",
         })
     },
 
-    loginAcao: async (req, res) => {
+    acaoLogin: async (req, res) => {
         const { email, senha } = req.body;
 
-        const loginUsuario = await db.Usuario.findOne({ where: { email: email}});
-        console.log(loginUsuario);
+        const usuarioEncontradoDS = await db.Usuario.findOne({ where: { email: email}});
+        console.log(usuarioEncontradoDS);
+
+        if(usuarioEncontradoDS == null) {
+            res.redirect("/login")
+        }
+
+        const usuarioEncontrado = usuarioEncontradoDS.dataValues;
+        console.log(usuarioEncontrado);
+        if (!bcrypt.compareSync(senha, usuarioEncontrado.senha)){
+            res.redirect("/login");
+        }
+
+        req.session.aeonAdminUser = usuarioEncontrado;
+        console.log(req.session);
+        res.redirect("/sistema");
     },
 
     logout: (req,res,next) => {

@@ -1,8 +1,8 @@
 const loginAuth = (req, res, next) => {
     // Verifica session
-    console.log(req.session)
-    if (typeof req.session.aeonAdminUser === "undefined") {
-        res.redirect("/login");
+
+    if (typeof req.session.aeonAdminUser !== "undefined") {
+        res.redirect("/sistema");
         return;
     }
     next();
