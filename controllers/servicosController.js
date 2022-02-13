@@ -30,21 +30,25 @@ let servicosController = {
         let alertaErros = validationResult(req);
         if (alertaErros.isEmpty()){
             const { nomeServico, tipoServico, valorServico, descricaoServico } = req.body;
-
-            const servicoObj = {
-                nomeServico: nomeServico,
-                tipoServico: tipoServico,
-                valorServico: valorServico,
-                descricaoServico: descricaoServico
+            console.log("REQ AQUI" , req.body)
+            const servico = {
+                nomeServico,
+                tipoServico,
+                valorServico,
+                descricaoServico
             }
 
-            await db.Servico.create(servicoObj);
+            await db.Servico.create(servico);
             res.redirect("/sistema/servicos");
 
         }
         else {
+            console.log(alertaErros.mapped());
+            console.log(req.body);
+            console.log("Deu ruim!");
+            console.log(alertaErros);
             return res.render("sistema/cadastrarServico", {
-                formAction: `sistema/servicos/cadastrar`,
+                formAction: `/sistema/servicos/cadastrar`,
                 titulo: "Sistema de Gestão para Agências de Marketing",
                 separador: "|",
                 marca: "Aeon",

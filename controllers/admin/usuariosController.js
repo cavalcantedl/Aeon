@@ -45,7 +45,7 @@ let usuariosController = {
         let alertaErros = validationResult(req);
         if (alertaErros.isEmpty()){
             const { nomeUsuario, usernameUsuario, emailUsuario, senhaUsuario, isAdministrador } = req.body;
-            console.log("form aqui" , req.body);
+            // console.log("form aqui" , req.body);
 
             senhaCriptografada = await bcrypt.hash(senhaUsuario, 10);
 
@@ -89,6 +89,7 @@ let usuariosController = {
 
     editarUsuario: async (req, res, next) => {
         const usuarioObj = await db.Usuario.findByPk(req.params.id);
+        // console.log(usuarioObj)
         return res.render("sistema/admin/editarUsuarios", {
             formAction: `/sistema/admin/usuarios/editar/${req.params.id}?_method=PUT`,
             buttonMessage: "Atualizar",
@@ -102,12 +103,52 @@ let usuariosController = {
         });
     },
 
-    acaoEditarUsuario:(req, res, next) => {
+    acaoEditarUsuario: async (req, res, next) => {
+        let alertaErros = validationResult(req);
+        if (alertaErros.isEmpty()){
+            const { nomeUsuario, usernameUsuario, emailUsuario, senhaUsuario, isAdministrador } = req.body;
+            console.log("REQ AQUI" , req.body)
+            // senhaCriptografada = await bcrypt.hash(senhaUsuario, 10);
+
+
+            const usuarioObj = {
+                nome: nomeUsuario,
+                username: usernameUsuario,
+                email: emailUsuario,
+                // senha: senhaCriptografada,
+                is_administrador: isAdministrador   
+            };
+
+            await db.Usuario.update(usuarioObj, { where: { id_usuario: req.params.id }})
+            
+            res.redirect("/sistema/admin/usuarios");
+
+        }
+        else {
+            console.log(alertaErros.mapped());
+            console.log(req.body);
+            console.log("Deu ruim!");
+            console.log(alertaErros);
+            return res.render("sistema/admin/editarUsuarios", {
+                formAction: `/sistema/admin/usuarios/editar/${req.params.id}?_method=PUT`,
+                buttonMessage: "Atualizar",
+                titulo: "Sistema de Gestão para Agências de Marketing",
+                separador: "|",
+                marca: "Aeon",
+                descricao: "Gestão descoplicada para agências de marketing.",
+                favicon: "../images/aeon-logo.png",
+                logoImagem: "../images/aeon-logo.png",
+                alertaErros: alertaErros.mapped(),
+                formConteudo: req.body,
+            })
+        }
 
     },
 
-    excluir:(req, res, next) => {
+    excluir: async (req, res) => {
+        await db.Usuario.destroy({ where: { id_usuario: req.params.id } })
 
+        res.redirect("/sistema/admin/usuarios");
     },
 };
 

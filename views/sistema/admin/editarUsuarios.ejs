@@ -125,7 +125,7 @@
                                                         <label for="exampleInputPassword1"
                                                             class="form-label">É Administrador? <sup>*</sup></label>
                                                             <select id="validationCustom08" name="isAdministrador"
-                                                            class="form-select" required>
+                                                            class="form-select" >
                                                             <option selected disabled><%= locals.formConteudo && formConteudo.is_administrador %></option>
                                                             <option>Sim</option>
                                                             <option>Não</option>                                                            
@@ -138,13 +138,6 @@
                                                                 <%= alertaErros.isAdministrador.msg%>
                                                             </span>
                                                         <% } %>
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-5">
-                                                        <label for="example-fileinput" class="form-label">Imagem</label>
-                                                        <input id="imagemUsuario" name="imagemUsuario"
-                                                            class="form-control" accept=".jpg, .jpeg, .png, .webp"
-                                                            type="file" multiple>
                                                     </div>
 
                                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
