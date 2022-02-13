@@ -31,10 +31,10 @@ let servicosController = {
         if (alertaErros.isEmpty()){
             const { nomeServico, tipoServico, valorServico, descricaoServico } = req.body;
             const servicoObj = {
-                nome_servico: nomeServico,
-                tipo_servico: tipoServico,
-                valor_servico: valorServico,
-                descricao_servico: descricaoServico
+                nomeServico,
+                tipoServico,
+                valorServico,
+                descricaoServico
             }
             await db.Servico.create(servicoObj);
             res.redirect("/sistema/servicos");
