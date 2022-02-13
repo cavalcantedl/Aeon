@@ -5,10 +5,10 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        nome: DataTypes.STRING,
-        tipoServico: DataTypes.STRING,
-        valorServico: DataTypes.DECIMAL(7,2).UNSIGNED,
-        descricaoServico: DataTypes.TEXT
+        nome_servico: DataTypes.STRING,
+        tipo_servico: DataTypes.STRING,
+        valor_servico: DataTypes.DECIMAL(7,2).UNSIGNED,
+        descricao_servico: DataTypes.TEXT
         
     }, {
         tableName: 'servicos',

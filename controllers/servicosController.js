@@ -30,15 +30,13 @@ let servicosController = {
         let alertaErros = validationResult(req);
         if (alertaErros.isEmpty()){
             const { nomeServico, tipoServico, valorServico, descricaoServico } = req.body;
-            console.log("REQ AQUI" , req.body)
-            const servico = {
-                nomeServico,
-                tipoServico,
-                valorServico,
-                descricaoServico
+            const servicoObj = {
+                nome_servico: nomeServico,
+                tipo_servico: tipoServico,
+                valor_servico: valorServico,
+                descricao_servico: descricaoServico
             }
-
-            await db.Servico.create(servico);
+            await db.Servico.create(servicoObj);
             res.redirect("/sistema/servicos");
 
         }
