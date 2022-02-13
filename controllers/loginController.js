@@ -20,21 +20,24 @@ let loginController = {
         const { email, senha } = req.body;
 
         const usuarioEncontradoDS = await db.Usuario.findOne({ where: { email: email}});
-        console.log(usuarioEncontradoDS);
 
-        if(usuarioEncontradoDS == null) {
+        if(!usuarioEncontradoDS) {
             res.redirect("/login")
         }
-
+        
         const usuarioEncontrado = usuarioEncontradoDS.dataValues;
-        console.log(usuarioEncontrado);
-        if (!bcrypt.compareSync(senha, usuarioEncontrado.senha)){
-            res.redirect("/login");
+
+        if(!bcrypt.compareSync(senha, usuarioEncontrado.senha)){
+            res.redirect("/login");            
+        } 
+        
+        else {
+
+            req.session.aeonAdminUser = usuarioEncontrado;
+            return res.redirect("/sistema");
+
         }
 
-        req.session.aeonAdminUser = usuarioEncontrado;
-        console.log(req.session);
-        res.redirect("/sistema");
     },
 
     logout: (req,res,next) => {

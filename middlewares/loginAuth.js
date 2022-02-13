@@ -1,11 +1,11 @@
 const loginAuth = (req, res, next) => {
     // Verifica session
-
-    if (typeof req.session.aeonAdminUser !== "undefined") {
-        res.redirect("/sistema");
-        return;
+    if(!req.session.aeonAdminUser){ 
+        res.redirect("/login");
     }
-    next();
+    else {
+        return next();
+    }
 }
 
 module.exports = loginAuth;
