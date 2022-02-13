@@ -45,9 +45,9 @@ let usuariosController = {
         let alertaErros = validationResult(req);
         if (alertaErros.isEmpty()){
             const { nomeUsuario, usernameUsuario, emailUsuario, senhaUsuario, isAdministrador } = req.body;
-            // console.log("form aqui" , req.body);
 
-            senhaCriptografada = await bcrypt.hash(senhaUsuario, 10);
+            const salt = bcrypt.genSaltSync(10);
+            senhaCriptografada = bcrypt.hashSync(senhaUsuario, salt);
 
             let imagemUsuario = null;
             if (req.file !== undefined) {

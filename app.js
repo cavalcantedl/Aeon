@@ -27,8 +27,7 @@ let app = express();
 app.use(session({
   secret: 'AeonMarketingDigitalDescomplicadoDevelopmentSystem',
   resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
+  saveUninitialized: true
 }))
 
 
@@ -79,16 +78,23 @@ app.use('/', paginasRouter);
 app.use('/login', loginRouter);
 
 // view sistema
+<<<<<<< HEAD
 app.use('/sistema', dashboardRouter);
 app.use('/sistema/dashboard', dashboardRouter);
 app.use('/sistema/clientes', clientesRouter);
 app.use('/sistema/funcionarios', funcionariosRouter);
 app.use('/sistema/servicos', servicosRouter);
+=======
+app.use('/sistema', loginAuth, dashboardRouter);
+app.use('/sistema/dashboard', loginAuth, dashboardRouter);
+app.use('/sistema/clientes', loginAuth, clientesRouter);
+app.use('/sistema/funcionarios', loginAuth, funcionariosRouter);
+>>>>>>> newModel
 
 
 
 // view admin
-app.use('/sistema/admin', usuarioRouter);
+app.use('/sistema/admin', loginAuth, usuarioRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
