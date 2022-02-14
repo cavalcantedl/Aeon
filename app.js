@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const loginAuth = require('./middlewares/loginAuth');
+const adminAuth = require('./middlewares/adminAuth');
 const session = require('express-session');
 
 // define as rotas das paginas
@@ -94,7 +95,7 @@ app.use('/sistema/funcionarios', loginAuth, funcionariosRouter);
 
 
 // view admin
-app.use('/sistema/admin', loginAuth, usuarioRouter);
+app.use('/sistema/admin', loginAuth, adminAuth, usuarioRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
