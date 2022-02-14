@@ -1,4 +1,5 @@
 const { validationResult } = require("express-validator");
+const usuariosController = require("../controllers/admin/usuariosController");
 
 let funcionariosController = {
     funcionarios: (req, res, next) => {
@@ -9,6 +10,7 @@ let funcionariosController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            dadosUsuario: req.session.aeonAdminUser,
         })
     },
     cadastrarFuncionarios: (req, res, next) => {
@@ -19,6 +21,7 @@ let funcionariosController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            dadosUsuario: req.session.aeonAdminUser,
         })
     },
     acaoCadastrarFuncionarios:(req, res, next) =>{        

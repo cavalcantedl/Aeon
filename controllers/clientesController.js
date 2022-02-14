@@ -14,6 +14,7 @@ let clientesController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            dadosUsuario: req.session.aeonAdminUser,
             clienteObj,
         })
     },
@@ -28,6 +29,7 @@ let clientesController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            dadosUsuario: req.session.aeonAdminUser,
         })
     },
     acaoCadastrarClientes: async (req, res, next) => {        

@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 
 let loginController = {
     login: (req, res, next) => {
+
         res.render("login/login", {
             titulo: "Sistema de Gestão para Agências de Marketing",
             separador: "|",
@@ -20,7 +21,7 @@ let loginController = {
         const { email, senha } = req.body;
 
         const usuarioEncontradoDS = await db.Usuario.findOne({ where: { email: email}});
-
+        
         if(!usuarioEncontradoDS) {
             res.redirect("/login")
         }
@@ -32,12 +33,10 @@ let loginController = {
         } 
         
         else {
-
+            
             req.session.aeonAdminUser = usuarioEncontrado;
             return res.redirect("/sistema");
-
         }
-
     },
 
     logout: (req,res,next) => {

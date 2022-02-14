@@ -15,6 +15,8 @@ let dashboardRouter = require('./routes/dashboardRouters');
 let clientesRouter = require('./routes/clientesRouters');
 let funcionariosRouter = require('./routes/funcionariosRouters');
 let loginRouter = require('./routes/loginRouters');
+// let servicosRouter = require('./routes/servicosrouters');
+// const servicosController = require('./controllers/servicosController');
 
 // define as rotas do admin
 let usuarioRouter = require('./routes/admin/usuariosRouters');
