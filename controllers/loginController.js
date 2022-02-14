@@ -40,14 +40,16 @@ let loginController = {
     },
 
     logout: (req,res,next) => {
-        res.render("login/logout", {
-            titulo: "Sistema de Gestão para Agências de Marketing",
-            separador: "|",
-            marca: "Aeon",
-            descricao: "Gestão descoplicada para agências de marketing.",
-            favicon: "../images/aeon-logo.png",
-            logoImagem: "../images/aeon-logo.png",
-        })
+       req.session.destroy(
+            res.render("login/logout", {
+                titulo: "Sistema de Gestão para Agências de Marketing",
+                separador: "|",
+                marca: "Aeon",
+                descricao: "Gestão descoplicada para agências de marketing.",
+                favicon: "../images/aeon-logo.png",
+                logoImagem: "../images/aeon-logo.png",
+            })
+       )
     },
     registrar: (req,res,next) => {
         res.render("login/registrar", {

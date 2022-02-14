@@ -102,8 +102,8 @@
                     </ul>
                 </div>
             </li>
-
-            <li class="side-nav-item is_administrador">
+            <% if (dadosUsuario.is_administrador == "sim") { %>
+            <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarUsuarios" aria-expanded="false"
                     aria-controls="sidebarUsuarios" class="side-nav-link">
                     <i class="bi bi-person-circle"></i>
@@ -124,7 +124,11 @@
                     </ul>
                 </div>
             </li>
+            <% } else { %>
 
+            <li class="side-nav-item">
+            </li>
+            <% } %> 
             <!-- End Sidebar -->
 
             <div class="clearfix"></div>
