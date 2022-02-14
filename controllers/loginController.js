@@ -40,7 +40,7 @@ let loginController = {
     },
 
     logout: (req,res,next) => {
-       req.session.destroy(
+       req.session.destroy (
             res.render("login/logout", {
                 titulo: "Sistema de Gestão para Agências de Marketing",
                 separador: "|",
@@ -50,36 +50,6 @@ let loginController = {
                 logoImagem: "../images/aeon-logo.png",
             })
        )
-    },
-    registrar: (req,res,next) => {
-        res.render("login/registrar", {
-            titulo: "Sistema de Gestão para Agências de Marketing",
-            separador: "|",
-            marca: "Aeon",
-            descricao: "Gestão descoplicada para agências de marketing.",
-            favicon: "../images/aeon-logo.png",
-            logoImagem: "../images/aeon-logo.png",
-        })
-    },
-    confirmar: (req,res,next) => {
-        res.render("login/confirmarEmail", {
-            titulo: "Sistema de Gestão para Agências de Marketing",
-            separador: "|",
-            marca: "Aeon",
-            descricao: "Gestão descoplicada para agências de marketing.",
-            favicon: "../images/aeon-logo.png",
-            logoImagem: "../images/aeon-logo.png",
-        })
-    },
-    recuperar: (req,res,next) => {
-        res.render("login/recuperar", {
-            titulo: "Sistema de Gestão para Agências de Marketing",
-            separador: "|",
-            marca: "Aeon",
-            descricao: "Gestão descoplicada para agências de marketing.",
-            favicon: "../images/aeon-logo.png",
-            logoImagem: "../images/aeon-logo.png",
-        })
     },
     lock: (req,res,next) => {
         res.render("login/lock", {

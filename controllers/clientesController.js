@@ -35,7 +35,7 @@ let clientesController = {
     acaoCadastrarClientes: async (req, res, next) => {        
         let alertaErros = validationResult(req);
         if (alertaErros.isEmpty()){
-            const { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, telefoneCelular, telefoneFixo, dataEntrada, dataSaida, nomeResponsavel } = req.body;
+            const { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, uf, pais, cep, cnpj, telefoneCelular, telefoneFixo, dataEntrada, dataSaida, nomeResponsavel } = req.body;
             
             let logotipoCliente = null;
             if (req.file !== undefined) {
@@ -54,7 +54,7 @@ let clientesController = {
                         complemento: complemento,
                         bairro: bairro,
                         cidade: cidade,
-                        estado: estado,
+                        estado: uf,
                         pais: pais,
                         cep: cep
                     },
@@ -99,13 +99,14 @@ let clientesController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            dadosUsuario: req.session.aeonAdminUser,
         });
     },
     acaoEditarCliente: async (req, res, next) =>{
         let alertaErros = validationResult(req);
         if (alertaErros.isEmpty()){
             const cliente = await db.Cliente.findByPk(req.params.id, {include: ["endereco"]});
-            let { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, cnpj, telefoneCelular, telefoneFixo, dataEntrada, dataSaida, nomeResponsavel } = req.body;
+            let { nomeFantasia, razaoSocial, logradouro, cidade, numero, complemento, bairro, uf, pais, cep, cnpj, telefoneCelular, telefoneFixo, dataEntrada, dataSaida, nomeResponsavel } = req.body;
             // console.log(req.body);
 
             if(dataSaida == ""){
@@ -132,7 +133,7 @@ let clientesController = {
                         complemento: complemento,
                         bairro: bairro,
                         cidade: cidade,
-                        estado: estado,
+                        estado: uf,
                         pais: pais,
                         cep: cep,
 
