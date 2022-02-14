@@ -1,10 +1,5 @@
 const db  = require("../models");
 const { validationResult } = require("express-validator");
-<<<<<<< HEAD
-const moment = require("moment");
-=======
-const usuariosController = require("../controllers/admin/usuariosController");
->>>>>>> newModel
 
 let funcionariosController = {
     funcionarios: async (req, res, next) => {
