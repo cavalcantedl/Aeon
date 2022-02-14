@@ -30,7 +30,7 @@ let funcionariosController = {
             logoImagem: "../images/aeon-logo.png",
         })
     },
-    acaoCadastrarFuncionarios: async (req, res, next) =>{        
+    acaoCadastrarFuncionarios: async (req, res, next) =>{         
         let alertaErros = validationResult(req);
         console.log(alertaErros.mapped());
         console.log(req.body);
@@ -39,9 +39,12 @@ let funcionariosController = {
         if (alertaErros.isEmpty()){
             let { nome , salario, nomeFuncao, logradouro, cidade, numero, complemento, bairro, estado, pais, cep, dataAdmissao, dataDemissao } = req.body;
            
-               if(dataDemissao == ""){ 
-                  dataDemissao = null;
-                }
+            let fotoFuncionario = null;
+            if (req.file !== undefined) {
+                fotoFuncionario = req.file.filename;
+            } else {
+                fotoFuncionario = "logotipoCliente.png";
+            }
           
             const funcionarioObj = {
                 nome: nome,
@@ -59,7 +62,8 @@ let funcionariosController = {
                         cep: cep
                     },
                 dataAdmissao: dataAdmissao,
-                dataDemissao: dataDemissao
+                dataDemissao: dataDemissao,
+                fotoFuncionario: fotoFuncionario
             };
 
             await db.Funcionario.create(funcionarioObj, { include: ["endereco"]});

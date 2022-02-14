@@ -9,6 +9,7 @@ module.exports = {
         nomeFuncao: { type: Sequelize.DataTypes.STRING, allowNull: false },
         dataAdmissao: { type: Sequelize.DataTypes.DATEONLY, allowNull: false },
         dataDemissao: { type: Sequelize.DataTypes.DATEONLY },
+        fotoFuncionario: { type: Sequelize.DataTypes.BLOB('long'), allowNull: true },
         id_endereco: { type: Sequelize.DataTypes.INTEGER.UNSIGNED, references: { model: 'enderecos', key: 'id_endereco' } },
         createdAt: Sequelize.DataTypes.DATE,
         updatedAt: Sequelize.DataTypes.DATE,

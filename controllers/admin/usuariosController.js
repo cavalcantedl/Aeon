@@ -107,15 +107,14 @@ let usuariosController = {
         let alertaErros = validationResult(req);
         if (alertaErros.isEmpty()){
             const { nomeUsuario, usernameUsuario, emailUsuario, senhaUsuario, isAdministrador } = req.body;
-            console.log("REQ AQUI" , req.body)
-            // senhaCriptografada = await bcrypt.hash(senhaUsuario, 10);
-
+            senhaCriptografada = await bcrypt.hash(senhaUsuario, 10);
+            
 
             const usuarioObj = {
                 nome: nomeUsuario,
                 username: usernameUsuario,
                 email: emailUsuario,
-                // senha: senhaCriptografada,
+                senha: senhaCriptografada,
                 is_administrador: isAdministrador   
             };
 

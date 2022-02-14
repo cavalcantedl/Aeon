@@ -13,6 +13,6 @@ router.get('/usuarios', usuariosController.usuario);
 router.get('/usuarios/cadastrar', usuariosController.cadastroUsuario);
 router.post('/usuarios/cadastrar', fotoUsuario.single("imagemUsuario"),validaCadastro.validaCadastroUsuario, usuariosController.acaoCadastroUsuario);
 router.get('/usuarios/editar/:id', usuariosController.editarUsuario);
-router.put('/usuarios/editar/:id', validaCadastro.validaCadastroUsuario, usuariosController.acaoEditarUsuario);
+router.put('/usuarios/editar/:id', fotoUsuario.single("imagemUsuario"), validaCadastro.validaCadastroUsuario, usuariosController.acaoEditarUsuario);
 router.delete('/usuarios/excluir/:id', usuariosController.excluir);
 module.exports = router;

@@ -13,8 +13,8 @@ router.get('/', servicosController.servicos);
 /* GET Cadastrar Serviço. */
 router.get('/cadastrar', servicosController.cadastrarServico);
 router.post('/cadastrar', validaCadastro.validaCadastroServico, servicosController.acaoCadastrarServicos);
-// router.get('/editar/:id', clientesController.editarCliente);
-// router.put('/editar/:id', logoCliente.single("logotipoCliente"), validaCadastro.validaCadastroCliente, clientesController.acaoEditarCliente);
-// router.delete('/excluir/:id', clientesController.excluir);
+router.get('/editar/:id', servicosController.editarServico);
+router.put('/editar/:id', validaCadastro.validaCadastroServico, servicosController.acaoEditarServico);
+router.delete('/excluir/:id', servicosController.excluir);
 
 module.exports = router;

@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         nomeFuncao:  DataTypes.STRING,
         salario: DataTypes.DECIMAL(7,2),
         id_endereco: DataTypes.INTEGER.UNSIGNED,
+        fotoFuncionario: DataTypes.STRING
          
     }, {
         tableName: 'funcionarios',

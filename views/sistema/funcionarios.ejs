@@ -43,9 +43,9 @@
                                         <div class="card-body">
                                             <div class="row mb-2">
                                                 <div class="col-sm-4">
-                                                    <a href="http://localhost:3000/sistema/funcionarios/cadastrar" class="btn btn-danger mb-2"><i
+                                                    <a href="http://localhost:3000/sistema/funcionarios/cadastrar" class="btn btn-danger btn-rounded mb-3"><i
                                                             class="mdi mdi-plus-circle me-2"></i> Cadastrar Funcionário</a>
-                                                </div>
+                                                </div> 
                                                 <div class="col-sm-8">
                                                     <div class="text-sm-end">
                                                         <button type="button" class="btn btn-success mb-2 me-1"><i
@@ -74,8 +74,8 @@
                                                             <th>ID</th>
                                                             <th>Funcionário</th>
                                                             <th>Função</th>
-                                                            <th>Data de Entrada</th>
-                                                            <th>Data de Saída</th>
+                                                            <th>Data de Admissão</th>
+                                                            <th>Data de Demissão</th>
                                                             <th style="width: 75px;">Ações</th>
                                                         </tr>
                                                     </thead>
@@ -113,13 +113,42 @@
                                                             <td>
                                                                 <a href="/sistema/funcionarios/editar/<%= funcionario.id_funcionario %>" class="action-icon"> <i
                                                                         class="mdi mdi-square-edit-outline"></i></a>
-                                                                <a href="javascript:void(0);" class="action-icon"> <i
+                                                                <a href="#deletar" class="action-icon" data-bs-toggle="modal"> <i
                                                                         class="mdi mdi-delete"></i></a>
                                                             </td>
                                                         </tr>
                                                         <% }); %>
                                                     </tbody>
                                                 </table>
+                                                <% funcionarioObj.forEach(funcionario=> { %>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="deletar" data-bs-backdrop="static"
+                                                    data-bs-keyboard="false" tabindex="-1"
+                                                    aria-labelledby="modalDeletar" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header bg-warning text-white">
+                                                                <h5 class="modal-title" id="modalDeletar">Atenção!!!</h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Você está prestes a deletar um serviço. Tem certeza que deseja continuar?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-primary"
+                                                                    data-bs-dismiss="modal">Não! Cliquei sem querer!</button>
+                                                                <form action="/sistema/funcionarios/excluir/<%= funcionario.id_funcionario %>?_method=DELETE" method="POST">
+                                                                    <button type="submit" class="btn btn-danger text-white">
+                                                                         Claro! Sei o que estou fazendo.
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% }); %>
+                                                <!-- End Modal -->
                                             </div>
                                         </div> <!-- end card-body-->
                                     </div> <!-- end card-->

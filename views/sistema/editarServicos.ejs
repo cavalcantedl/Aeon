@@ -81,8 +81,7 @@
                                                                 <% } %>
                                                         </div>
                                                     </div>
-                                                
-                                                
+    
                                                     <div class="mb-3 col-md-6">
                                                         <label for="exampleInputEmail1" class="form-label">Valor do serviço<sup>*</sup></label>
                                                         <input type="text" class="form-control" id="inputValor"
@@ -103,7 +102,7 @@
                                                     <div class="mb-3 col-md-6">
                                                         <label for="exampleInputPassword1"
                                                             class="form-label">Descrição <sup>*</sup></label>
-                                                        <textarea name="descricaoServico" class="form-control" id="inputDescricao" rows="5" ></textarea>
+                                                        <textarea name="descricaoServico" type="text" class="form-control" id="inputDescricao" rows="5" ><%= locals.formConteudo && formConteudo.descricaoServico %></textarea>
                                                         <% if (locals.alertaErros && alertaErros.descricaoServico) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.descricaoServico.msg%>
@@ -116,7 +115,7 @@
                                                             type="reset">Cancelar</button>
                                                 
                                                         <button class="btn btn-primary col-md-2 " type="submit">
-                                                            Cadastrar
+                                                            Atualizar
                                                         </button>
                                                     </div>
                                                 
