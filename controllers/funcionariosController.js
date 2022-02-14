@@ -1,6 +1,10 @@
 const db  = require("../models");
 const { validationResult } = require("express-validator");
+<<<<<<< HEAD
 const moment = require("moment");
+=======
+const usuariosController = require("../controllers/admin/usuariosController");
+>>>>>>> newModel
 
 let funcionariosController = {
     funcionarios: async (req, res, next) => {
@@ -13,8 +17,7 @@ let funcionariosController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
-            funcionarioObj,
-           
+            dadosUsuario: req.session.aeonAdminUser,
         })
     },
     cadastrarFuncionarios: (req, res, next) => {
@@ -28,6 +31,7 @@ let funcionariosController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            dadosUsuario: req.session.aeonAdminUser,
         })
     },
     acaoCadastrarFuncionarios: async (req, res, next) =>{         

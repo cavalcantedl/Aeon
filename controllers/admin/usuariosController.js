@@ -11,6 +11,7 @@ let usuariosController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            dadosUsuario: req.session.aeonAdminUser,
         })
     },
 
@@ -23,6 +24,7 @@ let usuariosController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            dadosUsuario: req.session.aeonAdminUser,
             usuarioObj,
         })
     },
@@ -38,6 +40,7 @@ let usuariosController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            dadosUsuario: req.session.aeonAdminUser,
         })
     },
     
@@ -45,9 +48,9 @@ let usuariosController = {
         let alertaErros = validationResult(req);
         if (alertaErros.isEmpty()){
             const { nomeUsuario, usernameUsuario, emailUsuario, senhaUsuario, isAdministrador } = req.body;
-            // console.log("form aqui" , req.body);
 
-            senhaCriptografada = await bcrypt.hash(senhaUsuario, 10);
+            const salt = bcrypt.genSaltSync(10);
+            senhaCriptografada = bcrypt.hashSync(senhaUsuario, salt);
 
             let imagemUsuario = null;
             if (req.file !== undefined) {
@@ -100,6 +103,7 @@ let usuariosController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            dadosUsuario: req.session.aeonAdminUser,
         });
     },
 

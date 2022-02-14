@@ -99,7 +99,7 @@
                     </ul>
                 </div>
             </li>
-
+            <% if (dadosUsuario.is_administrador == "sim") { %>
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarUsuarios" aria-expanded="false"
                     aria-controls="sidebarUsuarios" class="side-nav-link">
@@ -121,7 +121,11 @@
                     </ul>
                 </div>
             </li>
+            <% } else { %>
 
+            <li class="side-nav-item">
+            </li>
+            <% } %> 
             <!-- End Sidebar -->
 
             <div class="clearfix"></div>

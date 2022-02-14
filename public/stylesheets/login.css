@@ -1,0 +1,7 @@
+.was-validated .form-check-input:valid~.form-check-label {
+    color: #6c757d;
+}
+
+.was-validated .form-check-input:valid {
+    border-color: #6c757d;
+}
