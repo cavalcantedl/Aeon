@@ -47,16 +47,7 @@
                                                     <a href="/sistema/clientes/cadastrar" class="btn btn-danger btn-rounded mb-3"><i
                                                             class="mdi mdi-plus-circle me-2"></i> Cadastrar Cliente</a>
                                                 </div>
-                                                <div class="col-sm-8">
-                                                    <div class="text-sm-end">
-                                                        <button type="button" class="btn btn-success mb-2 me-1"><i
-                                                                class="mdi mdi-cog"></i></button>
-                                                        <button type="button"
-                                                            class="btn btn-light mb-2 me-1">Importar</button>
-                                                        <button type="button"
-                                                            class="btn btn-light mb-2">Exportar</button>
-                                                    </div>
-                                                </div><!-- end col-->
+                                                
                                             </div>
 
                                             <div class="table-responsive">
@@ -77,7 +68,7 @@
                                                             <th>Cliente</th>
                                                             <th>CNPJ</th>
                                                             <th>Data de Entrada</th>
-                                                            <th>Data de Saída</th>
+                                                            <th>Telefone</th>
                                                             <th>QTD Serviços</th>
                                                             <th style="width: 75px;">Ações</th>
                                                         </tr>
@@ -120,7 +111,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <span class="fw-semibold">
-                                                                        <%= cliente.dataSaida %>
+                                                                        <%= cliente.telefoneCelular %>
                                                                     </span>
                                                                 </td>
                                                                 <td>
