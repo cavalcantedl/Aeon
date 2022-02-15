@@ -81,6 +81,25 @@
                                                             <% } %>
                                                     </div>
 
+                                                    <div class="mb-3 col-md-2">
+                                                        <label class="form-label"
+                                                            for="validationCustom05">CEP<sup>*</sup></label>
+
+                                                        <input type="text" class="form-control" data-toggle="input-mask"
+                                                            data-mask-format="00000-000" id="cep"
+                                                            name="cep" placeholder="Ex.: xxxxx-xxx"
+                                                            value="<%= locals.formConteudo && formConteudo.cep %>" onblur="pesquisacep(this.value);"
+                                                            required>
+                                                            <div class="invalid-feedback">
+                                                                Digite o cep.
+                                                            </div>
+                                                        <% if (locals.alertaErros && alertaErros.cep) { %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.cep.msg%>
+                                                            </span>
+                                                            <% } %>
+                                                    </div>
+
                                                     <div class="mb-3 col-md-7">
                                                         <label for="inputAddress" class="form-label"
                                                             for="validationCustom03">Logradouro<sup>*</sup></label>
@@ -99,7 +118,7 @@
                                                             <% } %>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-2">
+                                                    <div class="mb-3 col-md-3">
                                                         <label for="validationCustom03"
                                                             class="form-label">Número<sup>*</sup></label>
 
@@ -153,7 +172,7 @@
                                                             <% } %>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-4">
+                                                    <div class="mb-3 col-md-3">
                                                         <label for="validationCustom03"
                                                             class="form-label">Cidade<sup>*</sup></label>
 
@@ -171,7 +190,7 @@
                                                             <% } %>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-4">
+                                                    <div class="mb-3 col-md-2">
                                                         <label for="validationCustom03"
                                                             class="form-label">Estado<sup>*</sup></label>
 
@@ -201,25 +220,6 @@
                                                         <% if (locals.alertaErros && alertaErros.pais) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.pais.msg%>
-                                                            </span>
-                                                            <% } %>
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-2">
-                                                        <label class="form-label"
-                                                            for="validationCustom05">CEP<sup>*</sup></label>
-
-                                                        <input type="text" class="form-control" data-toggle="input-mask"
-                                                            data-mask-format="00000-000" id="cep"
-                                                            name="cep" placeholder="Ex.: xxxxx-xxx"
-                                                            value="<%= locals.formConteudo && formConteudo.cep %>" onblur="pesquisacep(this.value);"
-                                                            required>
-                                                            <div class="invalid-feedback">
-                                                                Digite o cep.
-                                                            </div>
-                                                        <% if (locals.alertaErros && alertaErros.cep) { %>
-                                                            <span class="col-md-5 erroCadastro">
-                                                                <%= alertaErros.cep.msg%>
                                                             </span>
                                                             <% } %>
                                                     </div>
@@ -294,7 +294,7 @@
                                                             <% } %>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-5">
+                                                    <div class="mb-3 col-md-4">
                                                         <label for="example-fileinput" class="form-label">Logotipo do
                                                             Cliente</label>
                                                         <input id="logotipoCliente" name="logotipoCliente"
@@ -302,7 +302,7 @@
                                                             type="file" multiple>
                                                     </div>
 
-                                                    <div class="mb-3 col-md-5">
+                                                    <div class="mb-3 col-md-4">
                                                         <label class="form-label">Nome
                                                             do Responsável pela empresa<sup>*</sup></label>
                                                         <input type="text" class="form-control" id="nomeResponsavel"

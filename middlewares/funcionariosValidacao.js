@@ -9,7 +9,7 @@ const validaCadastroFuncionario = [
     check("numero").notEmpty().withMessage("O campo não pode ficar vazio"),
     check("bairro").notEmpty().withMessage("O campo não pode ficar vazio"),
     check("cidade").notEmpty().withMessage("O campo não pode ficar vazio"),
-    check("estado").notEmpty().withMessage("O campo não pode ficar vazio"),
+    check("uf").notEmpty().withMessage("O campo não pode ficar vazio"),
     check("pais").notEmpty().withMessage("O campo não pode ficar vazio"),
     check("cep").notEmpty().withMessage("O campo não pode ficar vazio").isLength({min:9, max:9}).withMessage("Insira um valor de CEP válido"),
     check("dataAdmissao").notEmpty().withMessage("O campo não pode ficar vazio").isDate().withMessage("Insira um valor de data válido.")
