@@ -1,4 +1,6 @@
 const { check } = require("express-validator");
+const moment = require("moment");
+
 const validaCadastroFuncionario = [
     check("nome").notEmpty().withMessage("O campo não pode ficar vazio").isLength({min:2}).withMessage("O nome do funcionário deve ser maior que 1 caracter"),
     check("salario").notEmpty().withMessage("O campo não pode ficar vazio"),

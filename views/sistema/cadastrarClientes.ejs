@@ -54,6 +54,9 @@
                                                             name="nomeFantasia" placeholder="Nome fantasia do cliente"
                                                             value="<%= locals.formConteudo && formConteudo.nomeFantasia %>"
                                                             required>
+                                                            <div class="invalid-feedback">
+                                                                Digite o nome fantasia do cliente.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.nomeFantasia) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.nomeFantasia.msg%>
@@ -68,6 +71,9 @@
                                                             name="razaoSocial" placeholder="A razão social do cliente."
                                                             value="<%= locals.formConteudo && formConteudo.razaoSocial %>"
                                                             required>
+                                                            <div class="invalid-feedback">
+                                                                Digite a razão social do cliente.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.razaoSocial) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.razaoSocial.msg%>
@@ -83,7 +89,9 @@
                                                             name="logradouro" placeholder="Logradouro"
                                                             value="<%= locals.formConteudo && formConteudo.logradouro %>"
                                                             required>
-
+                                                            <div class="invalid-feedback">
+                                                                Digite o logradouro.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.endereco) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.logradouro.msg%>
@@ -99,7 +107,9 @@
                                                             name="numero" placeholder="Número"
                                                             value="<%= locals.formConteudo && formConteudo.numero %>"
                                                             required>
-
+                                                            <div class="invalid-feedback">
+                                                                Digite o número.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.numero) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.numero.msg%>
@@ -114,8 +124,10 @@
                                                         <input type="text" class="form-control" id="complemento"
                                                             name="complemento" placeholder="Complemento"
                                                             value="<%= locals.formConteudo && formConteudo.complemento %>"
-                                                            required>
-
+                                                            >
+                                                            <div class="invalid-feedback">
+                                                                Digite o complemento.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.complemento) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.complemento.msg%>
@@ -131,7 +143,9 @@
                                                             name="bairro" placeholder="Bairro"
                                                             value="<%= locals.formConteudo && formConteudo.bairro %>"
                                                             required>
-
+                                                            <div class="invalid-feedback">
+                                                                Digite o bairro.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.bairro) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.bairro.msg%>
@@ -147,7 +161,9 @@
                                                             name="cidade" placeholder="Cidade"
                                                             value="<%= locals.formConteudo && formConteudo.cidade %>"
                                                             required>
-
+                                                            <div class="invalid-feedback">
+                                                                Digite a cidade.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.cidade) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.cidade.msg%>
@@ -163,7 +179,9 @@
                                                             name="uf" placeholder="Estado"
                                                             value="<%= locals.formConteudo && formConteudo.estado %>"
                                                             required>
-
+                                                            <div class="invalid-feedback">
+                                                                Digite o estado.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.estado) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.estado.msg%>
@@ -176,8 +194,10 @@
 
                                                         <input type="text" class="form-control" id="validationCustom09"
                                                             name="pais" placeholder="País"
-                                                            value="<%= locals.formConteudo && formConteudo.pais %>">
-
+                                                            value="<%= locals.formConteudo && formConteudo.pais %>" required>
+                                                            <div class="invalid-feedback">
+                                                                Digite o país.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.pais) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.pais.msg%>
@@ -194,7 +214,9 @@
                                                             name="cep" placeholder="Ex.: xxxxx-xxx"
                                                             value="<%= locals.formConteudo && formConteudo.cep %>" onblur="pesquisacep(this.value);"
                                                             required>
-
+                                                            <div class="invalid-feedback">
+                                                                Digite o cep.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.cep) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.cep.msg%>
@@ -211,6 +233,9 @@
                                                             placeholder="Ex.: xx.xxx.xxx/xxxx-xx"
                                                             value="<%= locals.formConteudo && formConteudo.cnpj %>"
                                                             required>
+                                                            <div class="invalid-feedback">
+                                                                Digite o cnpj.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.cnpj) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.cnpj.msg%>
@@ -225,6 +250,9 @@
                                                             placeholder="Ex.: (xx) xxxxx-xxxx"
                                                             value="<%= locals.formConteudo && formConteudo.telefoneCelular %>"
                                                             required>
+                                                            <div class="invalid-feedback">
+                                                                Digite o celular.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.telefoneCelular) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.telefoneCelular.msg %>
@@ -236,7 +264,16 @@
                                                         <label class="form-label" for="validationCustom06">Telefone Fixo<sup>*</sup></label>
                                                         <input type="text" class="form-control" id="validationCustom13" data-toggle="input-mask"
                                                             data-mask-format="(00) 0000-0000" name="telefoneFixo"
-                                                            placeholder="Ex.: (xx) xxxx-xxxx">
+                                                            placeholder="Ex.: (xx) xxxx-xxxx" value="<%= locals.formConteudo && formConteudo.telefoneFixo %>"
+                                                            required>
+                                                            <div class="invalid-feedback">
+                                                                Digite o telefone fixo.
+                                                            </div>
+                                                            <% if (locals.alertaErros && alertaErros.telefoneFixo) { %>
+                                                                <span class="col-md-5 erroCadastro">
+                                                                    <%= alertaErros.telefoneFixo.msg %>
+                                                                </span>
+                                                                <% } %>
                                                     </div>
 
                                                     <div class="mb-3 col-md-2">
@@ -247,6 +284,9 @@
                                                             data-mask-format="0000/00/00" placeholder="Ex.: AAAA/MM/DD"
                                                             value="<%= locals.formConteudo && formConteudo.dataEntrada %>"
                                                             required>
+                                                            <div class="invalid-feedback">
+                                                                Digite a data de entrada.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.dataEntrada) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.dataEntrada.msg%>
@@ -270,6 +310,9 @@
                                                             placeholder="Nome do Responsável pela empresa"
                                                             value="<%= locals.formConteudo && formConteudo.nomeResponsavel %>"
                                                             required>
+                                                            <div class="invalid-feedback">
+                                                                Digite o nome do responsável pela empresa.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.nomeResponsavel) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.nomeResponsavel.msg%>

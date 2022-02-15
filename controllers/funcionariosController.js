@@ -96,6 +96,7 @@ let funcionariosController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            dadosUsuario: req.session.aeonAdminUser,
         });
     },
     acaoEditarFuncionario: async (req, res, next) =>{

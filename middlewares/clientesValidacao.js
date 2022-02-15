@@ -4,7 +4,7 @@ const moment = require("moment");
 const validaCadastroCliente = [
     check("nomeFantasia").notEmpty().withMessage("O campo não pode ficar vazio").isLength({min:2}).withMessage("O nome do cliente deve ser maior que 1 caracter"),
     check("razaoSocial").notEmpty().withMessage("O campo não pode ficar vazio").isLength({min:2}).withMessage("A razão social deve ser maior que 1 caracter"),
-    check("logradouro").notEmpty().withMessage("O campo não pode ficar vazio").isLength({min:5}).withMessage("O endereço precisa ser maior que 4 caracteres"),
+    check("logradouro").notEmpty().withMessage("O campo não pode ficar vazio").isLength({min:5}).withMessage("O logradouro precisa ser maior que 4 caracteres"),
     check("cidade").notEmpty().withMessage("O campo não pode ficar vazio").isLength({min:3}).withMessage("O nome da cidade precisa ser maior que 2 caracteres"),
     check("uf").notEmpty().withMessage("O campo não pode ficar vazio"),
     check("cep").notEmpty().withMessage("O campo não pode ficar vazio").isLength({min:9, max:9}).withMessage("Insira um valor de CEP válido"),

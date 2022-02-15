@@ -80,7 +80,6 @@ app.use('/login', loginRouter);
 
 // view sistema
 
-app.use('/sistema/servicos', servicosRouter);
 app.use('/sistema', loginAuth, dashboardRouter);
 app.use('/sistema/dashboard', loginAuth, dashboardRouter);
 app.use('/sistema/clientes', loginAuth, clientesRouter);

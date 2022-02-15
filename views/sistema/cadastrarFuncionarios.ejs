@@ -116,7 +116,12 @@
                                                         <label class="form-label" for="validationCustom05">Complemento</label>
                                                         <input type="text" class="form-control" data-toggle="input-mask"
                                                              id="validationCustom05"
-                                                            name="complemento" placeholder="Complemento">
+                                                            name="complemento" placeholder="Complemento" value="<%= locals.formConteudo && formConteudo.complemento %>">
+                                                        <% if (locals.alertaErros && alertaErros.complemento) { %>
+                                                                <span class="col-md-5 erroCadastro">
+                                                                    <%= alertaErros.complemento.msg%>
+                                                                </span>
+                                                        <% } %>
                                                     </div>
 
                                                     <div class="mb-3 col-md-2">
@@ -196,15 +201,21 @@
                                                     </div>
 
                                                     <div class="mb-3 col-md-2">
-                                                        <label class="form-label" for="validationCustom05">CEP<sup>*</sup></label>
+                                                        <label class="form-label"
+                                                            for="validationCustom05">CEP<sup>*</sup></label>
                                                         <input type="text" class="form-control" data-toggle="input-mask"
-                                                            data-mask-format="00000-000" id="validationCustom05"
-                                                            name="cep" placeholder="Ex.: xxxxx-xxx" value="<%= locals.formConteudo && formConteudo.cep %>" required>
+                                                            data-mask-format="00000-000" id="cep"
+                                                            name="cep" placeholder="Ex.: xxxxx-xxx"
+                                                            value="<%= locals.formConteudo && formConteudo.cep %>" onblur="pesquisacep(this.value);"
+                                                            required>
+                                                            <div class="invalid-feedback">
+                                                                Digite o cep.
+                                                            </div>
                                                         <% if (locals.alertaErros && alertaErros.cep) { %>
-                                                                <span class="col-md-5 erroCadastro">
-                                                                    <%= alertaErros.cep.msg%>
-                                                                </span>
-                                                        <% } %>
+                                                            <span class="col-md-5 erroCadastro">
+                                                                <%= alertaErros.cep.msg%>
+                                                            </span>
+                                                            <% } %>
                                                     </div>
 
                                                     <div class="mb-3 col-md-2">

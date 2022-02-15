@@ -74,6 +74,9 @@
                                                                 placeholder="Digite o tipo do serviço"
                                                                 value="<%= locals.formConteudo && formConteudo.tipoServico %>"
                                                                 required>
+                                                                <div class="invalid-feedback">
+                                                                    Digite o tipo do serviço.
+                                                                </div>
                                                             <% if (locals.alertaErros && alertaErros.tipoServico) { %>
                                                                 <span class="col-md-5 erroCadastro">
                                                                     <%= alertaErros.tipoServico.msg%>
@@ -103,7 +106,10 @@
                                                     <div class="mb-3 col-md-6">
                                                         <label for="exampleInputPassword1"
                                                             class="form-label">Descrição <sup>*</sup></label>
-                                                        <textarea name="descricaoServico" class="form-control" id="inputDescricao" rows="5" ></textarea>
+                                                        <textarea name="descricaoServico" class="form-control" id="inputDescricao" rows="5" required></textarea>
+                                                        <div class="invalid-feedback">
+                                                            Digite uma descrição.
+                                                        </div>
                                                         <% if (locals.alertaErros && alertaErros.descricaoServico) { %>
                                                             <span class="col-md-5 erroCadastro">
                                                                 <%= alertaErros.descricaoServico.msg%>
