@@ -7,6 +7,7 @@ let servicosController = {
 
     servicos: async (req, res, next) => {
         const servicoObj = await db.Servico.findAll();
+        console.log(req.session)
         return res.render("sistema/servicos", {
             titulo: "Sistema de Gestão para Agências de Marketing",
             separador: "|",
@@ -14,6 +15,7 @@ let servicosController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            dadosUsuario: req.session.aeonAdminUser,
             servicoObj,
         })
     },
@@ -28,6 +30,7 @@ let servicosController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            dadosUsuario: req.session.aeonAdminUser
 
 
         })
@@ -77,6 +80,7 @@ let servicosController = {
             descricao: "Gestão descoplicada para agências de marketing.",
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
+            dadosUsuario: req.session.aeonAdminUser
         });
     },
     acaoEditarServico: async (req, res, next) => {

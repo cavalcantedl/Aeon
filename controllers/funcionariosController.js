@@ -13,6 +13,7 @@ let funcionariosController = {
             favicon: "../images/aeon-logo.png",
             logoImagem: "../images/aeon-logo.png",
             dadosUsuario: req.session.aeonAdminUser,
+            funcionarioObj,
         })
     },
     cadastrarFuncionarios: (req, res, next) => {

@@ -79,18 +79,13 @@ app.use('/', paginasRouter);
 app.use('/login', loginRouter);
 
 // view sistema
-<<<<<<< HEAD
-app.use('/sistema', dashboardRouter);
-app.use('/sistema/dashboard', dashboardRouter);
-app.use('/sistema/clientes', clientesRouter);
-app.use('/sistema/funcionarios', funcionariosRouter);
+
 app.use('/sistema/servicos', servicosRouter);
-=======
 app.use('/sistema', loginAuth, dashboardRouter);
 app.use('/sistema/dashboard', loginAuth, dashboardRouter);
 app.use('/sistema/clientes', loginAuth, clientesRouter);
 app.use('/sistema/funcionarios', loginAuth, funcionariosRouter);
->>>>>>> newModel
+app.use('/sistema/servicos', loginAuth, servicosRouter);
 
 
 
