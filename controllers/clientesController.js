@@ -82,6 +82,7 @@ let clientesController = {
                 favicon: "../images/aeon-logo.png",
                 logoImagem: "../images/aeon-logo.png",
                 alertaErros: alertaErros.mapped(),
+                dadosUsuario: req.session.aeonAdminUser,
                 formConteudo: req.body,
             })
         }
@@ -167,6 +168,7 @@ let clientesController = {
                 favicon: "../images/aeon-logo.png",
                 logoImagem: "../images/aeon-logo.png",
                 alertaErros: alertaErros.mapped(),
+                dadosUsuario: req.session.aeonAdminUser,
                 formConteudo: req.body,
             })
         }
